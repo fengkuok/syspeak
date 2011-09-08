@@ -1,4 +1,4 @@
-package com.syspeak.extension;
+package com.syspeak.modules;
 
 /**
  * Hello world!
