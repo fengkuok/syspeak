@@ -1,4 +1,4 @@
-package com.makereap.modules;
+package com.syspeak.modules;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
