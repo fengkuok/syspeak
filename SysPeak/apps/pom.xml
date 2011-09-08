@@ -5,6 +5,7 @@
         <groupId>com.syspeak</groupId>
         <artifactId>syspeak-parent</artifactId>
         <version>0.1-SNAPSHOT</version>
+        <relativePath>../parent</relativePath>
     </parent>
     <groupId>com.syspeak.apps</groupId>
     <artifactId>syspeak-apps</artifactId>
