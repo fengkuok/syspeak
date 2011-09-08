@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+   <parent>
+      <groupId>com.syspeak.apps</groupId>
+      <artifactId>syspeak-apps</artifactId>
+      <version>0.1-SNAPSHOT</version>
+   </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.syspeak.makereap</groupId>
+    <artifactId>makereap-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>MakerEAP</name>
+    <url>http://makereap.syspeak.com</url>
+    <description>SysPeak MakerEAP</description>
+
+    <inceptionYear>2011</inceptionYear>
+
+    <!--
+    <description>
+        Apache Struts 2 is an elegant, extensible framework,
+        well suited for creating moderate to large-scale Java web
+        applications. The framework is designed to streamline the
+        full development cycle, from building, to deploying,
+        to maintaining applications over time.
+    </description>
+    -->
+
+    <scm>
+       <connection>scm:svn:http://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_2_1</connection>
+       <developerConnection>scm:svn:https://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_2_1</developerConnection>
+       <url>http://svn.apache.org/viewcvs.cgi/struts/struts2/tags/STRUTS_2_2_1</url>
+    </scm>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://issues.apache.org/struts/</url>
+    </issueManagement>
+
+    <ciManagement />
+    <distributionManagement>
+        <site>
+            <id>apache-site</id>
+            <url>scp://people.apache.org/www/struts.apache.org/2.x/</url>
+        </site>
+    </distributionManagement>
+
+    <modules>
+        <module>workflow</module>
+        <module>report</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments />
+        </license>
+    </licenses>
+
+    <organization>
+        <name>SysPeak Software Foundation</name>
+        <url>http://www.syspeak.com</url>
+    </organization>
+</project>
