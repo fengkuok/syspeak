@@ -6,6 +6,7 @@
 		<groupId>com.syspeak</groupId>
 		<artifactId>syspeak-parent</artifactId>
 		<version>0.1-SNAPSHOT</version>
+		<relativePath>../../../modules/parent</relativePath>
 	</parent>
 	<groupId>com.syspeak.makereap</groupId>
 	<artifactId>maker-workflow</artifactId>
