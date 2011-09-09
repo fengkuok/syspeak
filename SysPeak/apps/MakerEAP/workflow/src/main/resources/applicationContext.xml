@@ -58,7 +58,7 @@
 				<prop key="hibernate.cache.provider_configuration_file_resource_path">ehcache/ehcache-hibernate-local.xml</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="com.syspeak.makereap.workflow.domain.entity" />
+		<property name="packagesToScan" value="com.syspeak.makereap.workflow.domain.entity.account" />
 	</bean>
 
 	<!-- 事务管理器配置,单数据源事务 -->
