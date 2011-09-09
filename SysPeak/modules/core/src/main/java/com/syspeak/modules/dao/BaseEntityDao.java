@@ -20,7 +20,7 @@ import org.springside.modules.orm.PropertyFilter.MatchType;
  * @param <ID> 主键类
  * @author JemiZhuu(周士淳)
  */
-public interface BaseDao<T, ID extends Serializable> {
+public interface BaseEntityDao<T, ID extends Serializable> {
 
 	/**
 	 * 保存新增或修改的对象.

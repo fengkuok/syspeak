@@ -8,13 +8,18 @@
 		<relativePath>../parent</relativePath>
 	</parent>
 	<artifactId>syspeak-core</artifactId>
-	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Syspeak Core Module</name>
 	<url>http://maker-eap.googlecode.com</url>
 
 	<dependencies>
+		<!-- springside modules -->
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-core</artifactId>
+		</dependency>
+		
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -196,12 +201,13 @@
 		</dependency>
 		 -->
 		 
-		 <!-- JBPM4 -->
+		<!-- template engine -->
 		<dependency>
-			<groupId>org.jbpm.jbpm4</groupId>
-			<artifactId>jbpm-jpdl</artifactId>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
 			<optional>true</optional>
-		</dependency>
+		</dependency>		 
+		 
 		<!-- validator begin -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
