@@ -8,7 +8,6 @@
 		<relativePath>../parent</relativePath>
 	</parent>
 	<artifactId>syspeak-extension</artifactId>
-	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>syspeak Extension Module</name>
