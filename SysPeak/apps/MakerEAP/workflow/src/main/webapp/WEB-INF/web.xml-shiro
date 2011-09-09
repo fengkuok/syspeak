@@ -34,9 +34,9 @@
 		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
 	</filter>
 
-	<!-- Shiro Security filter-->
+	<!-- SpringSecurity filter-->
 	<filter>
-		<filter-name>shiroFilter</filter-name>
+		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
 
@@ -58,8 +58,10 @@
 	</filter-mapping>
 
 	<filter-mapping>
-		<filter-name>shiroFilter</filter-name>
+		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
 
 	<filter-mapping>
