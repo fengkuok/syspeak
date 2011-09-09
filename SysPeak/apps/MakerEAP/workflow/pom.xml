@@ -42,12 +42,12 @@
 	
 	<!-- 依赖项定义 -->
 	<dependencies>
-		<!-- richjava
+		<!-- syspeak modules -->
 		<dependency>
-			<groupId>org.richjava</groupId>
-			<artifactId>richjava-core</artifactId>
+			<groupId>com.syspeak</groupId>
+			<artifactId>syspeak-core</artifactId>
 		</dependency>
-		 -->
+
 		<!-- springside -->
 		<dependency>
 			<groupId>org.springside</groupId>
