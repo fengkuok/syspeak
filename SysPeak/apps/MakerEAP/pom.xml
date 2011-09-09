@@ -38,7 +38,7 @@
 	      <id>Activiti</id> 
 	      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
 	   </repository> 
-	</repositories>    
+	</repositories>
 
     <scm>
        <connection>scm:svn:http://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_2_1</connection>
