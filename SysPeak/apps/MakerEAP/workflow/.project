@@ -3,6 +3,7 @@
 	<name>horse</name>
 	<comment></comment>
 	<projects>
+		<project>syspeak-core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
