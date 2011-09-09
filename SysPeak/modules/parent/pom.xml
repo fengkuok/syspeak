@@ -20,7 +20,7 @@
 
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
-		<richjava.version>0.1-SNAPSHOT</richjava.version>
+		<syspeak.version>0.1-SNAPSHOT</syspeak.version>
 		<spring.security.version>3.0.6.RELEASE</spring.security.version>
 		<validation.version>1.0.0.GA</validation.version>
 		<freemarker.version>2.3.16</freemarker.version>
@@ -104,12 +104,12 @@
 			<dependency>
 				<groupId>com.syspeak</groupId>
 				<artifactId>syspeak-core</artifactId>
-				<version>${richjava.version}</version>
+				<version>${syspeak.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.syspeak</groupId>
 				<artifactId>syspeak-extension</artifactId>
-				<version>${richjava.version}</version>
+				<version>${syspeak.version}</version>
 			</dependency>			
 			<!-- syspeak modules end -->
 			
