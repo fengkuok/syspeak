@@ -124,7 +124,7 @@ public class BaseEntityServiceImpl<T, ID extends Serializable, DAO extends BaseE
 	 * @param values 数量可变的参数,按顺序绑定.
 	 */
 	public <X> X findUnique(final String hql, final Object... values) {
-		return entityDao.findUnique(hql, values);
+		return (X) entityDao.findUnique(hql, values);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class BaseEntityServiceImpl<T, ID extends Serializable, DAO extends BaseE
 	 * @param values 命名参数,按名称绑定.
 	 */
 	public <X> X findUnique(final String hql, final Map<String, ?> values) {
-		return entityDao.findUnique(hql, values);
+		return (X) entityDao.findUnique(hql, values);
 	}
 
 	/**
