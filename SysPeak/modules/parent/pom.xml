@@ -100,13 +100,18 @@
 	<!-- 预定义依赖项的version,scope与exclusions,子项目中只需定义groupId 和 artifactId 即可 -->
 	<dependencyManagement>
 		<dependencies>
-			<!-- richjava modules begin 
+			<!-- syspeak modules begin --> 
 			<dependency>
-				<groupId>org.richjava</groupId>
-				<artifactId>richjava-core</artifactId>
+				<groupId>com.syspeak</groupId>
+				<artifactId>syspeak-core</artifactId>
 				<version>${richjava.version}</version>
-			</dependency>-->
-			<!-- richjava modules end -->
+			</dependency>
+			<dependency>
+				<groupId>com.syspeak</groupId>
+				<artifactId>syspeak-extension</artifactId>
+				<version>${richjava.version}</version>
+			</dependency>			
+			<!-- syspeak modules end -->
 			
 			<!-- springside modules begin -->
 			<dependency>
