@@ -55,7 +55,7 @@
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
-				<prop key="hibernate.cache.provider_configuration_file_resource_path">ehcache/ehcache-hibernate-local.xml</prop>
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">cache/ehcache-hibernate-local.xml</prop>
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.syspeak.makereap.workflow.domain.entity.account" />
