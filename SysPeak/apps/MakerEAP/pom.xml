@@ -18,10 +18,6 @@
 
     <inceptionYear>2011</inceptionYear>
 
-	<properties>
-		<activiti.version>5.7</activiti.version>
-	</properties>
-
     <!--
     <description>
         Apache Struts 2 is an elegant, extensible framework,
@@ -30,15 +26,7 @@
         full development cycle, from building, to deploying,
         to maintaining applications over time.
     </description>
-    -->
-    
-	<!-- 设定其他仓库,按设定顺序进行查找. -->
-	<repositories> 
-	  <repository> 
-	      <id>Activiti</id> 
-	      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
-	   </repository> 
-	</repositories>
+    -->    
 
     <scm>
        <connection>scm:svn:http://svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_2_2_1</connection>
@@ -76,26 +64,6 @@
     <organization>
         <name>SysPeak Software Foundation</name>
         <url>http://www.syspeak.com</url>
-    </organization>
-    
-    <dependencyManagement>
-    <dependencies>
-    	<!-- work flow begin -->
-		<!-- activiti -->
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-engine</artifactId>
-			<version>${activiti.version}</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-spring</artifactId>
-			<version>${activiti.version}</version>
-			<optional>true</optional>
-		</dependency>
-		<!-- work flow end -->
-	</dependencies>	
-	</dependencyManagement>
+    </organization>    
 	
 </project>
