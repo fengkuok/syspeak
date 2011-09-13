@@ -362,7 +362,7 @@
 		<!-- testing end -->
 	</dependencies>
 	<build>
-		<finalName>Horse</finalName>
+		<finalName>Maker-Workflow</finalName>
 		<plugins>
 			<!-- test插件, 设置ClassLoader -->
 			<plugin>
