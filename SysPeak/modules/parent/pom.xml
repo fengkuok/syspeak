@@ -1,22 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- 暂时简化开发,SysPeak Parent直接继承SpringSide parent -->
 	<parent>
 		<artifactId>springside-parent</artifactId>
 		<groupId>org.springside</groupId>
 		<version>4.0.0-SNAPSHOT</version>
 	</parent>
+	
 	<groupId>com.syspeak</groupId>
 	<artifactId>syspeak-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>syspeak's Parent pom</name>
-	<url>http://maker-eap.googlecode.com</url>
-
-	<organization>
-		<name>syspeak</name>
-		<url>http://maker-eap.googlecode.com</url>
-	</organization>
+	<name>SysPeak's Parent pom</name>
+	<url>http://www.syspeak.com</url>
 
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
@@ -49,9 +46,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<!-- <repository> <id>springside</id> <name>SpringSide Additional Repository</name> 
-			<url>http://springside.googlecode.com/svn/repository</url> <snapshots> <enabled>false</enabled> 
-			</snapshots> </repository> -->
 
 		<repository>
 			<id>jboss</id>
