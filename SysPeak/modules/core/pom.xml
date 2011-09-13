@@ -1,17 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>com.syspeak</groupId>
 		<artifactId>syspeak-parent</artifactId>
 		<version>0.1-SNAPSHOT</version>
 		<relativePath>../parent</relativePath>
 	</parent>
+	
 	<artifactId>syspeak-core</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Syspeak Core Module</name>
-	<url>http://maker-eap.googlecode.com</url>
+	<name>SysPeak's Core Module</name>
+	<url>http://www.syspeak.com</url>
 
 	<dependencies>
 		<!-- springside modules -->
@@ -142,35 +144,7 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-htmlunit-driver</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-firefox-driver</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-ie-driver</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-remote-client</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-		 -->
 		<dependency>
 			<groupId>org.dbunit</groupId>
 			<artifactId>dbunit</artifactId>
@@ -194,12 +168,12 @@
 			<artifactId>cglib-nodep</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- 
 		<dependency>
 			<groupId>mockit</groupId>
 			<artifactId>jmockit</artifactId>
+			<scope>test</scope>
 		</dependency>
-		 -->
+		 
 		 
 		<!-- template engine -->
 		<dependency>
@@ -243,4 +217,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>
