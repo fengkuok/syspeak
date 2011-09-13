@@ -9,11 +9,20 @@
 	</parent>
 	<artifactId>syspeak-extension</artifactId>
 	<packaging>jar</packaging>
-
 	<name>syspeak Extension Module</name>
 	<url>http://maker-eap.googlecode.com</url>
-
+	
 	<dependencies>
+		<!-- springside modules -->
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springside</groupId>
+			<artifactId>springside-extension</artifactId>
+		</dependency>				
+	
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -71,6 +80,20 @@
 			<artifactId>servlet-api</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
+    	<!-- work flow begin -->
+		<!-- activiti -->
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-spring</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- work flow end -->
 
 		<!-- utils -->
 		<dependency>
