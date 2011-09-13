@@ -27,6 +27,7 @@
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<jbpm4.version>4.4</jbpm4.version>
 		<selenium.version>2.0rc3</selenium.version>
+		<activiti.version>5.7</activiti.version>		
 
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +70,13 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
+	<!-- 设定其他仓库,按设定顺序进行查找. --> 
+	  <repository> 
+	      <id>Activiti</id> 
+	      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
+	   </repository> 
+		
 	</repositories>
 
 	<pluginRepositories>
@@ -330,6 +338,60 @@
 				<version>1.1.2</version>
 			</dependency>
 			<!-- web end -->
+			
+	    	<!-- work flow begin -->
+			<!-- activiti -->
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-engine</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-spring</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+			<!-- jbpm start -->
+			<dependency>
+				<groupId>org.jbpm.jbpm4</groupId>
+				<artifactId>jbpm-jpdl</artifactId>
+				<version>${jbpm4.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>jboss</groupId>
+						<artifactId>jboss-j2ee</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.jboss.client</groupId>
+						<artifactId>jbossall-client</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.jboss.identity</groupId>
+						<artifactId>idm</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>juel</groupId>
+						<artifactId>juel</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-jdk14</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-entitymanager</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>			
+			<!-- work flow end -->			
 
 			<!-- webservice begin -->
 			<!-- cxf -->
@@ -721,48 +783,7 @@
 				<artifactId>icu4j</artifactId>
 				<version>4.8</version>
 			</dependency>
-			<!-- utils end -->
-			
-			<!-- jbpm start -->
-			<dependency>
-				<groupId>org.jbpm.jbpm4</groupId>
-				<artifactId>jbpm-jpdl</artifactId>
-				<version>${jbpm4.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.hibernate</groupId>
-						<artifactId>hibernate</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>jboss</groupId>
-						<artifactId>jboss-j2ee</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.jboss.client</groupId>
-						<artifactId>jbossall-client</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.jboss.identity</groupId>
-						<artifactId>idm</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>log4j</groupId>
-						<artifactId>log4j</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>juel</groupId>
-						<artifactId>juel</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-jdk14</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.hibernate</groupId>
-						<artifactId>hibernate-entitymanager</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
+			<!-- utils end -->			
 
 			<!-- test begin -->
 			<dependency>
