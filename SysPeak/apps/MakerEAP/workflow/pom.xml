@@ -47,6 +47,10 @@
 			<groupId>com.syspeak</groupId>
 			<artifactId>syspeak-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.syspeak</groupId>
+			<artifactId>syspeak-extension</artifactId>
+		</dependency>		
 
 		<!-- springside -->
 		<dependency>
