@@ -1,0 +1,92 @@
+html {
+	height: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	font-family: 13px/ 1.231 "Helvetica Neue", Helvetica, Arial,"Lucida Grande", sans-serif;
+	min-width: 980px;
+	color: #484848;
+	background: #f8f8f8;
+	min-height: 100%;
+}
+
+#loading {
+	position: absolute;
+	width: 180px;
+	margin: -70px 0 0 -90px;
+	height: 140px;
+	top: 50%;
+	left: 50%;
+}
+
+#loading .title {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0px;
+	width: 180px;
+	height: 27px;
+}
+
+#loading .logo {
+	background: url(../images/loading.gif) no-repeat;
+	position: absolute;
+	display: block;
+	top: 25px;
+	left: 22px;
+	width: 120px;
+	height: 120px;
+}
+
+#loading .indicator {
+	position: absolute;
+	display: block;
+	top: 150px;
+	left: 0px;
+	width: 185px;
+	height: 27px;
+	font:bold 12px Helvetica, Arial, sans-serif;
+}
+
+#loading-msg {
+    color:#444;
+    font:normal 10px Helvetica, Arial, sans-serif;
+    height:auto;
+    margin:0;
+    padding:30px;
+}
+
+a {
+	color: #083772;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0464BB;
+}
+
+.header {
+	background: url(../images/layout-browser-hd-bg.gif) repeat-x;
+}
+
+.header h1 {
+	color: #fff;
+	padding: 3px 10px;
+	font: bold 16px Helvetica, Arial, sans-serif;
+}
+
+.icon-home {
+	background-image: url(../images/home.png) !important;
+	line-height: 30px;
+}
+
+.icon-menu {
+	background-image: url(../images/menu.png) !important;
+	line-height: 30px;
+}
+
+.icon-start {
+	background-image: url(../images/start.gif) !important;
+	line-height: 30px;
+}
