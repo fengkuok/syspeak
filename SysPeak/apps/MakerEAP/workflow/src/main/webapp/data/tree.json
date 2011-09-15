@@ -1,0 +1,12 @@
+[{"text":"API Documentation","id":"apidocs",
+	"children":[{ text: "Child 1", leaf: true },{ text: "Child 2", leaf: true }],
+"iconCls":"icon-tree-accordion"},
+{"text":"API Documentation","id":"xxx",
+	"children":[{"text":"Syspeak",
+		"children":[{"text":"extjs",
+			"children":[{"text":"grid",
+				"children":[{"leaf":true,"text":"SuperJsonGrid","isClass":true,"clsName":"Syspeak.extjs.grid.SuperJsonGrid","iconCls":"icon-component"}],
+			"iconCls":"icon-pkg"}],
+		"iconCls":"icon-pkg"}],
+	"iconCls":"icon-pkg"}],
+"iconCls":"icon-tree-accordion"}]
