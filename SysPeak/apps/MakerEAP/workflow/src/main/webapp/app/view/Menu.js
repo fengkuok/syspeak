@@ -82,7 +82,7 @@ Ext.define('Workflow.view.Menu',{
 			    ]
 			}),
 			labelAlign: 'left',
-			labelWidth: 30,
+			labelWidth: 32,
 			width: 100,
 		    queryMode: 'local',
 		    displayField: 'name',
