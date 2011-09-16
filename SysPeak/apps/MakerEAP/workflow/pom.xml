@@ -360,6 +360,13 @@
 			<artifactId>jsp-2.1-glassfish</artifactId>
 		</dependency>
 		<!-- testing end -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.17</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>Maker-Workflow</finalName>
