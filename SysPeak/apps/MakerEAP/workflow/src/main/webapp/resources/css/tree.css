@@ -2,3 +2,23 @@
 	background-image: url(../images/btn/expand.png) !important;
 	line-height: 30px;
 }
+
+.icon-tree-briefcase {
+	background-image: url(../images/tree/briefcase.png) !important;
+	line-height: 30px;
+}
+
+.icon-tree-calendar {
+	background-image: url(../images/tree/calendar.png) !important;
+	line-height: 30px;
+}
+
+.icon-tree-camera {
+	background-image: url(../images/tree/camera.png) !important;
+	line-height: 30px;
+}
+
+.icon-tree-cassette {
+	background-image: url(../images/tree/cassette.png) !important;
+	line-height: 30px;
+}
