@@ -9,6 +9,10 @@ Ext.define('Workflow.Application', {
     name: 'Workflow',
 
     autoCreateViewport: true,
+    
+    controllers: [
+        'Users'
+    ],
 
     launch: function() {
         Workflow.App = this;

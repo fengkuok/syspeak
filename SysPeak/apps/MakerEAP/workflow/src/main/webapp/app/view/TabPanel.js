@@ -9,6 +9,8 @@ Ext.define('Workflow.view.TabPanel',{
     },
     activeTab: 0,
     border: false,
+    minTabWidth : 100,
+    autoScroll : true,
     
     initComponent : function(){
     	this.items = [{

@@ -1,4 +1,4 @@
-Ext.define('AM.store.Users', {
+Ext.define('Workflow.store.Users', {
     extend: 'Ext.data.Store',
     fields: ['name', 'email'],
     data: [

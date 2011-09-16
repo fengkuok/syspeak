@@ -1,10 +1,13 @@
-Ext.define('AM.view.user.List' ,{
+Ext.define('Workflow.view.user.List' ,{
     extend: 'Ext.grid.Panel',
     alias : 'widget.userlist',
 
-    title : 'All Users',
-
     initComponent: function() {
+    	Ext.applyIf(this,{
+    		title : 'All Users',
+    		closable : true
+    	})
+    	
         this.store = {
             fields: ['name', 'email'],
             data  : [
