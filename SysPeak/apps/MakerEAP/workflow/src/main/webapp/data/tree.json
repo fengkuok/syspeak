@@ -1,12 +1,75 @@
-[{"text":"API Documentation","id":"apidocs",
-	"children":[{ text: "Child 1", leaf: true },{ text: "Child 2", leaf: true }],
-"iconCls":"icon-tree-accordion"},
-{"text":"API Documentation","id":"xxx",
-	"children":[{"text":"Syspeak",
-		"children":[{"text":"extjs",
-			"children":[{"text":"grid",
-				"children":[{"leaf":true,"text":"SuperJsonGrid","isClass":true,"clsName":"Syspeak.extjs.grid.SuperJsonGrid","iconCls":"icon-component"}],
-			"iconCls":"icon-pkg"}],
-		"iconCls":"icon-pkg"}],
-	"iconCls":"icon-pkg"}],
-"iconCls":"icon-tree-accordion"}]
+[{
+	"text" : "API Documentation",
+	"id" : "1",
+	"isClass" : false,
+	"children" : [{
+		"text" : "Syspeak1",
+		expanded : true,
+		id : 2,
+		"isClass" : false,
+		iconCls : "icon-tree-calendar",
+		"children" : [{
+			"text" : "extjs1",
+			expanded : true,
+			id :3,
+			"isClass" : false,
+			"iconCls" : "icon-tree-briefcase",
+			"children" : [{
+						"text" : "grid1",
+						expanded : true,
+						id:4,
+						"isClass" : false,
+						"iconCls" :"icon-tree-camera",
+						"children" : [{
+									"leaf" : true,
+									"text" : "Maker",
+									id:5,
+									"isClass" : true,
+									"clsName" : "Workflow.view.user.List",
+									"iconCls" : "icon-tree-cassette"
+								}],
+						"iconCls" : "icon-pkg"
+					}],
+			"iconCls" : "icon-pkg"
+		},{
+			"text" : "extjs2",
+			"children" : [{
+						"text" : "grid2",
+						"children" : [{
+									"leaf" : true,
+									"text" : "SuperJsonGrid2",
+									"isClass" : true,
+									"clsName" : "Workflow.view.user.Edit",
+									"iconCls" : "icon-tree-briefcase",
+								}],
+						"iconCls" : "icon-pkg"
+					}],
+			"iconCls" : "icon-pkg"
+		}],
+		"iconCls" : "icon-pkg"
+	}],
+	"iconCls" : "icon-tree-accordion"
+}, {
+	"text" : "API Documentation",
+	"id" : "xxx",
+	"children" : [{
+		"text" : "Syspeak",
+		"children" : [{
+			"text" : "extjs",
+			"children" : [{
+						"text" : "grid",
+						"children" : [{
+									"leaf" : true,
+									"text" : "SuperJsonGrid",
+									"isClass" : true,
+									"clsName" : "Syspeak.extjs.grid.SuperJsonGrid",
+									"iconCls" : "icon-component"
+								}],
+						"iconCls" : "icon-pkg"
+					}],
+			"iconCls" : "icon-pkg"
+		}],
+		"iconCls" : "icon-pkg"
+	}],
+	"iconCls" : "icon-tree-accordion"
+}]
