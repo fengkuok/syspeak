@@ -3,6 +3,28 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 	<display-name>maker-workflow</display-name>
+	
+	<listener>
+    	<listener-class>org.h2.server.web.DbStarter</listener-class>
+	</listener>
+	
+	<context-param>
+    <param-name>db.url</param-name>
+	    <param-value>jdbc:h2:~/makereap</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>db.user</param-name>
+	    <param-value>sa</param-value>
+	</context-param>
+	<context-param>
+	    <param-name>db.password</param-name>
+	    <param-value></param-value>
+	</context-param>
+	<context-param>
+	    <param-name>db.tcpServer</param-name>
+	    <param-value>-tcpAllowOthers</param-value>
+	</context-param>
+	
 	<!-- Spring ApplicationContext配置文件的路径,可使用通配符,多个路径用,号分隔
 		此参数用于后面的Spring Context Loader -->
 	<context-param>
@@ -34,12 +56,12 @@
 		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
 	</filter>
 
-	<!-- Sitemesh filter -->
+	<!-- Sitemesh filter 
 	<!-- filter>
 		<filter-name>sitemeshFilter</filter-name>
 		<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
 	</filter -->
-
+	
 	<!-- Filter URL 映射 -->
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
@@ -50,7 +72,7 @@
 		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+ 
 	<!-- filter-mapping>
 		<filter-name>sitemeshFilter</filter-name>
 		<url-pattern>/*</url-pattern>
