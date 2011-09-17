@@ -2,29 +2,39 @@
  * Copy Right SysPeak @ 2011
  * @author Feng Kuok
  */
-
 Ext.Loader.setConfig({
     enabled: true,
     paths: {
-        'Workflow': './app',
-        'cxt' : './'
+    	'cxt' : '.',		//content path
+        'Workflow': './app' 
     }
 });
 
-Ext.require('Workflow.Application');
-//发现用动态加载后竟然不能直接用Ext.Msg.XX方法，暂时解决办法如下：
+//初始导入
 Ext.require([
-	'Ext.window.MessageBox',
 	'Ext.tip.*',
 	'Ext.JSON.*',
-	'Ext.Object.*'
+	'Ext.Object.*',
+	'Ext.picker.Date',
+	'Workflow.Application'
 ]);
 
 Ext.onReady(function() {
-	Ext.QuickTips.init();
-	//Ext core没会使用，很惭愧；以后会把所有的document.XXX改为Ext core来实现。
-	//Ext.core.DomHelper.useDom = true;
-	document.getElementById('loading-msg').innerHTML = '模块初始化...';
+	//指定1x1像素空白图片
+	Ext.BLANK_IMAGE_URL = Ext.Loader.getPath('cxt') + '/static/extjs4/resources/themes/images/default/s.gif';
+	//Ext.QuickTips.init();
+	
+	if(window.localStorage){
+ 		var theme = localStorage.themeLocalStore;
+ 		if(theme == null || theme == "null" || theme == 'undefined'){
+ 			theme = "";
+ 		}
+ 		Ext.util.CSS.swapStyleSheet("theme", Ext.Loader.getPath('cxt') + '/static/extjs4/resources/css/ext-all' + theme + '.css');
+	}else{
+	 	alert('This browser does NOT support localStorage');
+	}
+	
+	Ext.get('loading-msg').update('模块初始化...');
     Ext.create('Workflow.Application');
 });
 
