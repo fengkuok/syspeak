@@ -21,13 +21,13 @@
     <link id="theme" rel="stylesheet" type="text/css" href="${ctx}/static/extjs4/resources/css/ext-all.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/tree.css" />
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/button.css" />
-	
+	<script type="text/javascript" src="${ctx}/static/extjs4/ext-debug.js"></script>
     <script type="text/javascript">
     	//Ext.get('loading-msg').update('加载UI组件...');
     	Ext.get('loading-msg').update('加载核心...');
     </script>
     
-    <script type="text/javascript" src="${ctx}/static/extjs4/ext-debug.js"></script>
+    
     <script type="text/javascript" src="${ctx}/app.js"></script>
     <script type="text/javascript" src="${ctx}/static/extjs4/locale/ext-lang-zh_CN.js" charset="utf-8"></script>
 </body>
