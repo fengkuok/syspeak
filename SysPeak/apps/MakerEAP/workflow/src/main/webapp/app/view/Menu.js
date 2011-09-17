@@ -101,8 +101,12 @@ Ext.define('Workflow.view.Menu',{
 		this.bbar = [{
         	text : '开始',
         	iconCls : 'icon-start',
+        	menuAlign : 'tl',
         	menu : {
         		xtype : 'menu',
+        		style: {
+                    paddingBottom: '47px'
+                },
 				items : [{
 					text : '返回首页',
 					iconCls : 'icon-home',
