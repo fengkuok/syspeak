@@ -7,7 +7,7 @@ Ext.Loader.setConfig({
     enabled: true,
     paths: {
         'Workflow': './app',
-        'cxt' : 'http://localhost:8080/maker-workflow'
+        'cxt' : './'
     }
 });
 
