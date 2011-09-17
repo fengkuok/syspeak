@@ -1,5 +1,9 @@
 Ext.define('Workflow.view.Menu',{
     extend: 'Ext.panel.Panel',
+    requires : [
+    	'Ext.window.MessageBox',
+    	'Ext.form.field.ComboBox'
+    ],
     
     region:'west',
     layout: 'accordion',
@@ -26,12 +30,12 @@ Ext.define('Workflow.view.Menu',{
             id: 'menu-panel',
     		title: '当前用户:FengKuok',
     		iconCls:'icon-menu',
-    		width : 200
+    		width : 210
         });
         
         this.loadMenus();
         //bbar暂时有点问题
-//        this.buildBottomBar();
+        this.buildBottomBar();
 	    
         this.callParent(arguments);
     },
@@ -104,7 +108,7 @@ Ext.define('Workflow.view.Menu',{
 					iconCls : 'icon-home',
 					handler : function(n) {
 						try {
-							//Ext.getCmp('content-panel').layout.setActiveItem('start-panel');
+							Ext.getCmp('content-panel').setActiveTab(0);
 						} catch (e) {}
 					}
 				}, {
@@ -121,25 +125,49 @@ Ext.define('Workflow.view.Menu',{
 					}
 				}]
         	}
-        }, '->', {
-        	xtype: 'combo',
+        }, {
+        	xtype: 'combobox',
         	fieldLabel: '主题',
 		    store: Ext.create('Ext.data.Store', {
-			    fields: ['abbr', 'name'],
+			    fields: ['id', 'name'],
 			    data : [
-			        {"abbr":"AL", "name":"Alabama"},
-			        {"abbr":"AK", "name":"Alaska"},
-			        {"abbr":"AZ", "name":"Arizona"}
-			        //...
+			        {"id":"", "name":"经典模式"},
+			        {"id":"-gray", "name":"银色模式"},
+			        {"id":"-access", "name":"夜景模式"}
 			    ]
 			}),
+			autoSelect : true,
 			labelAlign: 'left',
-			labelWidth: 32,
-			width: 100,
+			labelWidth: 40,
+			width: 136,
 		    queryMode: 'local',
 		    displayField: 'name',
-		    valueField: 'abbr'
-        	
+		    valueField: 'id',
+		    editable : false,
+		    listeners:{
+		         select : function(field, value, options){
+		         	if(window.localStorage){
+		         		localStorage.themeLocalStore = this.getValue();
+					}else{
+					 	alert('This browser does NOT support localStorage');
+					}
+		         	//暂未实现存入cookies中
+		         	Ext.util.CSS.swapStyleSheet("theme", Ext.Loader.getPath('cxt') + '/static/extjs4/resources/css/ext-all' + this.getValue() + '.css');
+		         },
+		         beforerender : function(){
+		         	if(window.localStorage){
+				 		var theme = localStorage.themeLocalStore;
+				 		if(theme == null || theme == "null" || theme == 'undefined'){
+				 			theme = "";
+				 		}
+				 		//设置默认选中
+				 		this.setValue(theme);
+					}else{
+					 	alert('This browser does NOT support localStorage');
+					}
+		         	
+		         }
+		    }
         }];
     }
 });
