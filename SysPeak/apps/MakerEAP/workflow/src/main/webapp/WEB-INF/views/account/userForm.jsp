@@ -1,13 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/common/taglibs.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Mini-Web 帐号管理</title>
-	
-	<script>
+	<%@include file="/common/meta.jsp" %>
+	<script type="text/javascript">
+		alert("ss");
 		$(document).ready(function() {
 			//聚焦第一个输入框
 			$("#loginName").focus();
