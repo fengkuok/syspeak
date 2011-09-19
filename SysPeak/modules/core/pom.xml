@@ -80,6 +80,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- web service -->
+		<dependency>
+	    <groupId>org.springframework.ws</groupId>
+	    <artifactId>spring-ws</artifactId>
+			<optional>true</optional>
+		</dependency>		
+
 		<!-- utils -->
 		<dependency>
 			<groupId>net.sf.dozer</groupId>
