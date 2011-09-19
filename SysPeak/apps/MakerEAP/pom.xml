@@ -21,8 +21,63 @@
 
     <inceptionYear>2011</inceptionYear>
 
-    <modules>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>servebox</id>
+            <name>ServeBox Plugin Repository</name>
+            <url>http://maven.servebox.org/repository</url>
+        </pluginRepository>     
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>servebox</id>
+            <name>ServeBox Plugin Repository</name>
+            <url>http://maven.servebox.org/repository</url>
+        </repository>   
+    </repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.0-alpha-4</version>
+			</plugin>
+
+      <plugin>
+				<groupId>org.servebox.flex</groupId>
+				<artifactId>flex-plugin</artifactId>
+				<version>2.3.2</version>
+				<extensions>true</extensions>
+				<inherited>true</inherited>
+				<configuration>
+					<flexServerType>j2ee-remoting</flexServerType>
+					<serverRoot>${tomcat.server.root}</serverRoot>
+					<serverRootUrl>http://localhost:8400/${webapp.name}</serverRootUrl>
+					<unitTestMxmlFile>src/test/flex/MavenTests.mxml</unitTestMxmlFile>
+					<locale>en_US</locale>
+				</configuration>
+      </plugin>
+			
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly/src-assembly.xml</descriptor> 
+					</descriptors>
+				</configuration>
+			</plugin>						
+		</plugins>
+	</build>	
+
+    <modules>    	
         <module>workflow</module>
+        <module>flowdesigner</module>
         <module>report</module>
     </modules>
 
