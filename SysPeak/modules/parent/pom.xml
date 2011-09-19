@@ -24,7 +24,8 @@
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<jbpm4.version>4.4</jbpm4.version>
 		<selenium.version>2.0rc3</selenium.version>
-		<activiti.version>5.7</activiti.version>		
+		<activiti.version>5.7</activiti.version>
+		<spring.webservice.version>2.0.2.RELEASE</spring.webservice.version>			
 
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,11 +33,12 @@
 
 	<!-- 设定除中央仓库(repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查找. -->
 	<repositories>
-		<repository>
+		<!-- 如有Nexus私服, 取消注释并指向正确的服务器地址. -->
+		<!-- repository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
 			<url>http://localhost:8081/nexus/content/groups/public</url>
-		</repository>
+		</repository -->
 
 		<repository>
 			<id>offical</id>
@@ -46,6 +48,15 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
+		<repository>
+			<id>springside</id>
+			<name>SpringSide Additional Repository</name>
+			<url>http://springside.googlecode.com/svn/repository</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>		
 
 		<repository>
 			<id>jboss</id>
@@ -73,7 +84,8 @@
 		
 	</repositories>
 
-	<pluginRepositories>
+  <!--  设定插件仓库.如有Nexus私服, 取消注释并指向正确的服务器地址. -->
+	<!-- pluginRepositories>
 		<pluginRepository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
@@ -82,10 +94,10 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories -->
 
-	<!-- 设定团队持续集成发布包服务器 -->
-	<distributionManagement>
+	<!-- 设定使用Release插件发布的仓库服务器.如有Nexus私服, 取消注释并指向正确的服务器地址. -->
+	<!-- distributionManagement>
 		<repository>
 			<id>nexus</id>
 			<name>Team Nexus Release Repository</name>
@@ -97,7 +109,7 @@
 			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement -->
 
 	<!-- 预定义依赖项的version,scope与exclusions,子项目中只需定义groupId 和 artifactId 即可 -->
 	<dependencyManagement>
@@ -388,6 +400,12 @@
 			<!-- work flow end -->			
 
 			<!-- webservice begin -->
+			<!-- spring webservice -->
+			<dependency>
+			    <groupId>org.springframework.ws</groupId>
+			    <artifactId>spring-ws</artifactId>
+			    <version>${spring.webservice.version}</version>
+			</dependency>
 			<!-- cxf -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
