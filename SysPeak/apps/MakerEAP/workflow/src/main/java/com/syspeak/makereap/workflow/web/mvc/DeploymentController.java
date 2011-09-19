@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.activiti.engine.impl.persistence.entity.DeploymentEntity;
 import org.activiti.engine.repository.Deployment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,14 +20,14 @@ import org.springside.modules.orm.PageRequest;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
-import com.syspeak.modules.web.springmvc.BaseControllerImpl;
 
 @Controller
-public class DeploymentController extends BaseControllerImpl {
+public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(method = { RequestMethod.GET })
 	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
 		modelAndView.setViewName(getIndexViewName());
+		this.list(request, modelAndView);
 		return modelAndView;
 	}
 
@@ -36,7 +35,7 @@ public class DeploymentController extends BaseControllerImpl {
 	public ModelAndView list(HttpServletRequest request, ModelAndView modelAndView) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
 		PageRequest pageRequest = new PageRequest(1, PAGE_SIZE);
-		Page<DeploymentEntity> page = new Page<DeploymentEntity>(pageRequest);
+		Page<Deployment> page = new Page<Deployment>(pageRequest);
 		page = repositoryService.findDeploymentPage(page, filters);
 		modelAndView.addObject(PAGE_BEAN, page);
 		modelAndView.setViewName(getListViewName());
@@ -55,7 +54,7 @@ public class DeploymentController extends BaseControllerImpl {
 				deploymentResources.getOriginalFilename());
 		System.out.println(deployment);
 		ModelAndView modelAndView = new ModelAndView();
-		return list(request, modelAndView);
+		return index(request, modelAndView);
 	}
 
 	@RequestMapping(value = "${id}", method = { RequestMethod.GET })
