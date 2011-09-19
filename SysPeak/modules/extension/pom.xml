@@ -13,6 +13,12 @@
 	<url>http://maker-eap.googlecode.com</url>
 	
 	<dependencies>
+		<!-- syspeak modules -->
+		<dependency>
+			<groupId>com.syspeak</groupId>
+			<artifactId>syspeak-core</artifactId>			
+		</dependency>
+		
 		<!-- springside modules -->
 		<dependency>
 			<groupId>org.springside</groupId>
