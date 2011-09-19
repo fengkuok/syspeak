@@ -4,12 +4,8 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="syspeak-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/syspeak-core/syspeak-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="syspeak-extension.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/syspeak-extension/syspeak-extension">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <property name="context-root" value="maker-workflow"/>
         <property name="java-output-path" value="/maker-workflow/target/classes"/>
     </wb-module>
