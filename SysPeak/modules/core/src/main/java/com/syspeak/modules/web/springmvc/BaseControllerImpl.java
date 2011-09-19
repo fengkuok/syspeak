@@ -10,7 +10,7 @@ package com.syspeak.modules.web.springmvc;
  */
 public class BaseControllerImpl implements BaseController {
 	protected static final String CONTROLLER_FLAG = "controller";
-	protected static final String PACKAGE_FLAG = "springmvc";
+	protected static final String BASE_PACKAGE = "springmvc";
 	protected static final int PAGE_SIZE = 20;
 	protected static final String PAGE_BEAN = "page";
 	protected static final String VIEW_SPLIT = "-";
@@ -21,7 +21,7 @@ public class BaseControllerImpl implements BaseController {
 	 */
 	public String getMappingBase() {
 		String className = getClass().getName().toLowerCase();
-		String mappingBase = className.replaceAll("[\\s\\S]+" + PACKAGE_FLAG + '.', "");
+		String mappingBase = className.replaceAll("[\\s\\S]+" + basePackage + '.', "");
 		mappingBase = mappingBase.replaceAll(CONTROLLER_FLAG + "+[\\s\\S]*$", "");
 		return mappingBase;
 	}
@@ -54,5 +54,11 @@ public class BaseControllerImpl implements BaseController {
 		String base = getMappingBase();
 		String inputViewName = base + VIEW_SPLIT + BaseController.INPUT;
 		return inputViewName;
+	}
+
+	private String basePackage = BASE_PACKAGE;
+
+	public void setBasePackage(String basePackage) {
+		this.basePackage = basePackage;
 	}
 }
