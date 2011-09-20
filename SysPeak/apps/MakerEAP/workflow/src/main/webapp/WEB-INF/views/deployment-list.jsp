@@ -21,7 +21,7 @@
 	<h3>流程部署列表</h3>
 	<div class="menu">
 		<ul>
-			<li><a href="create">部署流程</a></li>
+			<li><a href="./create">部署流程</a></li>
 		</ul>
 	</div>
 	<form id="searchForm" modelAttribute="page" action="list" method="post">
