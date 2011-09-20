@@ -1,6 +1,8 @@
 package com.syspeak.makereap.workflow.web.mvc;
 
+import java.io.InputStream;
 import java.util.List;
+import java.util.zip.ZipInputStream;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,6 +24,7 @@ import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
 
 @Controller
 public class DeploymentController extends BaseMvcController {
+	private static final String BAR = ".bar";
 
 	@RequestMapping(method = { RequestMethod.GET })
 	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
@@ -49,8 +52,13 @@ public class DeploymentController extends BaseMvcController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView save(@RequestParam MultipartFile deploymentResources, HttpServletRequest request)
 			throws Exception {
-		Deployment deployment = repositoryService.createDeployment(deploymentResources.getInputStream(),
-				deploymentResources.getOriginalFilename());
+		Deployment deployment = null;
+		String fileName = deploymentResources.getOriginalFilename();
+		InputStream inputStream = deploymentResources.getInputStream();
+		if (fileName.toLowerCase().endsWith(BAR)) {
+			inputStream = new ZipInputStream(inputStream);
+		}
+		deployment = repositoryService.createDeployment(inputStream, deploymentResources.getOriginalFilename());
 		System.out.println(deployment);
 		ModelAndView modelAndView = new ModelAndView();
 		return index(request, modelAndView);
