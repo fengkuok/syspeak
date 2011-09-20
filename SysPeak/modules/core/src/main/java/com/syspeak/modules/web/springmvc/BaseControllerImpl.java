@@ -10,7 +10,7 @@ package com.syspeak.modules.web.springmvc;
  */
 public class BaseControllerImpl implements BaseController {
 	protected static final String CONTROLLER_FLAG = "controller";
-	protected static final String BASE_PACKAGE = "springmvc";
+	protected static final String PACKAGE_FLAG = "springmvc";
 	protected static final int PAGE_SIZE = 20;
 	protected static final String PAGE_BEAN = "page";
 	protected static final String VIEW_SPLIT = "-";
@@ -56,7 +56,7 @@ public class BaseControllerImpl implements BaseController {
 		return inputViewName;
 	}
 
-	private String basePackage = BASE_PACKAGE;
+	private String basePackage = PACKAGE_FLAG;
 
 	public void setBasePackage(String basePackage) {
 		this.basePackage = basePackage;
