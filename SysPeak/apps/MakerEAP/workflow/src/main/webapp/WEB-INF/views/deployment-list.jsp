@@ -2,41 +2,19 @@
 <%@ include file="/common/taglibs.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 	<title>流程部署测试页面</title>
-	<%@include file="/common/meta.jsp" %>	
-	<script>
-		$(document).ready(function() {
-			//聚焦第一个输入框
-			$("#loginName").focus();
-			//为inputForm注册validate函数
-			$("#inputForm").validate({
-				rules: {
-					loginName: {
-						required: true,
-						remote: "user!checkLoginName.action?oldLoginName=" + encodeURIComponent('${loginName}')
-					},
-					name: "required",
-					password: {
-						required: true,
-						minlength:3
-					},
-					passwordConfirm: {
-						equalTo:"#password"
-					},
-					email:"email",
-					checkedGroupIds:"required"
-				},
-				messages: {
-					loginName: {
-						remote: "用户登录名已存在"
-					},
-					passwordConfirm: {
-						equalTo: "输入与上面相同的密码"
-					}
-				}
-			});
-		});
-	</script>
+	<%@include file="/common/meta.jsp" %>
+	<script type="text/javascript">
+	function deleteData(id) {
+		if(!confirm("确定要删除数据吗?")) {
+			return;
+		}
+		$('#searchFrom').attr('action', id);
+		$('#_method').val('delete');
+		$('#searchForm').submit();
+	}
+	</script>	
 </head>
 
 <body>
@@ -46,7 +24,8 @@
 			<li><a href="create">部署流程</a></li>
 		</ul>
 	</div>
-	<form:form id="searchForm" modelAttribute="page" action="list" method="post">
+	<form id="searchForm" modelAttribute="page" action="list" method="post">
+		<input type="hidden" name="_method" id="_method" value="get" />		
 		<input type="hidden" name="pageNo" value="${page.pageNo}" />
 		<input type="hidden" name="pageSize" value="${page.pageSize}" />
 		<input type="hidden" name="orderBy" value="${page.orderBy}" />
@@ -60,10 +39,10 @@
 			</tr>			
 			<c:forEach items="${page.result}" var="dto">
 			<tr>
-				<td><input type="checkbox" name="ids" value="${dto.id}" />${dto.id}</td>
+				<td><input type="checkbox" name="ids" id="ids_${dto.id}" value="${dto.id}" />${dto.id}</td>
 				<td>${dto.name}</td>
 				<td><fmt:formatDate value="${dto.deploymentTime}" pattern="yyyy年MM月dd日 HH:mm" /></td>
-				<td></td>
+				<td><a href="javascript:void(0)" onclick="deleteData('${dto.id}')">删除</a></td>
 			</tr>
 			</c:forEach>
 			<tr>
@@ -86,6 +65,6 @@
 				</td>
 			</tr>
 		</table>
-	</form:form>
+	</form>
 </body>
 </html>

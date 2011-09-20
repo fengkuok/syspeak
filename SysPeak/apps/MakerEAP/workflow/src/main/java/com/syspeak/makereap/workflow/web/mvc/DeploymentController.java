@@ -1,6 +1,5 @@
 package com.syspeak.makereap.workflow.web.mvc;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +25,8 @@ public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(method = { RequestMethod.GET })
 	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
-		modelAndView.setViewName(getIndexViewName());
 		this.list(request, modelAndView);
+		modelAndView.setViewName(getIndexViewName());
 		return modelAndView;
 	}
 
@@ -49,7 +48,7 @@ public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView save(@RequestParam MultipartFile deploymentResources, HttpServletRequest request)
-			throws IOException {
+			throws Exception {
 		Deployment deployment = repositoryService.createDeployment(deploymentResources.getInputStream(),
 				deploymentResources.getOriginalFilename());
 		System.out.println(deployment);
@@ -63,6 +62,21 @@ public class DeploymentController extends BaseMvcController {
 		modelAndView.addObject(deployment);
 		modelAndView.setViewName(getInputViewName());
 		return modelAndView;
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE)
+	public ModelAndView delete(@RequestParam String[] ids, HttpServletRequest request) {
+		if (ids != null) {
+			for (String id : ids) {
+				deleteDeployment(id);
+			}
+		}
+		ModelAndView modelAndView = new ModelAndView();
+		return index(request, modelAndView);
+	}
+
+	private void deleteDeployment(String deploymentId) {
+		repositoryService.deleteDeployment(deploymentId);
 	}
 
 	private ActivitiRepositoryService repositoryService;
