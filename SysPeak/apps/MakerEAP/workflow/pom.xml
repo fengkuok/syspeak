@@ -37,6 +37,7 @@
 		<hibernate.search.version>3.3.0.Final</hibernate.search.version>
 		<kaptcha.version>2.3.2</kaptcha.version>
 		<lucene.version>3.0.3</lucene.version>
+		<activiti.mybatis.version>3.0.4</activiti.mybatis.version>
 	</properties>
 
 	
@@ -126,6 +127,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
+			<version>${activiti.mybatis.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
