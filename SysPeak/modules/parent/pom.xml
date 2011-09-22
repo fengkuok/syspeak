@@ -18,7 +18,7 @@
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
 		<syspeak.version>0.1-SNAPSHOT</syspeak.version>
-		<spring.security.version>3.0.6.RELEASE</spring.security.version>
+		<spring.security.version>3.1.0.RC3</spring.security.version>
 		<validation.version>1.0.0.GA</validation.version>
 		<freemarker.version>2.3.16</freemarker.version>
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
@@ -81,6 +81,14 @@
 	      <id>Activiti</id> 
 	      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
 	   </repository> 
+
+
+	   <repository>
+        <id>springsource-milestones</id>
+        <name>SpringSource Milestones Proxy</name>
+        <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+      </repository>
+
 		
 	</repositories>
 
@@ -400,12 +408,7 @@
 			<!-- work flow end -->			
 
 			<!-- webservice begin -->
-			<!-- spring webservice -->
-			<dependency>
-			    <groupId>org.springframework.ws</groupId>
-			    <artifactId>spring-ws</artifactId>
-			    <version>${spring.webservice.version}</version>
-			</dependency>
+		
 			<!-- cxf -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -533,7 +536,8 @@
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-acl</artifactId>
 				<version>${spring.security.version}</version>
-			</dependency>			
+			</dependency>
+			
 			<!-- security end -->
 
 			<!-- jms begin -->
