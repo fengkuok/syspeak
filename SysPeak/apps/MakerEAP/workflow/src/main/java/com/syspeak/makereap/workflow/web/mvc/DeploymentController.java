@@ -23,10 +23,11 @@ import org.springside.modules.orm.PropertyFilter;
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
 
 @Controller
+@RequestMapping(value = "deployment")
 public class DeploymentController extends BaseMvcController {
 	private static final String BAR = ".bar";
 
-	@RequestMapping(method = { RequestMethod.GET })
+	@RequestMapping
 	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
 		this.list(request, modelAndView);
 		modelAndView.setViewName(getIndexViewName());
@@ -44,7 +45,7 @@ public class DeploymentController extends BaseMvcController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "create", method = RequestMethod.GET)
+	@RequestMapping(value = "create")
 	public String input(Model model) {
 		return getInputViewName();
 	}
@@ -64,16 +65,25 @@ public class DeploymentController extends BaseMvcController {
 		return index(request, modelAndView);
 	}
 
-	@RequestMapping(value = "${id}", method = { RequestMethod.GET })
-	public ModelAndView view(@PathVariable String id, ModelAndView modelAndView) {
+	@RequestMapping(value = "{id}")
+	public ModelAndView show(@PathVariable String id, ModelAndView modelAndView) {
 		Deployment deployment = repositoryService.getDeployment(id);
 		modelAndView.addObject(deployment);
 		modelAndView.setViewName(getInputViewName());
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public ModelAndView delete(@PathVariable String id, HttpServletRequest request) {
+		if (id != null) {
+			deleteDeployment(id);
+		}
+		ModelAndView modelAndView = new ModelAndView();
+		return index(request, modelAndView);
+	}
+
 	@RequestMapping(method = RequestMethod.DELETE)
-	public ModelAndView delete(@RequestParam String[] ids, HttpServletRequest request) {
+	public ModelAndView deleteBatch(@RequestParam String[] ids, HttpServletRequest request) {
 		if (ids != null) {
 			for (String id : ids) {
 				deleteDeployment(id);
