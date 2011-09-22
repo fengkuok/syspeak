@@ -79,6 +79,8 @@
         <module>workflow</module>
         <module>flowdesigner</module>
         <module>report</module>
+		<module>security</module>
+		
     </modules>
 
 	
