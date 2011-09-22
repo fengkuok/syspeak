@@ -10,8 +10,8 @@
 		if(!confirm("确定要删除数据吗?")) {
 			return;
 		}
-		$('#searchFrom').attr('action', id);
-		$('#_method').val('delete');
+		$('#searchForm').attr('action', '${ctx}/deployment/'+id);
+		//$('#_method').val('delete');
 		$('#searchForm').submit();
 	}
 	</script>	
@@ -21,11 +21,10 @@
 	<h3>流程部署列表</h3>
 	<div class="menu">
 		<ul>
-			<li><a href="./create">部署流程</a></li>
+			<li><a href="${ctx}/deployment/create">部署流程</a></li>
 		</ul>
 	</div>
-	<form id="searchForm" modelAttribute="page" action="list" method="post">
-		<input type="hidden" name="_method" id="_method" value="get" />		
+	<form:form id="searchForm" modelAttribute="page" action="" method="delete">		
 		<input type="hidden" name="pageNo" value="${page.pageNo}" />
 		<input type="hidden" name="pageSize" value="${page.pageSize}" />
 		<input type="hidden" name="orderBy" value="${page.orderBy}" />
@@ -65,6 +64,6 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form:form>
 </body>
 </html>
