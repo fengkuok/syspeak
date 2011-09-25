@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置: 友情链接管理 - 列表</div>
+            添加
+	<div class="clear"></div>
+</div>
+<form action="v_list.do" method="post" style="padding-top:5px;">
+网站类别: <select name="queryCtgId"><option value="" selected="selected">--所有类别--</option><option value="1">文字链接</option></select>
+
+<input type="submit" value="查询"/>
+</form>
+<form id="tableForm" method="post">
+<table class="pn-ltable" style="" width="100%" cellspacing="1" cellpadding="0" border="0">
+<thead class="pn-lthead"><tr>
+	<th width="20"><input type='checkbox' onclick='Pn.checkbox("ids",this.checked)'/></th>
+	<th>ID</th>
+	<th>网站名称</th>
+	<th>网站LOGO</th>
+	<th>点击次数</th>
+	<th>排列顺序</th>
+	<th>显示</th>
+	<th>操作选项</th></tr></thead>
+<tbody  class="pn-ltbody">
+
+<tr>
+	<td><input type='checkbox' name='ids' value='2'/></td>
+	<td>2<input type="hidden" name="wids" value="2"/></td>
+	<td>ttt</td>
+	<td align="center">无图标</td>
+	<td align="right">44</td>
+	<td align="center"><input type="text" name="priority" value="10" style="width:70px"/></td>
+	<td align="center">是</td>
+	<td align="center">		<input type="hidden" name="queryCtgId" value=""/>
+		<a href="v_edit.do?id=2&pageNo=" class="pn-opt">修改</a> | <a href="o_delete.do?ids=2&pageNo=" onclick="if(!confirm('您确定删除吗？')) {return false;}" class="pn-opt">删除</a></td>
+</tr>
+</tbody>
+</table>
+<div>
+	<input type="button" value="删除" onclick="optDelete();"/>
+&nbsp; <input type="submit" value="保存排列顺序" onclick="optPriority();"/>
+</div>
+</form>
+</div>
+</body>
+</html>

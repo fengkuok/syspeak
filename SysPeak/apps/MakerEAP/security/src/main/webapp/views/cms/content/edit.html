@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div >
+<div >
+    <div >当前位置: 内容管理 - 添加</div>
+</div>
+<table width="100%" cellpadding="2" cellspacing="1" border="0">
+<tr>
+    <td width="10%" ><span >*</span>栏目:</td>
+    <td colspan="3" width="90%">
+        <div style="float:left">
+            <div>
+                <select id="channelId" name="channelId" onchange="channelChange(this.selectedIndex)">
+                    <option value="" class="sel-disabled">--请选择--</option>
+                </select>
+            </div>
+
+        </div>
+    </td>
+</tr>
+
+<tr id="tr-title">
+    <td width="10%" >标题:</td>
+    <td colspan="1" width="40%" >
+        <input type="text" maxlength="150" name="title" class="required" size="70" />
+
+        <div >在列表中显示，留空则显示完整标题</div>
+    </td>
+    <td width="10%" >标题颜色:</td>
+    <td colspan="1" width="40%" >
+        <input type="text" id="titleColor" name="titleColor" value="" style="width:70px"/>
+        &nbsp; <label><input type="checkbox" onclick="$('#bold').val(this.checked)"/>
+        加粗<input type="hidden" id="bold" name="bold" value="false"/></label>
+        <div >在列表中的样式</div>
+    </td>
+
+</tr>
+
+<tr id="tr-description">
+    <td width="10%" >摘要:</td>
+    <td colspan="3" width="90%" >
+        <textarea cols="70" rows="3" name="description"  maxlength="255"></textarea>
+    </td>
+</tr>
+<tr id="tr-author">
+    <td width="10%" >作者:</td>
+    <td colspan="1" width="40%" >
+        <input type="text" maxlength="100" name="author"/></td>
+    <td width="10%" >来源:</td>
+    <td colspan="1" width="40%" >
+        <input type="text" maxlength="100" name="origin" style="width:70px"/> &nbsp;
+        url: <input type="text" name="originUrl" maxlength="255" style="width:100px"/>
+    </td>
+
+</tr>
+
+
+<tr id="tr-typeId">
+
+
+    <td width="10%" >发布时间:</td>
+    <td colspan="1" width="40%" ><input type="text" name="releaseDate" class="Wdate"
+                                                           style="width:140px"
+                                                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+        <span >留空则为当前时间</span></td>
+
+    <td width="10%" >指定模板:</td>
+    <td colspan="1" width="40%" ><select name="tplContent">
+        <option value="" selected="selected">--默认--</option>
+        <option value="/red/content/new.html">/red/content/new.html</option>
+    </select>
+    </td>
+
+</tr>
+<tr>
+    <td colspan="4" >
+
+        <input type="submit" value="提交"/> &nbsp; <input type="reset" value="重置"/>
+    </td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

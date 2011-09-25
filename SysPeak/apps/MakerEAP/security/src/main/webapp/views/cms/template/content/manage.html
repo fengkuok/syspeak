@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div class="body-box">
+    <div class="rhead">
+        <div class="rpos">当前位置: 模板管理 - 列表</div>
+        创建模板
+
+    </div>
+    <form id="tableForm" method="post">
+
+        <table width="100%" cellspacing="1" cellpadding="0" border="0">
+            <thead>
+            <tr>
+                <th width="20">
+                    <input type='checkbox' onclick='Pn.checkbox("names",this.checked)'/></th>
+                <th width="20"></th>
+                <th>文件名</th>
+                <th>大小</th>
+                <th>最后修改时间</th>
+                <th>操作选项</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr>
+                <td><input type='checkbox' name='names'/></td>
+                <td align="center"><img src="/res/common/img/file/html.gif"/></td>
+                <td>XXX.html</td>
+                <td align="right">1 KB</td>
+                <td align="center">2011-07-26 17:15:25</td>
+                <td align="center">
+                    <a href="#">
+                        重命名
+                    </a> |
+                    <a href="#" >
+                    修改
+                </a> |
+                    <a href="#" onclick="if(!confirm('您确定删除吗？')) {return false;}" class="pn-opt">
+                    删除
+                </a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <input type="button" value="删除" onclick="optDelete();"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
