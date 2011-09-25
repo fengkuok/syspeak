@@ -4,7 +4,7 @@ package com.syspeak.makereap.system.log.entity;
 import com.syspeak.makereap.common.entity.Persistence;
 import com.syspeak.makereap.common.entity.base.BaseModel;
 import com.syspeak.makereap.common.util.IoSerialUtil;
-import com.syspeak.makereap.common.util.ReflectionUtil;
+import com.syspeak.makereap.common.util.ReflectionUtils;
 import com.syspeak.makereap.system.log.entity.Field.FieldType;
 
 import javax.persistence.*;
@@ -102,8 +102,8 @@ public class History extends BaseModel {
         if (originalObj == null && newObj == null)
             return null;
 
-        Map<String, String> opMap = ReflectionUtil.propertiesByGetterAndSetter(originalObj);
-        Map<String, String> npMap = ReflectionUtil.propertiesByGetterAndSetter(newObj);
+        Map<String, String> opMap = ReflectionUtils.propertiesByGetterAndSetter(originalObj);
+        Map<String, String> npMap = ReflectionUtils.propertiesByGetterAndSetter(newObj);
 
         Map<String, String> allMap = new HashMap<String, String>();
         if (opMap != null)
@@ -118,11 +118,11 @@ public class History extends BaseModel {
         for (String p : allMap.keySet()) {
             Object ov = null;
             if (originalObj != null && opMap.get(p) != null)
-                ov = ReflectionUtil.reflectGetValue(originalObj, p);
+                ov = ReflectionUtils.reflectGetValue(originalObj, p);
 
             Object nv = null;
             if (newObj != null && npMap.get(p) != null)
-                nv = ReflectionUtil.reflectGetValue(newObj, p);
+                nv = ReflectionUtils.reflectGetValue(newObj, p);
 
             FieldType type = FieldType.NO_CHANGE;
             if (originalObj != null && newObj != null) {
