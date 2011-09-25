@@ -1,4 +1,4 @@
-package com.syspeak.makereap.common.web;
+package com.syspeak.makereap.common.web.controller;
 
 /**
  * Spring MVC Controller基类接口

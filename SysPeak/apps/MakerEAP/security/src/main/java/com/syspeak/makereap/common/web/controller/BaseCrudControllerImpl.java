@@ -1,7 +1,5 @@
-package com.syspeak.makereap.common.web;
+package com.syspeak.makereap.common.web.controller;
 
-
-import java.io.Serializable;
 
 import com.syspeak.makereap.common.entity.Persistence;
 import com.syspeak.makereap.common.service.BaseManager;

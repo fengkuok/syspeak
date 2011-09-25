@@ -1,4 +1,4 @@
-package com.syspeak.makereap.common.web;
+package com.syspeak.makereap.common.web.controller;
 
 
 
@@ -34,7 +34,7 @@ public class BaseControllerImpl implements BaseController {
 	 */
 	public String getIndexViewName() {
 		String base = getMappingBase();
-		String indexViewName = base + VIEW_SPLIT + BaseController.INDEX;
+		String indexViewName = base + VIEW_SPLIT + INDEX;
 		return indexViewName;
 	}
 
@@ -44,7 +44,7 @@ public class BaseControllerImpl implements BaseController {
 	 */
 	public String getListViewName() {
 		String base = getMappingBase();
-		String listViewName = base + VIEW_SPLIT + BaseController.LIST;
+		String listViewName = base + VIEW_SPLIT + LIST;
 		return listViewName;
 	}
 
@@ -54,7 +54,7 @@ public class BaseControllerImpl implements BaseController {
 	 */
 	public String getInputViewName() {
 		String base = getMappingBase();
-		String inputViewName = base + VIEW_SPLIT + BaseController.INPUT;
+		String inputViewName = base + VIEW_SPLIT + INPUT;
 		return inputViewName;
 	}
 
