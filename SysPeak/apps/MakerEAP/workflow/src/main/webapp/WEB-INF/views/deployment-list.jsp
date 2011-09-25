@@ -24,7 +24,7 @@
 			<li><a href="${ctx}/deployment/create">部署流程</a></li>
 		</ul>
 	</div>
-	<form:form id="searchForm" modelAttribute="page" action="" method="delete">		
+	<form:form id="searchForm" modelAttribute="page" action="deployment" method="delete">		
 		<input type="hidden" name="pageNo" value="${page.pageNo}" />
 		<input type="hidden" name="pageSize" value="${page.pageSize}" />
 		<input type="hidden" name="orderBy" value="${page.orderBy}" />
