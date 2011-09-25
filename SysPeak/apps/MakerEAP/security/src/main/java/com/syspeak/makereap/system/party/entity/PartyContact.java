@@ -1,94 +1,86 @@
 package com.syspeak.makereap.system.party.entity;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 import com.syspeak.makereap.common.entity.base.UUIDModel;
 import com.syspeak.makereap.common.model.Period;
 import com.syspeak.makereap.system.contact.entity.ContactMechanism;
 
+import javax.persistence.*;
+import java.util.Date;
+
 /**
  * Party 联系方式
- *
- *
  */
 @Entity
-@Table( name="T_PARTY_CONTACT")
-public class PartyContact extends UUIDModel{
+@Table(name = "T_PARTY_CONTACT")
+public class PartyContact extends UUIDModel {
 
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Party
-	 */
-	@OneToOne
-	@JoinColumn( name="PARTY_ID" )
-	private Party party;
-	
-	/**
-	 * 联系机制
-	 */
-	@OneToOne( cascade=CascadeType.ALL )
-	@JoinColumn( name="CONTACT_ID")
-	private ContactMechanism contact;
-	
-	/**
-	 * 时间范围
-	 */
-	@Embedded
-	private Period period;
-	
-	/**
-	 * 显示顺序
-	 */
-	@Column( name="SEQUENCE" )
-	private Integer sequence;
-	
-	public PartyContact( ){}
-	
-	public PartyContact(Party party,ContactMechanism contact ){
-		this.party = party;
-		this.contact = contact;
-		this.period = new Period(new Date(),null); 
-	}
+    private static final long serialVersionUID = 1L;
 
-	public Party getParty() {
-		return party;
-	}
+    /**
+     * Party
+     */
+    @OneToOne
+    @JoinColumn(name = "PARTY_ID")
+    private Party party;
 
-	public void setParty(Party party) {
-		this.party = party;
-	}
+    /**
+     * 联系机制
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTACT_ID")
+    private ContactMechanism contact;
 
-	public ContactMechanism getContact() {
-		return contact;
-	}
+    /**
+     * 时间范围
+     */
+    @Embedded
+    private Period period;
 
-	public void setContact(ContactMechanism contact) {
-		this.contact = contact;
-	}
+    /**
+     * 显示顺序
+     */
+    @Column(name = "SEQUENCE")
+    private Integer sequence;
 
-	public Period getPeriod() {
-		return period;
-	}
+    public PartyContact() {
+    }
 
-	public void setPeriod(Period period) {
-		this.period = period;
-	}
+    public PartyContact(Party party, ContactMechanism contact) {
+        this.party = party;
+        this.contact = contact;
+        this.period = new Period(new Date(), null);
+    }
 
-	public Integer getSequence() {
-		return sequence;
-	}
+    public Party getParty() {
+        return party;
+    }
 
-	public void setSequence(Integer sequence) {
-		this.sequence = sequence;
-	}
+    public void setParty(Party party) {
+        this.party = party;
+    }
+
+    public ContactMechanism getContact() {
+        return contact;
+    }
+
+    public void setContact(ContactMechanism contact) {
+        this.contact = contact;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public Integer getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
 
 }

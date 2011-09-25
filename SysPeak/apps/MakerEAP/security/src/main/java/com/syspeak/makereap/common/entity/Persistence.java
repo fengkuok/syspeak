@@ -4,14 +4,13 @@ import java.io.Serializable;
 
 
 /**
- * persistence 
-
+ * persistence
  */
-public interface Persistence<ID extends Serializable> extends Serializable,Insertable{
-	
-	/**
-	 * identity for persistence
-	 */
-	public ID getIdentity( );
+public interface Persistence<ID extends Serializable> extends Serializable, Insertable {
+
+    /**
+     * identity for persistence
+     */
+    public ID getIdentity();
 
 }
