@@ -11,8 +11,7 @@
 	<groupId>com.syspeak.makereap</groupId>
 	<artifactId>maker-workflow</artifactId>
 	<packaging>war</packaging>
-	<version>0.1-SNAPSHOT</version>
-	<name>Maker-Workflow Business Process Management System</name>
+	<name>MakerEAP Maker-Workflow Business Process Management System</name>
 	<url>http://makereap.syspeak.com</url>
 
 	<!-- 项目属性 -->
