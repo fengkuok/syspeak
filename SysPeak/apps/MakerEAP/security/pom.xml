@@ -56,6 +56,18 @@
             </snapshots>
         </repository>
 
+       <repository>
+            <id>tapestry</id>
+            <name>tapestry formos</name>
+            <url>http://tapestry.formos.com/maven-repository/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+
+
+
     </repositories>
 
     <properties>
