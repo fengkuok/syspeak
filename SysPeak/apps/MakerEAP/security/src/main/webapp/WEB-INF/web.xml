@@ -14,14 +14,14 @@
     </context-param>
 
     <!-- spring security or shiro-->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!--<filter>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 
 
     	<!-- Filter 定义  -->
@@ -56,18 +56,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-    <!-- SpringSecurity filter-->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-<filter-mapping>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-	</filter-mapping>
-
+  
     <!-- 浏览器不支持put,delete等method,由该filter将/blog?_method=delete转换为标准的http delete方法 -->
 	<filter>
 	    <filter-name>HiddenHttpMethodFilter</filter-name>

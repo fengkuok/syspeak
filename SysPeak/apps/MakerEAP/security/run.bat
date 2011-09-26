@@ -1,5 +1,5 @@
 @echo off
 cd %~dp0
-call mvn  war:war jetty:run
+call mvn clean jetty:run
 
 pause
