@@ -7,19 +7,18 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 
 /**
  * Spring Security 验证码异常
-
  */
 public class SecurityBadCaptchaException extends AuthenticationServiceException
-	implements BadCaptchaException {
+        implements BadCaptchaException {
 
-	private static final long serialVersionUID = 3719616463845582702L;
+    private static final long serialVersionUID = 3719616463845582702L;
 
-	public SecurityBadCaptchaException(String msg, Throwable t) {
-		super(msg, t);
-	}
+    public SecurityBadCaptchaException(String msg, Throwable t) {
+        super(msg, t);
+    }
 
-	public SecurityBadCaptchaException(String msg) {
-		super(msg);
-	}
+    public SecurityBadCaptchaException(String msg) {
+        super(msg);
+    }
 
 }

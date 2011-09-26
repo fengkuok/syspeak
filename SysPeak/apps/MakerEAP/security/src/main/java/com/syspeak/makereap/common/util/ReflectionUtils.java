@@ -226,53 +226,52 @@ public abstract class ReflectionUtils {
         return new RuntimeException("Unexpected Checked Exception.", e);
     }
 
-       /**
+    /**
      * 通过getter和setter方法取对象属性
      */
-	public static Map<String,String> propertiesByGetterAndSetter( Object obj ){
-		if( obj == null )
-			return null;
+    public static Map<String, String> propertiesByGetterAndSetter(Object obj) {
+        if (obj == null)
+            return null;
 
-		Method[] methods = obj.getClass().getMethods();
-		Map<String,Method> setterMap = new HashMap<String,Method>();
-		Map<String,Method> getterMap = new HashMap<String,Method>();
-        for( Method item:methods ){
-        	String property = item.getName();
-    		if( property.indexOf( SETTER_PREFIX ) != -1){
-    			setterMap.put(property.substring(3), item);
-    		}else if(  property.indexOf( GETTER_PREFIX ) != -1){
-    			getterMap.put(property.substring(3), item);
-    		}else if(  property.indexOf( GETTER_PREFIX2 ) != -1){
-    			getterMap.put(property.substring(2), item);
-    		}
+        Method[] methods = obj.getClass().getMethods();
+        Map<String, Method> setterMap = new HashMap<String, Method>();
+        Map<String, Method> getterMap = new HashMap<String, Method>();
+        for (Method item : methods) {
+            String property = item.getName();
+            if (property.indexOf(SETTER_PREFIX) != -1) {
+                setterMap.put(property.substring(3), item);
+            } else if (property.indexOf(GETTER_PREFIX) != -1) {
+                getterMap.put(property.substring(3), item);
+            } else if (property.indexOf(GETTER_PREFIX2) != -1) {
+                getterMap.put(property.substring(2), item);
+            }
         }
 
-        Map<String,String> result = new HashMap<String,String>( );
-        for( String key:setterMap.keySet()){
-        	if( getterMap.get(key) != null ){
-        		key = key.replaceFirst(key.substring(0,1), key.substring(0,1).toLowerCase());
-        		result.put( key ,key);
-        	}
+        Map<String, String> result = new HashMap<String, String>();
+        for (String key : setterMap.keySet()) {
+            if (getterMap.get(key) != null) {
+                key = key.replaceFirst(key.substring(0, 1), key.substring(0, 1).toLowerCase());
+                result.put(key, key);
+            }
         }
 
         return result;
-	}
-
+    }
 
 
     /**
      * 取对象中的属性值
      */
     @SuppressWarnings("unchecked")
-	public static Object reflectGetValue( Object model, String property ){
+    public static Object reflectGetValue(Object model, String property) {
         Class clazz = model.getClass();
         Method[] methods = clazz.getMethods();
         Object result = null;
 
-        for( Method item:methods ){
+        for (Method item : methods) {
             try {
-                if( item.getName().equalsIgnoreCase( GETTER_PREFIX + property ) ){
-                    result = item.invoke( model );
+                if (item.getName().equalsIgnoreCase(GETTER_PREFIX + property)) {
+                    result = item.invoke(model);
                     break;
                 }
             } catch (IllegalArgumentException e) {
@@ -291,14 +290,14 @@ public abstract class ReflectionUtils {
      * 设置对象的属性值
      */
     @SuppressWarnings("unchecked")
-	public static void reflectSetValue( Object model, String property, Object value ){
+    public static void reflectSetValue(Object model, String property, Object value) {
         Class clazz = model.getClass();
         Method[] methods = clazz.getMethods();
 
-        for( Method item:methods ){
+        for (Method item : methods) {
             try {
-                if( item.getName().equalsIgnoreCase( SETTER_PREFIX + property ) ){
-                    item.invoke( model , value );
+                if (item.getName().equalsIgnoreCase(SETTER_PREFIX + property)) {
+                    item.invoke(model, value);
                     return;
                 }
             } catch (IllegalArgumentException e) {

@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 /**
  * hibernate dao implements
  */
-public class HibernateDao<T extends Persistence<?>> extends SimpleHibernateDao<T>  implements Dao<T> {
+public class HibernateDao<T extends Persistence<?>> extends SimpleHibernateDao<T> implements Dao<T> {
 
     public static final String DEFAULT_ALIAS = "x";
 

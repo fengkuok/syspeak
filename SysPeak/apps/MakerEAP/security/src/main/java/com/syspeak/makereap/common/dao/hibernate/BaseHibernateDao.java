@@ -10,7 +10,7 @@ import com.syspeak.makereap.common.entity.Persistence;
  * Time: 下午3:23
  * To change this template use File | Settings | File Templates.
  */
-public class BaseHibernateDao<T extends Persistence<?>> extends HibernateDao<T>  implements Dao<T> {
+public class BaseHibernateDao<T extends Persistence<?>> extends HibernateDao<T> implements Dao<T> {
     /**
      * 通过子类的泛型定义取得对象类型Class.
      * eg.

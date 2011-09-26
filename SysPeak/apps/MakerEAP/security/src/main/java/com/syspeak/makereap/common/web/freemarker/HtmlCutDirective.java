@@ -1,7 +1,6 @@
 package com.syspeak.makereap.common.web.freemarker;
 
 
-
 import com.syspeak.makereap.common.util.StringUtil;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

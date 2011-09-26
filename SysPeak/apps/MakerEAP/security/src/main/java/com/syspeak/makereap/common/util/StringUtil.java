@@ -37,7 +37,8 @@ public class StringUtil {
 
         return out;
     }
-       /**
+
+    /**
      * 处理url
      * <p/>
      * url为null返回null，url为空串或以http://或https://开头，则加上http://，其他情况返回原参数。

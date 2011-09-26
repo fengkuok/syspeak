@@ -4,7 +4,6 @@ import freemarker.template.TemplateModelException;
 
 /**
  * 非布尔参数异常
- *
  */
 @SuppressWarnings("serial")
 public class MustDateException extends TemplateModelException {

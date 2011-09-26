@@ -5,7 +5,6 @@ import freemarker.template.TemplateModelException;
 
 /**
  * 非布尔参数异常
- *
  */
 @SuppressWarnings("serial")
 public class MustBooleanException extends TemplateModelException {
