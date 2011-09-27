@@ -1,3 +1,11 @@
 .icon-btn-add {
-	background-image: url(../images/home.png) !important;
+	background-image: url(../images/btn/add.gif) !important;
+}
+
+.icon-btn-edit {
+	background-image: url(../images/btn/edit.png) !important;
+}
+
+.icon-btn-delete {
+	background-image: url(../images/btn/delete.gif) !important;
 }
