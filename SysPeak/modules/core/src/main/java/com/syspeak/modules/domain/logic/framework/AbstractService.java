@@ -1,13 +1,12 @@
 package com.syspeak.modules.domain.logic.framework;
 
+import java.io.Serializable;
+import java.util.List;
+
 import org.springside.modules.orm.Page;
 
-import com.syspeak.modules.domain.model.AbstractEntity;
-
-public interface AbstractService<T extends AbstractEntity> {
-	public static String SUCCESS = "success";
-	public static String ERROR = "error";
-//	public static String 
+//T extends AbstractEntity
+public interface AbstractService<T,PK extends Serializable> {
 	
 	/**
 	 * Find entity by technical id.
@@ -16,7 +15,9 @@ public interface AbstractService<T extends AbstractEntity> {
 	 *            id
 	 * @return user
 	 */
-	T find(Long id);
+	T find(PK id);
+	
+	List<T> findAll();
 
 	/**
 	 * Delete the entity out the database.
@@ -24,7 +25,11 @@ public interface AbstractService<T extends AbstractEntity> {
 	 * @param entity
 	 *            entity
 	 */
-	String remove(T entity);
+	void delete(final T entity);
+	
+	void delete(final PK id); 
+	
+	void batchDelete(final String ids);
 
 	/**
 	 * * Store or update the entity in the database.
@@ -33,7 +38,7 @@ public interface AbstractService<T extends AbstractEntity> {
 	 *            entity
 	 * @return
 	 */
-	String saveOrUpdate(T entity);
+	void saveOrUpdate(T entity);
 
 	void refresh(T entity);
 	
