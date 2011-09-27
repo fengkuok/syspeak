@@ -49,7 +49,7 @@
 				<version>2.0-alpha-4</version>
 			</plugin>
 
-      <plugin>
+      		<plugin>
 				<groupId>org.servebox.flex</groupId>
 				<artifactId>flex-plugin</artifactId>
 				<version>2.3.2</version>
@@ -62,7 +62,7 @@
 					<unitTestMxmlFile>src/test/flex/MavenTests.mxml</unitTestMxmlFile>
 					<locale>en_US</locale>
 				</configuration>
-      </plugin>
+      		</plugin>
 			
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -82,6 +82,5 @@
 		<module>security</module>
 		
     </modules>
-
 	
 </project>
