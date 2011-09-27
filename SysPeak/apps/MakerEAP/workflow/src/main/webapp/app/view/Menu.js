@@ -85,7 +85,8 @@ Ext.define('Workflow.view.Menu',{
     
     loadMenus : function(){
     	Ext.Ajax.request({
-		    url: 'data/tree.json',
+		    url: 'resources/data/tree.js',
+		    method : 'GET',
 		    scope: this,
 		    params: {
 		        id: 1
@@ -150,26 +151,13 @@ Ext.define('Workflow.view.Menu',{
 		    editable : false,
 		    listeners:{
 		         select : function(field, value, options){
-		         	if(window.localStorage){
-		         		localStorage.themeLocalStore = this.getValue();
-					}else{
-					 	alert('This browser does NOT support localStorage');
-					}
-		         	//暂未实现存入cookies中
+		         	var theme = Ext.state.Manager.set('theme', this.getValue());
 		         	Ext.util.CSS.swapStyleSheet("theme", Ext.Loader.getPath('cxt') + '/static/extjs4/resources/css/ext-all' + this.getValue() + '.css');
 		         },
 		         beforerender : function(){
-		         	if(window.localStorage){
-				 		var theme = localStorage.themeLocalStore;
-				 		if(theme == null || theme == "null" || theme == 'undefined'){
-				 			theme = "";
-				 		}
-				 		//设置默认选中
-				 		this.setValue(theme);
-					}else{
-					 	alert('This browser does NOT support localStorage');
-					}
-		         	
+		         	var theme = Ext.state.Manager.get('theme');
+		         	theme = typeof theme == 'undefined' ? '' : theme;
+		         	this.setValue(theme);
 		         }
 		    }
         }];
