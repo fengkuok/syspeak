@@ -11,7 +11,7 @@ Ext.define('Workflow.view.cls.Tree',{
     	expanded : true
     },
     initComponent : function(){
-        Ext.apply(this,{
+        Ext.applyIf(this,{
            useArrows: true,
            children :[]
         });
