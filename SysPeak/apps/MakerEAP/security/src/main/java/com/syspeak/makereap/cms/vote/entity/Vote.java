@@ -1,4 +1,4 @@
-package com.cathy.cms.vote.entity;
+package com.syspeak.makereap.cms.vote.entity;
 
 /**
  * Created by IntelliJ IDEA.
