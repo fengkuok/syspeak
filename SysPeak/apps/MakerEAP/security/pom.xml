@@ -78,7 +78,17 @@
         <commons-fileupload.version>1.2.0</commons-fileupload.version>
     </properties>
 
-    <dependencies>
+	<dependencies>
+    	<!-- syspeak modules -->
+    	<dependency>
+        	<groupId>com.syspeak</groupId>
+        	<artifactId>syspeak-core</artifactId>
+      	</dependency>
+      	<!-- springside modules -->
+      	<dependency>
+        	<groupId>org.springside</groupId>
+        	<artifactId>springside-core</artifactId>
+      	</dependency>      
         <!-- spring begin -->
         <!-- spring base -->
         <dependency>
