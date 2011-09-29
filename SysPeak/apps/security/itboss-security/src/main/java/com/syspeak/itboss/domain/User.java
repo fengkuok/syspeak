@@ -20,55 +20,58 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * User .
- *
+ * 
  * @author Lingo
  */
 @Entity
 @Table(name = "SEC_USER")
 public class User extends LongIdEntity {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1999791183473715632L;
 
-	/** null. */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "GROUP_ID", nullable = false)
 	private Group group;
 
-	/** null. */
+	@Column(name = "USERNAME", nullable = false, length = 50)
 	private String username;
 
-	/** null. */
+	@Column(name = "PASSWORD", nullable = false, length = 50)
 	private String password;
 
-	/** null. */
+	@Column(name = "CREATOR", nullable = false, length = 50)
 	private String creator;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	private Date createTime;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "UPDATE_TIME", length = 6)
 	private Date updateTime;
 
-	/** null. */
+	@Column(name = "STATUS", nullable = false)
 	private int status;
 
-	/** null. */
+	@Column(name = "LOGO", nullable = false, length = 200)
 	private String logo;
 
-	/** null. */
+	@Column(name = "DESCN", length = 200)
 	private String descn;
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_USER_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) })
 	private Set<Role> roles = new HashSet<Role>(0);
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_GROUP_USER", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	private Set<Group> groups = new HashSet<Group>(0);
 
 	public User() {
 	}
 
-	public User(Group group, String username, String password, String creator, Date createTime, int status, String logo) {
+	public User(Group group, String username, String password, String creator,
+			Date createTime, int status, String logo) {
 		this.group = group;
 		this.username = username;
 		this.password = password;
@@ -78,8 +81,9 @@ public class User extends LongIdEntity {
 		this.logo = logo;
 	}
 
-	public User(Group group, String username, String password, String creator, Date createTime, Date updateTime,
-			int status, String logo, String descn, Set<Role> roles, Set<Group> groups) {
+	public User(Group group, String username, String password, String creator,
+			Date createTime, Date updateTime, int status, String logo,
+			String descn, Set<Role> roles, Set<Group> groups) {
 		this.group = group;
 		this.username = username;
 		this.password = password;
@@ -93,128 +97,90 @@ public class User extends LongIdEntity {
 		this.groups = groups;
 	}
 
-	/** @return null. */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID", nullable = false)
 	public Group getGroup() {
 		return this.group;
 	}
 
-	/** @param group null. */
 	public void setGroup(Group group) {
 		this.group = group;
 	}
 
-	/** @return null. */
-	@Column(name = "USERNAME", nullable = false, length = 50)
 	public String getUsername() {
 		return this.username;
 	}
 
-	/** @param username null. */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	/** @return null. */
-	@Column(name = "PASSWORD", nullable = false, length = 50)
 	public String getPassword() {
 		return this.password;
 	}
 
-	/** @param password null. */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/** @return null. */
-	@Column(name = "CREATOR", nullable = false, length = 50)
 	public String getCreator() {
 		return this.creator;
 	}
 
-	/** @param creator null. */
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	public Date getCreateTime() {
 		return this.createTime;
 	}
 
-	/** @param createTime null. */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_TIME", length = 6)
 	public Date getUpdateTime() {
 		return this.updateTime;
 	}
 
-	/** @param updateTime null. */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	/** @return null. */
-	@Column(name = "STATUS", nullable = false)
 	public int getStatus() {
 		return this.status;
 	}
 
-	/** @param status null. */
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	/** @return null. */
-	@Column(name = "LOGO", nullable = false, length = 200)
 	public String getLogo() {
 		return this.logo;
 	}
 
-	/** @param logo null. */
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
 
-	/** @return null. */
-	@Column(name = "DESCN", length = 200)
 	public String getDescn() {
 		return this.descn;
 	}
 
-	/** @param descn null. */
 	public void setDescn(String descn) {
 		this.descn = descn;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_USER_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) })
 	public Set<Role> getRoles() {
 		return this.roles;
 	}
 
-	/** @param roles . */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_GROUP_USER", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	public Set<Group> getGroups() {
 		return this.groups;
 	}
 
-	/** @param groups . */
 	public void setGroups(Set<Group> groups) {
 		this.groups = groups;
 	}

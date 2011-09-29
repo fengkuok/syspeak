@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -24,54 +23,59 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Role .
- *
+ * 
  * @author Lingo
  */
 @Entity
 @Table(name = "SEC_ROLE")
 public class Role extends LongIdEntity {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1169790838142991071L;
 
-	/** null. */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "GROUP_ID", nullable = false)
 	private Group group;
 
-	/** null. */
+	@Column(name = "NAME", nullable = false, length = 50)
 	private String name;
 
-	/** null. */
+	@Column(name = "CREATOR", nullable = false, length = 50)
 	private String creator;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	private Date createTime;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "UPDATE_TIME", length = 6)
 	private Date updateTime;
 
-	/** null. */
+	@Column(name = "STATUS", nullable = false)
 	private int status;
 
-	/** null. */
+	@Column(name = "LOGO", nullable = false, length = 200)
 	private String logo;
 
-	/** null. */
+	@Column(name = "DESCN", length = 200)
 	private String descn;
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_USER_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) })
 	private Set<User> users = new HashSet<User>(0);
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_GROUP_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	private Set<Group> groups = new HashSet<Group>(0);
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) })
 	private Set<Resc> rescs = new HashSet<Resc>(0);
 
 	public Role() {
 	}
 
-	public Role(Group group, String name, String creator, Date createTime, int status, String logo) {
+	public Role(Group group, String name, String creator, Date createTime,
+			int status, String logo) {
 		this.group = group;
 		this.name = name;
 		this.creator = creator;
@@ -80,8 +84,9 @@ public class Role extends LongIdEntity {
 		this.logo = logo;
 	}
 
-	public Role(Group group, String name, String creator, Date createTime, Date updateTime, int status, String logo,
-			String descn, Set<User> users, Set<Group> groups, Set<Resc> rescs) {
+	public Role(Group group, String name, String creator, Date createTime,
+			Date updateTime, int status, String logo, String descn,
+			Set<User> users, Set<Group> groups, Set<Resc> rescs) {
 		this.group = group;
 		this.name = name;
 		this.creator = creator;
@@ -95,134 +100,98 @@ public class Role extends LongIdEntity {
 		this.rescs = rescs;
 	}
 
-	/** @return null. */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID", nullable = false)
 	public Group getGroup() {
-		return this.group;
+		return group;
 	}
 
-	/** @param group null. */
 	public void setGroup(Group group) {
 		this.group = group;
 	}
 
-	/** @return null. */
-	@Column(name = "NAME", nullable = false, length = 50)
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
-	/** @param name null. */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/** @return null. */
-	@Column(name = "CREATOR", nullable = false, length = 50)
 	public String getCreator() {
-		return this.creator;
+		return creator;
 	}
 
-	/** @param creator null. */
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	public Date getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
-	/** @param createTime null. */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_TIME", length = 6)
 	public Date getUpdateTime() {
-		return this.updateTime;
+		return updateTime;
 	}
 
-	/** @param updateTime null. */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	/** @return null. */
-	@Column(name = "STATUS", nullable = false)
 	public int getStatus() {
-		return this.status;
+		return status;
 	}
 
-	/** @param status null. */
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	/** @return null. */
-	@Column(name = "LOGO", nullable = false, length = 200)
 	public String getLogo() {
-		return this.logo;
+		return logo;
 	}
 
-	/** @param logo null. */
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
 
-	/** @return null. */
-	@Column(name = "DESCN", length = 200)
 	public String getDescn() {
-		return this.descn;
+		return descn;
 	}
 
-	/** @param descn null. */
 	public void setDescn(String descn) {
 		this.descn = descn;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_USER_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) })
 	public Set<User> getUsers() {
-		return this.users;
+		return users;
 	}
 
-	/** @param users . */
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_GROUP_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	public Set<Group> getGroups() {
-		return this.groups;
+		return groups;
 	}
 
-	/** @param groups . */
 	public void setGroups(Set<Group> groups) {
 		this.groups = groups;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) })
 	public Set<Resc> getRescs() {
-		return this.rescs;
+		return rescs;
 	}
 
-	/** @param rescs . */
 	public void setRescs(Set<Resc> rescs) {
 		this.rescs = rescs;
 	}
 
-	@Transient
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Set<String> getRescPermissions() {
 		Set<String> permissions = new LinkedHashSet<String>();
 		for (Resc resc : rescs) {

@@ -20,55 +20,58 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Resc .
- *
+ * 
  * @author Lingo
  */
 @Entity
 @Table(name = "SEC_RESC")
 public class Resc extends LongIdEntity {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6012046672697187060L;
 
-	/** null. */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "GROUP_ID", nullable = false)
 	private Group group;
 
-	/** null. */
+	@Column(name = "RES_TYPE", nullable = false, length = 100)
 	private String resType;
 
-	/** null. */
+	@Column(name = "RES_STRING", nullable = false, length = 200)
 	private String resString;
 
-	/** null. */
+	@Column(name = "CREATOR", nullable = false, length = 50)
 	private String creator;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	private Date createTime;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "UPDATE_TIME", length = 6)
 	private Date updateTime;
 
-	/** null. */
+	@Column(name = "STATUS", nullable = false)
 	private int status;
 
-	/** null. */
+	@Column(name = "PRIORITY", nullable = false)
 	private int priority;
 
-	/** null. */
+	@Column(name = "DESCN", length = 200)
 	private String descn;
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_GROUP_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	private Set<Group> groups = new HashSet<Group>(0);
 
-	/** . */
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) })
 	private Set<Role> roles = new HashSet<Role>(0);
 
 	public Resc() {
 	}
 
-	public Resc(Group group, String resType, String resString, String creator, Date createTime, int status, int priority) {
+	public Resc(Group group, String resType, String resString, String creator,
+			Date createTime, int status, int priority) {
 		this.group = group;
 		this.resType = resType;
 		this.resString = resString;
@@ -78,8 +81,9 @@ public class Resc extends LongIdEntity {
 		this.priority = priority;
 	}
 
-	public Resc(Group group, String resType, String resString, String creator, Date createTime, Date updateTime,
-			int status, int priority, String descn, Set<Group> groups, Set<Role> roles) {
+	public Resc(Group group, String resType, String resString, String creator,
+			Date createTime, Date updateTime, int status, int priority,
+			String descn, Set<Group> groups, Set<Role> roles) {
 		this.group = group;
 		this.resType = resType;
 		this.resString = resString;
@@ -93,128 +97,90 @@ public class Resc extends LongIdEntity {
 		this.roles = roles;
 	}
 
-	/** @return null. */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID", nullable = false)
 	public Group getGroup() {
 		return this.group;
 	}
 
-	/** @param group null. */
 	public void setGroup(Group group) {
 		this.group = group;
 	}
 
-	/** @return null. */
-	@Column(name = "RES_TYPE", nullable = false, length = 100)
 	public String getResType() {
 		return this.resType;
 	}
 
-	/** @param resType null. */
 	public void setResType(String resType) {
 		this.resType = resType;
 	}
 
-	/** @return null. */
-	@Column(name = "RES_STRING", nullable = false, length = 200)
 	public String getResString() {
 		return this.resString;
 	}
 
-	/** @param resString null. */
 	public void setResString(String resString) {
 		this.resString = resString;
 	}
 
-	/** @return null. */
-	@Column(name = "CREATOR", nullable = false, length = 50)
 	public String getCreator() {
 		return this.creator;
 	}
 
-	/** @param creator null. */
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_TIME", nullable = false, length = 6)
 	public Date getCreateTime() {
 		return this.createTime;
 	}
 
-	/** @param createTime null. */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_TIME", length = 6)
 	public Date getUpdateTime() {
 		return this.updateTime;
 	}
 
-	/** @param updateTime null. */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	/** @return null. */
-	@Column(name = "STATUS", nullable = false)
 	public int getStatus() {
 		return this.status;
 	}
 
-	/** @param status null. */
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	/** @return null. */
-	@Column(name = "PRIORITY", nullable = false)
 	public int getPriority() {
 		return this.priority;
 	}
 
-	/** @param priority null. */
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
 
-	/** @return null. */
-	@Column(name = "DESCN", length = 200)
 	public String getDescn() {
 		return this.descn;
 	}
 
-	/** @param descn null. */
 	public void setDescn(String descn) {
 		this.descn = descn;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_GROUP_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	public Set<Group> getGroups() {
 		return this.groups;
 	}
 
-	/** @param groups . */
 	public void setGroups(Set<Group> groups) {
 		this.groups = groups;
 	}
 
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) })
 	public Set<Role> getRoles() {
 		return this.roles;
 	}
 
-	/** @param roles . */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}

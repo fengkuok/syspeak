@@ -23,30 +23,30 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 @Table(name = "CMS_ATTACH")
 public class Attach extends LongIdEntity {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 97313830394506621L;
 
-	/** null. */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CONTENT_ID")
 	private Content content;
 
-	/** null. */
+	@Column(name = "NAME", length = 50)
 	private String name;
 
-	/** null. */
+	@Column(name = "PATH", length = 200)
 	private String path;
 
-	/** null. */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATE_TIME", length = 6)
 	private Date createTime;
 
-	/** null. */
+	@Column(name = "DESCN", length = 200)
 	private String descn;
 
 	public Attach() {
 	}
 
-	public Attach(Content content, String name, String path, Date createTime, String descn) {
+	public Attach(Content content, String name, String path, Date createTime,
+			String descn) {
 		this.content = content;
 		this.name = name;
 		this.path = path;
@@ -54,74 +54,42 @@ public class Attach extends LongIdEntity {
 		this.descn = descn;
 	}
 
-	/** @return null. */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CONTENT_ID")
 	public Content getContent() {
 		return this.content;
 	}
 
-	/**
-	 * @param content
-	 *            null.
-	 */
 	public void setContent(Content content) {
 		this.content = content;
 	}
 
-	/** @return null. */
-	@Column(name = "NAME", length = 50)
 	public String getName() {
 		return this.name;
 	}
 
-	/**
-	 * @param name
-	 *            null.
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/** @return null. */
-	@Column(name = "PATH", length = 200)
 	public String getPath() {
 		return this.path;
 	}
 
-	/**
-	 * @param path
-	 *            null.
-	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
 
-	/** @return null. */
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_TIME", length = 6)
 	public Date getCreateTime() {
 		return this.createTime;
 	}
 
-	/**
-	 * @param createTime
-	 *            null.
-	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	/** @return null. */
-	@Column(name = "DESCN", length = 200)
 	public String getDescn() {
 		return this.descn;
 	}
 
-	/**
-	 * @param descn
-	 *            null.
-	 */
 	public void setDescn(String descn) {
 		this.descn = descn;
 	}
