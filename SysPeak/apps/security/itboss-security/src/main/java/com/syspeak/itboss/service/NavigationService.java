@@ -1,9 +1,9 @@
-package com.syspeak.itboss.domain.logic;
+package com.syspeak.itboss.service;
 
 import org.springframework.stereotype.Service;
 
 import com.syspeak.itboss.dao.NavigationDao;
-import com.syspeak.itboss.domain.model.Navigation;
+import com.syspeak.itboss.domain.Navigation;
 import com.syspeak.modules.service.BaseLongIdEntityServiceImpl;
 
 /**

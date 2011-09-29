@@ -1,4 +1,4 @@
-package com.syspeak.itboss.domain.model;
+package com.syspeak.itboss.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

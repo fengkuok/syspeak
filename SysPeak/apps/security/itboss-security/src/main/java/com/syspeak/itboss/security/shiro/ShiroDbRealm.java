@@ -13,9 +13,10 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.syspeak.itboss.domain.logic.UserService;
-import com.syspeak.itboss.domain.model.Role;
-import com.syspeak.itboss.domain.model.User;
+import com.syspeak.itboss.domain.Role;
+import com.syspeak.itboss.domain.User;
+import com.syspeak.itboss.service.UserService;
+
 
 /**
  * 

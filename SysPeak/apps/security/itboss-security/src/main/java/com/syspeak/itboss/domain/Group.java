@@ -1,4 +1,4 @@
-package com.syspeak.itboss.domain.model;
+package com.syspeak.itboss.domain;
 
 import java.util.Date;
 import java.util.HashSet;

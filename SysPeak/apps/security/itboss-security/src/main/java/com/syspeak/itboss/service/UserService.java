@@ -1,9 +1,9 @@
-package com.syspeak.itboss.domain.logic;
+package com.syspeak.itboss.service;
 
 import org.springframework.stereotype.Service;
 
 import com.syspeak.itboss.dao.UserDao;
-import com.syspeak.itboss.domain.model.User;
+import com.syspeak.itboss.domain.User;
 import com.syspeak.modules.service.BaseLongIdEntityServiceImpl;
 
 /**

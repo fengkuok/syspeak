@@ -1,9 +1,9 @@
-package com.syspeak.itboss.domain.logic;
+package com.syspeak.itboss.service;
 
 import org.springframework.stereotype.Service;
 
 import com.syspeak.itboss.dao.CategoryDao;
-import com.syspeak.itboss.domain.model.Category;
+import com.syspeak.itboss.domain.Category;
 import com.syspeak.modules.service.BaseLongIdEntityServiceImpl;
 
 /**

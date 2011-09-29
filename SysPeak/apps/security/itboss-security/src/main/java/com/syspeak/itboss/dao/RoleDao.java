@@ -2,7 +2,7 @@ package com.syspeak.itboss.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.syspeak.itboss.domain.model.Role;
+import com.syspeak.itboss.domain.Role;
 import com.syspeak.modules.dao.orm.hibernate.BaseHibernateDao;
 
 /**
