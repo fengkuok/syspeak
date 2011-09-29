@@ -8,6 +8,9 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -27,6 +30,10 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 public class Content extends LongIdEntity {
 
 	private static final long serialVersionUID = 8805919087096311763L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORY_ID")
@@ -69,6 +76,14 @@ public class Content extends LongIdEntity {
 		this.updateTime = updateTime;
 		this.content = content;
 		this.attachs = attachs;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Category getCategory() {
