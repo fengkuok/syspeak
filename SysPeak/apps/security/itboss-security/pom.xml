@@ -6,7 +6,7 @@
 		<groupId>com.syspeak.apps</groupId>
 		<artifactId>syspeak-apps</artifactId>
 		<version>0.1-SNAPSHOT</version>
-		<relativePath>../</relativePath>
+		<relativePath>../../</relativePath>
 	</parent>    
     <groupId>com.syspeak.apps</groupId>
     <artifactId>itboss-security</artifactId>
