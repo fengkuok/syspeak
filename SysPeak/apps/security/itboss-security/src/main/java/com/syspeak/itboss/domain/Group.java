@@ -19,7 +19,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Group .
@@ -28,7 +27,7 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
  */
 @Entity
 @Table(name = "SEC_GROUP")
-public class Group extends LongIdEntity {
+public class Group {
 
 	private static final long serialVersionUID = -8895529473299903143L;
 

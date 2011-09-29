@@ -10,12 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Category .
@@ -24,7 +21,7 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
  */
 @Entity
 @Table(name = "CMS_CATEGORY")
-public class Category extends LongIdEntity {
+public class Category {
 
 	private static final long serialVersionUID = -8499775434683045253L;
 

@@ -19,7 +19,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Resc .
@@ -28,7 +27,7 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
  */
 @Entity
 @Table(name = "SEC_RESC")
-public class Resc extends LongIdEntity {
+public class Resc {
 
 	private static final long serialVersionUID = -6012046672697187060L;
 

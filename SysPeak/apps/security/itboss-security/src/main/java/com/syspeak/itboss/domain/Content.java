@@ -11,14 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Content .
@@ -27,7 +24,7 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
  */
 @Entity
 @Table(name = "CMS_CONTENT")
-public class Content extends LongIdEntity {
+public class Content {
 
 	private static final long serialVersionUID = 8805919087096311763L;
 

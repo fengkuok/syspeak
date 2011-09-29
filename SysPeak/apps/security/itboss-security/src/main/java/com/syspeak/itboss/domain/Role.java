@@ -22,7 +22,6 @@ import javax.persistence.TemporalType;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Role .
@@ -31,7 +30,7 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
  */
 @Entity
 @Table(name = "SEC_ROLE")
-public class Role extends LongIdEntity {
+public class Role {
 
 	private static final long serialVersionUID = -1169790838142991071L;
 
