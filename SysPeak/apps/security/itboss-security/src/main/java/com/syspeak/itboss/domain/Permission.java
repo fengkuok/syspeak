@@ -5,10 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
-
-import com.syspeak.modules.domain.model.Persistence;
-
 /**
  *
  *
@@ -16,7 +12,7 @@ import com.syspeak.modules.domain.model.Persistence;
  */
 @Entity
 @Table(name = "T_SECURITY_PERMISSION")
-public class Permission implements Persistence<String>, GrantedAuthority {
+public class Permission {
 
 	private static final long serialVersionUID = 1649939616381932770L;
 
@@ -39,29 +35,20 @@ public class Permission implements Persistence<String>, GrantedAuthority {
 	@Column(name = "URL", length = 300)
 	private String url;
 
-	@Override
-	public String getAuthority() {
-		return this.getToken();
-	}
-
-	@Override
-	public String getIdentity() {
-		return this.token;
-	}
-
 	public void preInsert() {
-		//do nothing
+		// do nothing
 	}
 
 	public void postInsertFailure() {
-		//do nothing
+		// do nothing
 	}
 
 	public boolean isInsert() {
 		return this.token == null;
 	}
 
-	//-- getters and setters ---------------------------------------------------
+	// -- getters and setters
+	// ---------------------------------------------------
 
 	public String getToken() {
 		return token;

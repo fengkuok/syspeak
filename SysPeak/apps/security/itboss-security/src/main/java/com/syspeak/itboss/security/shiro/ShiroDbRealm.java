@@ -17,7 +17,6 @@ import com.syspeak.itboss.domain.Role;
 import com.syspeak.itboss.domain.User;
 import com.syspeak.itboss.service.impl.UserServiceImpl;
 
-
 /**
  * 
  * @company SysPeak (C) Copyright
@@ -84,4 +83,5 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	public void setUserService(UserServiceImpl userService) {
 		this.userService = userService;
 	}
+
 }
