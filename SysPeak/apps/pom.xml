@@ -17,7 +17,7 @@
 	<name>apps</name>
     
 	<modules>
-		<module>MakerEAP</module>
+
 		<module>security/itboss-security</module>		
 	</modules>
 	

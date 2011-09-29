@@ -42,7 +42,7 @@ public interface RoleService {
      * @return RoleSet  角色集合
      * @throws SecurityException
      */
-    public RoleSet getAllRole() throws SecurityException;
+    public Set<Role> getAllRole() throws SecurityException;
 
 //    /**
 //     * 根据角色名取得角色信息
@@ -157,16 +157,16 @@ public interface RoleService {
 //     * @param offset 起始位置
 //     * @param size 集合大小
 //     * @param roleId
-//     * @return UserSet 用户信息集合
+//     * @return Set<User> 用户信息集合
 //     * @throws SecurityException
 //     */
-//    public UserSet getUsersFromRole(int roleId, int offset, int size) throws SecurityException;
+//    public Set<User> getUsersFromRole(int roleId, int offset, int size) throws SecurityException;
 
     /**
      * 取得某个角色中的所有用户(不分页)
      *
      * @param roleId 角色编号
-     * @return UserSet 用户信息集合
+     * @return Set<User> 用户信息集合
      * @throws SecurityException
      */
     public Set<User> getUsersFromRole(int roleId) throws SecurityException;
@@ -205,7 +205,7 @@ public interface RoleService {
      * 根据角色编码取角色拥有的权限集合
      *
      * @param roleId 角色id
-     * @return PermissionSet 权限集合
+     * @return Set<Permission> 权限集合
      * @throws SecurityException
      */
     public <Permission>Permission getPermissionsFromRole(int roleId) throws SecurityException;

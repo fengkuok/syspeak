@@ -223,7 +223,7 @@ public interface GroupService {
      * @param groupId 组织ID
      * @param offset 页码
      * @param size   每页数量
-     * @return UserSet 用户信息集合
+     * @return Set<User> 用户信息集合
      * @throws SecurityException
      */
     public Set<User> getUsersFromGroup(String name, int groupId, int offset, int size) throws SecurityException;
@@ -233,7 +233,7 @@ public interface GroupService {
      * 如name为 "" 或 null， 则取组织中所有用户数量；否则使用 '%"+name+"%'模糊查找用户
      * @param name 登陆名前缀
      * @param groupId 组织编号
-     * @return UserSet 用户信息集合
+     * @return Set<User> 用户信息集合
      * @throws SecurityException
      */
     public Set<User> getUsersFromGroup(String name, int groupId) throws SecurityException;
@@ -345,7 +345,7 @@ public interface GroupService {
      * 取得某个组织下的所有权限
      *
      * @param groupId  组织id
-     * @return PermissionSet 权限集合
+     * @return Set<Permission> 权限集合
      * @throws SecurityException
      */
     public Set<Permission> getPermissionsFromGroup(int groupId) throws SecurityException;
