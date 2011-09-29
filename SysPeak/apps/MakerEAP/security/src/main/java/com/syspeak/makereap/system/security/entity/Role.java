@@ -8,8 +8,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -18,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.syspeak.modules.domain.model.identity.LongIdEntity;
+
 /**
  * Role .
  *
@@ -25,10 +25,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "SEC_ROLE")
-public class Role implements java.io.Serializable {
-	/** null. */
-	private Long id;
-
+public class Role extends LongIdEntity {
 	/** null. */
 	private Group group;
 
@@ -87,19 +84,6 @@ public class Role implements java.io.Serializable {
 		this.users = users;
 		this.groups = groups;
 		this.rescs = rescs;
-	}
-
-	/** @return null. */
-	@Id
-	@GeneratedValue
-	@Column(name = "ID", unique = true, nullable = false)
-	public Long getId() {
-		return this.id;
-	}
-
-	/** @param id null. */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/** @return null. */

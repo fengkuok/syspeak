@@ -8,14 +8,14 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Content .
@@ -24,10 +24,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "CMS_CONTENT")
-public class Content implements java.io.Serializable {
-	/** null. */
-	private Long id;
-
+public class Content extends LongIdEntity {
 	/** null. */
 	private Category category;
 
@@ -65,19 +62,6 @@ public class Content implements java.io.Serializable {
 		this.updateTime = updateTime;
 		this.content = content;
 		this.attachs = attachs;
-	}
-
-	/** @return null. */
-	@Id
-	@GeneratedValue
-	@Column(name = "ID", unique = true, nullable = false)
-	public Long getId() {
-		return this.id;
-	}
-
-	/** @param id null. */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/** @return null. */

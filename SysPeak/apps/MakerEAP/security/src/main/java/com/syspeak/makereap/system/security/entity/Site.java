@@ -6,12 +6,12 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Site .
@@ -20,9 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CMS_SITE")
-public class Site implements java.io.Serializable {
-	/** null. */
-	private Long id;
+public class Site extends LongIdEntity {
 
 	/** null. */
 	private Group group;
@@ -44,19 +42,6 @@ public class Site implements java.io.Serializable {
 		this.name = name;
 		this.descn = descn;
 		this.categories = categories;
-	}
-
-	/** @return null. */
-	@Id
-	@GeneratedValue
-	@Column(name = "ID", unique = true, nullable = false)
-	public Long getId() {
-		return this.id;
-	}
-
-	/** @param id null. */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/** @return null. */

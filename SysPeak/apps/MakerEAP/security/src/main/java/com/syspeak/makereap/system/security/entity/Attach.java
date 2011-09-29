@@ -6,13 +6,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Attach .
@@ -21,9 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "CMS_ATTACH")
-public class Attach implements java.io.Serializable {
-	/** null. */
-	private Long id;
+public class Attach extends LongIdEntity {
 
 	/** null. */
 	private Content content;
@@ -49,19 +47,6 @@ public class Attach implements java.io.Serializable {
 		this.path = path;
 		this.createTime = createTime;
 		this.descn = descn;
-	}
-
-	/** @return null. */
-	@Id
-	@GeneratedValue
-	@Column(name = "ID", unique = true, nullable = false)
-	public Long getId() {
-		return this.id;
-	}
-
-	/** @param id null. */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/** @return null. */
