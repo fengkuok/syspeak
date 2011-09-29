@@ -19,13 +19,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Role .
+ * Resc .
  *
  * @author Lingo
  */
 @Entity
-@Table(name = "SEC_ROLE")
-public class Role implements java.io.Serializable {
+@Table(name = "SEC_RESC")
+public class Resc implements java.io.Serializable {
 	/** null. */
 	private Long id;
 
@@ -33,7 +33,10 @@ public class Role implements java.io.Serializable {
 	private Group group;
 
 	/** null. */
-	private String name;
+	private String resType;
+
+	/** null. */
+	private String resString;
 
 	/** null. */
 	private String creator;
@@ -48,45 +51,43 @@ public class Role implements java.io.Serializable {
 	private int status;
 
 	/** null. */
-	private String logo;
+	private int priority;
 
 	/** null. */
 	private String descn;
 
 	/** . */
-	private Set<User> users = new HashSet<User>(0);
-
-	/** . */
 	private Set<Group> groups = new HashSet<Group>(0);
 
 	/** . */
-	private Set<Resc> rescs = new HashSet<Resc>(0);
+	private Set<Role> roles = new HashSet<Role>(0);
 
-	public Role() {
+	public Resc() {
 	}
 
-	public Role(Group group, String name, String creator, Date createTime, int status, String logo) {
+	public Resc(Group group, String resType, String resString, String creator, Date createTime, int status, int priority) {
 		this.group = group;
-		this.name = name;
+		this.resType = resType;
+		this.resString = resString;
 		this.creator = creator;
 		this.createTime = createTime;
 		this.status = status;
-		this.logo = logo;
+		this.priority = priority;
 	}
 
-	public Role(Group group, String name, String creator, Date createTime, Date updateTime, int status, String logo,
-			String descn, Set<User> users, Set<Group> groups, Set<Resc> rescs) {
+	public Resc(Group group, String resType, String resString, String creator, Date createTime, Date updateTime,
+			int status, int priority, String descn, Set<Group> groups, Set<Role> roles) {
 		this.group = group;
-		this.name = name;
+		this.resType = resType;
+		this.resString = resString;
 		this.creator = creator;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.status = status;
-		this.logo = logo;
+		this.priority = priority;
 		this.descn = descn;
-		this.users = users;
 		this.groups = groups;
-		this.rescs = rescs;
+		this.roles = roles;
 	}
 
 	/** @return null. */
@@ -115,14 +116,25 @@ public class Role implements java.io.Serializable {
 	}
 
 	/** @return null. */
-	@Column(name = "NAME", nullable = false, length = 50)
-	public String getName() {
-		return this.name;
+	@Column(name = "RES_TYPE", nullable = false, length = 100)
+	public String getResType() {
+		return this.resType;
 	}
 
-	/** @param name null. */
-	public void setName(String name) {
-		this.name = name;
+	/** @param resType null. */
+	public void setResType(String resType) {
+		this.resType = resType;
+	}
+
+	/** @return null. */
+	@Column(name = "RES_STRING", nullable = false, length = 200)
+	public String getResString() {
+		return this.resString;
+	}
+
+	/** @param resString null. */
+	public void setResString(String resString) {
+		this.resString = resString;
 	}
 
 	/** @return null. */
@@ -172,14 +184,14 @@ public class Role implements java.io.Serializable {
 	}
 
 	/** @return null. */
-	@Column(name = "LOGO", nullable = false, length = 200)
-	public String getLogo() {
-		return this.logo;
+	@Column(name = "PRIORITY", nullable = false)
+	public int getPriority() {
+		return this.priority;
 	}
 
-	/** @param logo null. */
-	public void setLogo(String logo) {
-		this.logo = logo;
+	/** @param priority null. */
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 
 	/** @return null. */
@@ -195,19 +207,7 @@ public class Role implements java.io.Serializable {
 
 	/** @return . */
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_USER_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "USER_ID", nullable = false, updatable = false) })
-	public Set<User> getUsers() {
-		return this.users;
-	}
-
-	/** @param users . */
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-
-	/** @return . */
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_GROUP_ROLE", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
+	@JoinTable(name = "SEC_GROUP_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", nullable = false, updatable = false) })
 	public Set<Group> getGroups() {
 		return this.groups;
 	}
@@ -219,13 +219,13 @@ public class Role implements java.io.Serializable {
 
 	/** @return . */
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) })
-	public Set<Resc> getRescs() {
-		return this.rescs;
+	@JoinTable(name = "SEC_ROLE_RESC", schema = "PUBLIC", joinColumns = { @JoinColumn(name = "RESC_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", nullable = false, updatable = false) })
+	public Set<Role> getRoles() {
+		return this.roles;
 	}
 
-	/** @param rescs . */
-	public void setRescs(Set<Resc> rescs) {
-		this.rescs = rescs;
+	/** @param roles . */
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }
