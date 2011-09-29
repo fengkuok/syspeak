@@ -5,8 +5,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<c:set var="ctx" value="${ctx=='/'? '' : ctx}" />
-<c:if test="${empty sessionScope.title}"> 
+<c:set var="ctx" value="${ctx == '/'? '' : ctx}" />
+<c:if test="${empty sessionScope.title}"></c:if>
 <c:set var="pagesjs" value="${_res}/js/page" scope="session" />
 <c:set var="jqvalid" value="${_res}/js/validate" scope="session" />
 <c:set var="jqueryui" value="${_res}/js/jqueryui" scope="session" />
