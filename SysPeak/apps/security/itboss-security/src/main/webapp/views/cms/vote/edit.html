@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div>
+    <div>
+        <div class="rpos">当前位置: 投票管理 - 添加</div>
+        返回列表
+
+    </div>
+    <form method="post" action="o_save.do" id="jvForm">
+        <table width="100%" cellpadding="2" cellspacing="1" border="0">
+            <tr>
+                <td width="20%"><span>*</span>标题:</td>
+                <td width="80%">
+                    <input type="text" maxlength="255" name="title" class="required" style="width:400px"  maxlength="255"/>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">描述:</td>
+                <td width="80%">
+                    <textarea rows="3" name="description" style="width:400px" maxlength="255"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">投票时间限制:</td>
+                <td width="80%">
+                    <table>
+                        <tr>
+                            <td>开始时间</td>
+                            <td>
+                                <input type="text" name="startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="Wdate"/>
+                            </td>
+                            <td rowspan="2" valign="middle"><span>留空不限制</span></td>
+                        </tr>
+                        <tr>
+                            <td>结束时间</td>
+                            <td>
+                                <input type="text" name="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"      class="Wdate"/>
+                            </td>
+                        <tr/>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">重复投票时间:</td>
+                <td width="80%">
+                    <input type="text" maxlength="10" name="repeateHour" class="digits" maxlength="10"/>
+                    <span>单位：小时。为空禁止重复投票；0为不限制重复投票。</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">限制用户:</td>
+                <td width="80%">
+                    <label>
+                        <input type="radio" value="true" name="restrictMember"/>是
+                    </label> 
+                    <label>
+                    <input type="radio" value="false" checked="checked" name="restrictMember"/>否
+                    </label>
+                    <span>（是：必须登录才能投票；否：允许游客投票）</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">限制IP:</td>
+                <td width="80%">
+                    <label>
+                        <input type="radio" value="true" name="restrictIp"/>是
+                    </label>
+                    <label>
+                        <input type="radio" value="false" checked="checked" name="restrictIp"/>否
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">限制COOKIE:</td>
+                <td width="80%">
+                    <label>
+                        <input type="radio" value="true" checked="checked" name="restrictCookie"/>是
+                    </label>
+                    <label><input type="radio" value="false"       name="restrictCookie"/>否
+                    </label>
+                    <span>（可以识别同一IP的不同电脑）</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%"><span>*</span>最多能选几项:</td>
+                <td width="80%">
+                    <input type="text" name="multiSelect" value="1" class="required digits" style="width:100px"/>
+                    <label style="padding-left:20px">
+                        <input type="checkbox" onclick="$('#def').val(this.checked);"/>默认
+                        <input type="hidden" id="def" name="def" value="false"/>
+                    </label>
+                    <label style="padding-left:10px">
+                        <input type="checkbox" onclick="$('#disabled').val(this.checked);"/>暂停
+                        <input   type="hidden" id="disabled" name="disabled" value="false"/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" >
+                    <div >
+                        投票项&nbsp; <input type="button" value="新增几行" onclick="addLines();"/>
+                    </div>
+                    <div id="itemsContainer">
+                        <div >
+                            标题: <input type="text" name="itemTitle" style="width:300px"/>
+                            &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+                            &nbsp; 排序: <input type="text" name="itemPriority" value="1" style="width:30px"/>
+                            &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+                        </div>
+                        <div >
+                            标题: <input type="text" name="itemTitle" style="width:300px"/>
+                            &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+                            &nbsp; 排序: <input type="text" name="itemPriority" value="2" style="width:30px"/>
+                            &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+                        </div>
+                        <div >
+                            标题: <input type="text" name="itemTitle" style="width:300px"/>
+                            &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+                            &nbsp; 排序: <input type="text" name="itemPriority" value="3" style="width:30px"/>
+                            &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+                        </div>
+                        <div >
+                            标题: <input type="text" name="itemTitle" style="width:300px"/>
+                            &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+                            &nbsp; 排序: <input type="text" name="itemPriority" value="4" style="width:30px"/>
+                            &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+                        </div>
+                        <div >
+                            标题: <input type="text" name="itemTitle" style="width:300px"/>
+                            &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+                            &nbsp; 排序: <input type="text" name="itemPriority" value="5" style="width:30px"/>
+                            &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" >
+                    <input type="submit" value="提交"/> &nbsp; <input type="reset" value="重置"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<textarea id="itemTpl" style="display:none;">
+    <div >
+        标题: <input type="text" name="itemTitle" style="width:300px"/>
+        &nbsp; 票数: <input type="text" name="itemVoteCount" value="0" style="width:50px"/>
+        &nbsp; 排序: <input type="text" name="itemPriority" value="{0}" style="width:30px"/>
+        &nbsp; <input type="button" value="删除" onclick="$(this).parent().remove();"/>
+    </div>
+</textarea>
+
+<script type="text/javascript">
+    var tpl = $.format($("#itemTpl").val());
+    var index = 6;
+    function addLines() {
+        $("#itemsContainer").append(tpl(index++));
+    }
+</script>
+
+</body>
+</html>

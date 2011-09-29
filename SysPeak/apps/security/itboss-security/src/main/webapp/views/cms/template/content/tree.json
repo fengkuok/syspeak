@@ -1,0 +1,14 @@
+[{
+	"text": "<a href='manage.do?root=' target='mainFrame'>模板根目录</a>",
+	"classes": "folder"
+	,
+	"expanded": true,
+	"children": [
+		{
+		"id": "/WEB-INF/t/cms/www/red",
+		"text": "<a href='v_list.do?root=%2FWEB-INF%2Ft%2Fcms%2Fwww%2Fred' target='mainFrame'>red</a>",
+		"classes": "folder",
+		"hasChildren": true
+		}
+	]
+}]

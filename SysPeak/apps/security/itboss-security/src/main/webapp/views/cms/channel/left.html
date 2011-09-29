@@ -1,0 +1,71 @@
+
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<title>left</title>
+<script language=javascript>
+function changeWin(){
+	if(parent.main.cols != "8,*"){
+		parent.main.cols = "8,*";
+		document.all.menuSwitch.src = "../../../images/admin/left/arrow01.gif";
+		document.getElementById("leftMenu").style.display = "NONE";
+	}
+	else{
+		parent.main.cols = "178,*";
+		document.all.menuSwitch.src = "../../../images/admin/left/arrow02.gif";
+		document.getElementById("leftMenu").style.display = "";
+	}
+}
+
+function changeParWin(){
+	if(parent.parent.leftFrame.cols != "8,*"){
+		parent.parent.leftFrame.cols = "8,*";
+		document.all.menuSwitch.src = "../../../images/admin/left/arrow01.gif";
+		document.getElementById("leftMenu").style.display = "NONE";
+	}
+	else{
+		parent.parent.leftFrame.cols = "178,*";
+		document.all.menuSwitch.src = "../../../images/admin/left/arrow02.gif";
+		document.getElementById("leftMenu").style.display = "";
+	}
+}
+
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#000000">
+  <tr>
+    <td align="center" valign="top" background="../../../images/admin/left/qqmenu_bg.gif" bgcolor="#FFFFFF">
+      <table id="leftMenu" style="display:" width="158" height="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr><td height=10  bgcolor="#dddddd"></td></tr>
+		<tr>
+          <td height=24 align="center" background="../../../images/admin/treeima/qqmenu.gif" >栏目管理</td>
+        </tr>
+		<tr>
+          <td>
+		  <iframe id=mainList name=mainList style="height:100%; width:100%; visibility:inherit;" scrolling=auto frameborder=0 src="tree.html"></iframe>
+		  </td>
+        </tr>
+		<tr><td height=10 bgcolor="#dddddd"></td></tr>
+      </table> 
+    </td>
+    <td width="6" background="../../../images/admin/left/arrow_bg.gif">
+	<table width=100% height=100% border=0 cellpadding=0 cellspacing=0>
+	<tr>
+          <td height=22 onclick=changeWin()><img src="../../../images/admin/c.gif" width=6 height=1></td>
+        </tr>
+	<tr><td></td></tr>
+	<tr><td onclick=changeWin() >
+        <a href="#">
+            <img id=menuSwitch border=0 src="../../../images/admin/left/arrow02.gif"></a>
+    </td></tr>
+	</table>	
+	</td>
+  </tr>
+</table>
+</body>
+</html>

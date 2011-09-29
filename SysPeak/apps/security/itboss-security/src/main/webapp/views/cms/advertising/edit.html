@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+    <style type="text/css">
+        .attr {
+            padding: 3px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+<form method="post" action="o_save.do" id="jvForm">
+    <table width="100%"  cellpadding="2" cellspacing="1" border="0">
+        <tr>
+            <td width="12%" ><span >*</span>名称:</td>
+            <td colspan="1" width="38%" >
+                <input type="text" maxlength="100" name="name" class="required" maxlength="100"/></td>
+            <td width="12%" ><span >*</span>版位:</td>
+            <td colspan="1" width="38%" ><select name="adspaceId">
+                <option value="1">页头banner</option>
+                <option value="2">通栏广告</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="12%" ><span >*</span>类型:</td>
+            <td colspan="3" width="88%" >
+                <label>
+                    <input type="radio" value="image" checked="checked"name="category" onclick="attrChange(this.value)"/>图片
+                </label>
+                <label>
+                    <input type="radio" value="flash" name="category" onclick="attrChange(this.value)"/>FLASH
+                </label>
+                <label>
+                    <input type="radio" value="text" name="category" onclick="attrChange(this.value)"/>文字
+                </label>
+                <label>
+                    <input type="radio" value="code" name="category" onclick="attrChange(this.value)"/>代码
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td width="12%" ><span >*</span>广告内容:</td>
+            <td colspan="3" width="88%" >
+                <div id="attr_image">
+                    <p >
+                        图片地址: 
+                        <input type="text" id="uploadImgPath1" name="attr_image_url" class="required"
+                                                 maxlength="255" style="width:300px;"/></p>
+
+                    <p >图片上传: <span id="ufc1"><input type="file" id="uploadFile1"/></span> 
+                        <input type="button" value="上传" onclick="upload(1);"/>
+                        <input type="hidden" id="mark1" value="false"/>
+                    </p>
+
+                    <p >图片尺寸: 
+                        <input type="text" name="attr_image_width" maxlength="50" style="width:70px;"/> * 
+                        <input type="text" name="attr_image_height" maxlength="50" style="width:70px;"/>
+                        <span >（宽×高）</span>
+                    </p>
+
+                    <p >链接地址:
+                        <input type="text" name="attr_image_link" value="http://" maxlength="255" style="width:300px;"/>
+                    </p>
+
+                    <p >链接提示: <input type="text" name="attr_image_title" maxlength="255"
+                                                 style="width:300px;"/></p>
+
+                    <p >链接目标:
+                        <label>
+                            <input type="radio" value="_blank" checked="checked"
+                                                        name="attr_image_target"/>新窗口</label>
+                        <label><input type="radio" value="_self"  name="attr_image_target"/>原窗口</label>
+                    </p>
+                </div>
+                <div id="attr_flash" style="display:none;">
+                    <p >FLASH地址:
+                        <input type="text" id="flashPath1" name="attr_flash_url"
+                               class="required" maxlength="255" style="width:300px;"/>
+                    </p>
+
+                    <p >FLASH上传:
+                        <span id="ffc1"><input type="file" id="flashFile1"  name="flashFile"/></span>
+                        <input type="button" value="上传"  onclick="uploadFlash(1);"/>
+                    </p>
+
+                    <p >FLASH尺寸:
+                        <input type="text" name="attr_flash_width" maxlength="50" style="width:70px;"/> *
+                        <input type="text" name="attr_flash_height" maxlength="50" style="width:70px;"/>
+                        <span >（宽×高）</span>
+                    </p>
+                </div>
+                <div id="attr_text" style="display:none;">
+                    <p >文字内容:
+                        <input type="text" name="attr_text_title" class="required" maxlength="255" style="width:300px;"/>
+                    </p>
+                     <p >文字链接: <input type="text" name="attr_text_link" value="http://" maxlength="255"
+                                                 style="width:300px;"/></p>
+
+                    <p >文字颜色: <input type="text" id="textColor" name="attr_text_color" maxlength="50"
+                                                 style="width:70px"/></p>
+
+                    <p >文字大小: <input type="text" name="attr_text_font" maxlength="50" style="width:70px;"/>
+                        <span >如：12px</span></p>
+
+                    <p >链接目标: <label><input type="radio" value="_blank" checked="checked"
+                                                        name="attr_text_target"/>新窗口</label> <label><input type="radio"
+                                                                                                           value="_self"
+                                                                                                           name="attr_text_target"/>原窗口</label>
+                    </p>
+                </div>
+                <div id="attr_code" style="display:none;">
+                    <textarea name="code" rows="7" cols="60" maxlength="655350"></textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="12%" >开始时间:</td>
+            <td colspan="1" width="38%" ><input type="text" name="startTime" class="Wdate"
+                                                                   style="width:120px"
+                                                                   onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></td>
+            <td width="12%" >结束时间:</td>
+            <td colspan="1" width="38%" ><input type="text" name="endTime" class="Wdate"
+                                                                   style="width:120px"
+                                                                   onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></td>
+        </tr>
+        <tr>
+            <td width="12%" ><span >*</span>点击次数:</td>
+            <td colspan="1" width="38%" ><input type="text" value="0" name="clickCount"
+                                                                   class="required digits" style="width:70px"/></td>
+            <td width="12%" ><span >*</span>展现次数:</td>
+            <td colspan="1" width="38%" ><input type="text" value="0" name="displayCount"
+                                                                   class="required digits" style="width:70px"/></td>
+        </tr>
+        <tr>
+            <td width="12%" ><span >*</span>权重:</td>
+            <td colspan="1" width="38%" ><input type="text" value="1" name="weight"
+                                                                   class="required digits" style="width:70px"/></td>
+            <td width="12%" ><span >*</span>启用:</td>
+            <td colspan="1" width="38%" ><label><input type="radio" value="true" checked="checked"
+                                                                          name="enabled"/>是</label> <label><input
+                    type="radio" value="false" name="enabled"/>否</label></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="pn-fbutton">
+                <input type="submit" value="提交"/> &nbsp; <input type="reset" value="重置"/></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

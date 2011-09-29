@@ -1,0 +1,68 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body >
+<table >
+  <tr >
+    <td width="9" height="30">&nbsp;</td>
+
+    <td width="67" bgcolor="B4D7E9"><strong>您的位置</strong>：</td>
+    <td width="586">用户管理>>单位资料管理 </td>
+
+    <td width="78"><a href="edit.html">新增单位</a></td>
+    <td width="19">&nbsp;</td>
+  </tr>
+</table>
+<table width="810" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" name="query" id="query"  action="/module?md=security-unit-manager">
+    <tr>
+      <td width="202" height="37" align="right" bgcolor="#FFFFFF">单位编号：</td>
+      <td width="146" height="37" align="left" bgcolor="#FFFFFF"><input name="id" type="text" class="from1" value="" ></td>
+      <td width="71" height="37" align="right" bgcolor="#FFFFFF">单位名称：</td>
+      <td width="160" height="37" align="left" bgcolor="#FFFFFF"><input name="name" type="text" class="from1" value="" ></td>
+ 
+      <td width="231" bgcolor="#FFFFFF"><input type="submit" class="BTinput" value="查 询" /></td>
+    </tr>
+    <input name="qc_FieldSorted" type="hidden" value="AUN_SORT" >
+    <input name="qc_Sorttag" type="hidden" value="asc" >
+    <input name="url" type="hidden" class="from1" value="">
+  </form>
+</table>
+<table width="810" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="1" bgcolor="#c1c1c1" colspan="4"></td>
+  </tr>
+  <tr class="boldtext">
+    <td width="419" height="25" bgcolor="#d6dfe7"  onClick="sort('AUN_NAME')">单位名称</td>
+    <td width="199" bgcolor="#d6dfe7"  onClick="sort('AUN_ID')">单位编号</td>
+    <td width="97" bgcolor="#d6dfe7"  onClick="sort('AUN_SORT')">排序</td>
+    <td width="95" bgcolor="#d6dfe7">操作</td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#c1c1c1" colspan="4"></td>
+  </tr>
+    <tr onMouseOver="style.backgroundColor='#edf2f6'" onMouseOut="style.backgroundColor='#ffffff'">
+    <td height="30">南海区委</td>
+    <td>SW</td>
+    <td>1</td>
+    <td><a href="/module?md=security-unit-modify&id=SW">修改</a> | <a href="/module?md=security-unit-delete&id=SW" onClick="return deletedw()" class="red">删除</a></td>
+  </tr>
+  <tr >
+    <td height="1" bgcolor="#A9AFAF" colspan="4"></td>
+  </tr>
+    <tr onMouseOver="style.backgroundColor='#edf2f6'" onMouseOut="style.backgroundColor='#ffffff'">
+    <td height="30">佛山市南海区水务局</td>
+    <td>QSWJ</td>
+    <td>1</td>
+    <td><a href="/module?md=security-unit-modify&id=QSWJ">修改</a> | <a href="/module?md=security-unit-delete&id=QSWJ" onClick="return deletedw()" class="red">删除</a></td>
+  </tr>
+  <tr >
+    <td height="1" bgcolor="#A9AFAF" colspan="4"></td>
+  </tr>
+
+  </table>
+
+</body>
+</html>
