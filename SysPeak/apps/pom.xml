@@ -18,6 +18,7 @@
     
 	<modules>
 		<module>MakerEAP</module>
+		<module>itboss-security</module>		
 	</modules>
 	
 </project>
