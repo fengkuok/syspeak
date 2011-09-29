@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.syspeak.itboss.domain.Role;
 import com.syspeak.itboss.domain.User;
-import com.syspeak.itboss.service.UserService;
+import com.syspeak.itboss.service.impl.UserServiceImpl;
 
 
 /**
@@ -78,10 +78,10 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		}
 	}
 
-	private UserService userService;
+	private UserServiceImpl userService;
 
 	@Autowired
-	public void setUserService(UserService userService) {
+	public void setUserService(UserServiceImpl userService) {
 		this.userService = userService;
 	}
 }
