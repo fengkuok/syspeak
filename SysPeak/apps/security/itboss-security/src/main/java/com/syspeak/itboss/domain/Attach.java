@@ -16,12 +16,17 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 
 /**
  * Attach .
- *
+ * 
  * @author Lingo
  */
 @Entity
 @Table(name = "CMS_ATTACH")
 public class Attach extends LongIdEntity {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 97313830394506621L;
 
 	/** null. */
 	private Content content;
@@ -56,7 +61,10 @@ public class Attach extends LongIdEntity {
 		return this.content;
 	}
 
-	/** @param content null. */
+	/**
+	 * @param content
+	 *            null.
+	 */
 	public void setContent(Content content) {
 		this.content = content;
 	}
@@ -67,7 +75,10 @@ public class Attach extends LongIdEntity {
 		return this.name;
 	}
 
-	/** @param name null. */
+	/**
+	 * @param name
+	 *            null.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -78,7 +89,10 @@ public class Attach extends LongIdEntity {
 		return this.path;
 	}
 
-	/** @param path null. */
+	/**
+	 * @param path
+	 *            null.
+	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
@@ -90,7 +104,10 @@ public class Attach extends LongIdEntity {
 		return this.createTime;
 	}
 
-	/** @param createTime null. */
+	/**
+	 * @param createTime
+	 *            null.
+	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -101,7 +118,10 @@ public class Attach extends LongIdEntity {
 		return this.descn;
 	}
 
-	/** @param descn null. */
+	/**
+	 * @param descn
+	 *            null.
+	 */
 	public void setDescn(String descn) {
 		this.descn = descn;
 	}

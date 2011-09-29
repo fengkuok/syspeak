@@ -27,6 +27,11 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 @Table(name = "SEC_USER")
 public class User extends LongIdEntity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1999791183473715632L;
+
 	/** null. */
 	private Group group;
 

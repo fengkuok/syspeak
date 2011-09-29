@@ -22,6 +22,11 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 @Table(name = "CMS_SITE")
 public class Site extends LongIdEntity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5198656926383570018L;
+
 	/** null. */
 	private Group group;
 

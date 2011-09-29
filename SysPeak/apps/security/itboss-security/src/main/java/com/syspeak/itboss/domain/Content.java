@@ -25,6 +25,11 @@ import com.syspeak.modules.domain.model.identity.LongIdEntity;
 @Entity
 @Table(name = "CMS_CONTENT")
 public class Content extends LongIdEntity {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8805919087096311763L;
+
 	/** null. */
 	private Category category;
 
