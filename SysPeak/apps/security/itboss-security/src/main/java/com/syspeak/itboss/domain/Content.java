@@ -36,7 +36,6 @@ public class Content extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CATEGORY_ID")
 	private Category category;
 
 	@Column(name = "TITLE", length = 50)

@@ -33,7 +33,6 @@ public class Category extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "SITE_ID")
 	private Site site;
 
 	@Column(name = "NAME", length = 50)

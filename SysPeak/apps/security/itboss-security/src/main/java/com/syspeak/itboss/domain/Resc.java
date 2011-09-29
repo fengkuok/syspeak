@@ -37,7 +37,6 @@ public class Resc extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID", nullable = false)
 	private Group group;
 
 	@Column(name = "RES_TYPE", nullable = false, length = 100)

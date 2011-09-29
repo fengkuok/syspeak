@@ -30,7 +30,6 @@ public class Attach {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CONTENT_ID")
 	private Content content;
 
 	@Column(name = "NAME", length = 50)

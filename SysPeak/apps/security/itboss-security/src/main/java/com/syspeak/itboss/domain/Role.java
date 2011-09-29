@@ -40,7 +40,6 @@ public class Role extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID", nullable = false)
 	private Group group;
 
 	@Column(name = "NAME", nullable = false, length = 50)

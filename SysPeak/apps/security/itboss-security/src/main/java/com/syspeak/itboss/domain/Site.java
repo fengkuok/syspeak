@@ -32,7 +32,6 @@ public class Site extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GROUP_ID")
 	private Group group;
 
 	@Column(name = "NAME", length = 50)

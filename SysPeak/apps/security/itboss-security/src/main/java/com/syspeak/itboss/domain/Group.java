@@ -37,7 +37,6 @@ public class Group extends LongIdEntity {
 	protected Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PARENT_ID")
 	private Group parent;
 
 	@Column(name = "CODE", nullable = false, length = 50)
