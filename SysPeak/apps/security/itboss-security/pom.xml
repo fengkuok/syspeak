@@ -89,7 +89,6 @@
 		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
 		<jdbc.driver.version>5.1.13</jdbc.driver.version>
 		-->
-        <spring-security.version>3.1.0.RC3</spring-security.version>
         <jackson.version>1.8.2</jackson.version>
         <commons-fileupload.version>1.2.0</commons-fileupload.version>
     </properties>
