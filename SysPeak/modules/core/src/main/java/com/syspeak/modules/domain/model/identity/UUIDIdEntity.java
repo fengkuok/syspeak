@@ -10,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 /**
  * UUID型主键实体映射基类
+ * 
  * @company SysPeak (C) Copyright
  * @category UUIDIdEntity
  * @version 1.0
@@ -19,12 +20,11 @@ import org.hibernate.annotations.GenericGenerator;
 @MappedSuperclass
 public class UUIDIdEntity implements Serializable {
 
-	protected String id;
-
 	@Id
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	protected String id;
+
 	public String getId() {
 		return id;
 	}
