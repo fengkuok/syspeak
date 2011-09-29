@@ -1,6 +1,0 @@
-/*后台左页菜单*/
-.lmenu{margin:6px 0 0 0;padding:0;list-style-type:none;}
-.lmenu li{padding:7px 0 7px 30px;background-image:url(../../images/admin/circle.gif);background-repeat:no-repeat;background-position:15px -1px;}
-.lmenu-focus{background-color:#DDECEF;}
-/*后台左页树*/
-.lttop{padding:10px 0px 2px 0px;text-align:center;}
