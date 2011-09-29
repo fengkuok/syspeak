@@ -18,7 +18,8 @@
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
 		<syspeak.version>0.1-SNAPSHOT</syspeak.version>
-		<spring.security.version>3.0.6.RELEASE</spring.security.version>
+        <spring-security.version>3.1.0.RC3</spring-security.version>
+
 		<validation.version>1.0.0.GA</validation.version>
 		<freemarker.version>2.3.16</freemarker.version>
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
