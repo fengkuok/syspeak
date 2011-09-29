@@ -1,5 +1,6 @@
 package com.syspeak.modules.web.springmvc;
 
+
 /**
  * Spring MVC Controller基类
  * @company SysPeak (C) Copyright
@@ -19,7 +20,7 @@ public class BaseControllerImpl implements BaseController {
 	 * 获取Controller默认的RequestMapping
 	 * @return
 	 */
-	public String getMappingBase() {
+	protected String getMappingBase() {
 		String className = getClass().getName().toLowerCase();
 		String mappingBase = className.replaceAll("[\\s\\S]+" + basePackage + '.', "");
 		mappingBase = mappingBase.replaceAll(CONTROLLER_FLAG + "+[\\s\\S]*$", "");
@@ -30,7 +31,7 @@ public class BaseControllerImpl implements BaseController {
 	 * 获取Controller默认的index视图名称
 	 * @return
 	 */
-	public String getIndexViewName() {
+	protected String getIndexViewName() {
 		String base = getMappingBase();
 		String indexViewName = base + VIEW_SPLIT + BaseController.INDEX;
 		return indexViewName;
@@ -40,7 +41,7 @@ public class BaseControllerImpl implements BaseController {
 	 * 获取Controller默认的list视图名称
 	 * @return
 	 */
-	public String getListViewName() {
+	protected String getListViewName() {
 		String base = getMappingBase();
 		String listViewName = base + VIEW_SPLIT + BaseController.LIST;
 		return listViewName;
@@ -50,7 +51,7 @@ public class BaseControllerImpl implements BaseController {
 	 * 获取Controller默认的input实体名称
 	 * @return
 	 */
-	public String getInputViewName() {
+	protected String getInputViewName() {
 		String base = getMappingBase();
 		String inputViewName = base + VIEW_SPLIT + BaseController.INPUT;
 		return inputViewName;

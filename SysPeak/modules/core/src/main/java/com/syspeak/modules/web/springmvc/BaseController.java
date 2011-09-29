@@ -12,28 +12,4 @@ public interface BaseController {
 	public static final String INDEX = "index";
 	public static final String LIST = "list";
 	public static final String INPUT = "input";
-
-	/**
-	 * 获取Controller默认的RequestMapping
-	 * @return
-	 */
-	abstract String getMappingBase();
-
-	/**
-	 * 获取Controller默认的index视图名称
-	 * @return
-	 */
-	abstract String getIndexViewName();
-
-	/**
-	 * 获取Controller默认的list视图名称
-	 * @return
-	 */
-	abstract String getListViewName();
-
-	/**
-	 * 获取Controller默认的input实体名称
-	 * @return
-	 */
-	abstract String getInputViewName();
 }
