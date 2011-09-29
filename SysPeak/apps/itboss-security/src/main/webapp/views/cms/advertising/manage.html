@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+</head>
+<body>
+<div>
+<div >
+	<div >当前位置: 广告管理 - 列表</div>
+添加
+</div>
+<form id="tableForm" method="post">
+<input type="hidden" name="pageNo" value="1"/>
+<table class="pn-ltable" style="" width="100%" cellspacing="1" cellpadding="0" border="0">
+<thead class="pn-lthead"><tr>
+	<th width="20"><input type='checkbox' onclick='Pn.checkbox("ids",this.checked)'/></th>
+	<th>ID</th>
+	<th>名称</th>
+	<th>类型</th>
+	<th>启用</th>
+	<th>操作选项</th>
+</tr>
+</thead>
+
+<tbody  class="pn-ltbody">
+<tr>
+	<td><input type='checkbox' name='ids' value='2'/></td>
+	<td>2</td>
+	<td>通栏广告1</td>
+
+	<td align="right">1</td>
+	<td align="right">是</td>
+	<td align="center">
+        <a href="" class="pn-opt">修改</a> |
+        <a href="" onclick="if(!confirm('您确定删除吗？')) {return false;}" >删除</a>
+    </td>
+</tr>
+</tbody>
+</table>
+<div><input type="button" value="删除" onclick="optDelete();"/></div>
+</form>
+</div>
+</body>
+</html>

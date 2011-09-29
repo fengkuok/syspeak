@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+         <script type="text/javascript" src="../../../js/admin/pn.js"></script>
+
+    <link href="../../../css/admin/theme.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+
+<iframe name="hiddenIframe" frameborder="0" border="0" style="display:none;width:0px;height:0px;"></iframe>
+<div class="body-box">
+    <div class="rhead">
+        <div class="rpos">当前位置: 栏目管理 - 添加</div>
+        <form class="ropt">
+            <input type="submit" value="返回列表" onclick="this.form.action='v_list.do';"/>
+        </form>
+        <div class="clear"></div>
+    </div>
+    <form method="post" action="#" id="jvForm">
+        <table width="100%" class="pn-ftable" cellpadding="2" cellspacing="1" border="0">
+            <tr>
+                <td width="10%" class="pn-flabel pn-flabel-h">上级栏目:</td>
+                <td colspan="1" width="40%" class="pn-fcontent">
+                    顶级栏目
+                </td>
+                <td width="10%" class="pn-flabel pn-flabel-h">模型:</td>
+                <td colspan="1" width="40%" class="pn-fcontent">
+                    新闻
+                </td>
+            </tr>
+            <tr>
+                <td width="10%" class="pn-flabel pn-flabel-h"><span class="pn-frequired">*</span>栏目名称:</td>
+                <td colspan="1" width="40%" class="pn-fcontent"><input type="text" maxlength="100" name="name"
+                                                                       class="required" maxlength="100"/></td>
+                <td width="10%" class="pn-flabel pn-flabel-h"><span class="pn-frequired">*</span>访问路径:</td>
+                <td colspan="1" width="40%" class="pn-fcontent"><input type="text" maxlength="30" name="path"
+                                                                       class="required" maxlength="30"/></td>
+            </tr>
+
+            <tr>
+                <td width="10%" class="pn-flabel pn-flabel-h">栏目模板:</td>
+                <td colspan="1" width="40%" class="pn-fcontent">
+                    <select name="tplChannel">
+                    <option value="" selected="selected">--默认--</option>
+                </select>
+                </td>
+                <td width="10%" class="pn-flabel pn-flabel-h">内容模板:</td>
+                <td colspan="1" width="40%" class="pn-fcontent"><select name="tplContent">
+                    <option value="" selected="selected">--默认--</option>
+                </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="10%" class="pn-flabel pn-flabel-h"><span class="pn-frequired">*</span>排列顺序:</td>
+                <td colspan="1" width="40%" class="pn-fcontent"><input type="text" maxlength="255" value="10"
+                                                                       name="priority" class="reuqired digits" size="10"
+                                                                       maxlength="255"/></td>
+                <td width="10%" class="pn-flabel pn-flabel-h"><span class="pn-frequired">*</span>显示:</td>
+                <td colspan="1" width="40%" class="pn-fcontent">
+                    <label><input type="radio" value="true" checked="checked" name="display"/>是</label> <label><input
+                        type="radio" value="false" name="display"/>否</label>
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="4" class="pn-fbutton">
+
+                    <input type="submit" value="提交"/> &nbsp; <input type="reset" value="重置"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
