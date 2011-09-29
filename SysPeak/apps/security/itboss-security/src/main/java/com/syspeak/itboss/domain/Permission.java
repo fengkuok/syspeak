@@ -5,11 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- *
- *
- */
 @Entity
 @Table(name = "T_SECURITY_PERMISSION")
 public class Permission {
@@ -35,21 +30,6 @@ public class Permission {
 	@Column(name = "URL", length = 300)
 	private String url;
 
-	public void preInsert() {
-		// do nothing
-	}
-
-	public void postInsertFailure() {
-		// do nothing
-	}
-
-	public boolean isInsert() {
-		return this.token == null;
-	}
-
-	// -- getters and setters
-	// ---------------------------------------------------
-
 	public String getToken() {
 		return token;
 	}
@@ -72,6 +52,10 @@ public class Permission {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
