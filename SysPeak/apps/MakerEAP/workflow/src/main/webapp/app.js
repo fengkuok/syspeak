@@ -21,6 +21,7 @@ Ext.require([
 	'Ext.grid.Panel',//LocalStorageProvider need
 	'Ext.form.field.Base',//LocalStorageProvider need
 	'Ext.picker.Date',
+	'SysPeak.msg.Toast',
 	'Workflow.Application'
 ]);
 
