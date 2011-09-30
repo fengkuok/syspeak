@@ -15,7 +15,7 @@
 		"text" : "Jobs",
 		id:3,
 		"isClass" : true,
-		"clsName" : "Workflow.view.user.List",
+		"clsName" : "Workflow.view.probe.job.List",
 		"iconCls" : "icon-tree-briefcase"
 	},{
 		"leaf" : true,
