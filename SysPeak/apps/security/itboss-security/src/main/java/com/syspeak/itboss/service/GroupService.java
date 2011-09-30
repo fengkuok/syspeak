@@ -83,14 +83,7 @@ public interface GroupService {
      */
     public Group getGroup(int groupId) throws SecurityException;
 
-    /**
-     * 功能：根据组织编码得到相应组织实例
-     *
-     * @param code 组织编码
-     * @return Group 组织
-     * @throws SecurityException
-     */
-    public Group getGroup(String code) throws SecurityException;
+
 
     /**
      * 取得某个组织中用户的数量
