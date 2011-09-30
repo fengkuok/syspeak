@@ -1,10 +1,10 @@
 Ext.define('Workflow.view.Viewport',{
     extend: 'Ext.Viewport',
     requires : [
-        'Workflow.view.Header',
-        'Workflow.view.Menu',
-        'Workflow.view.TabPanel',
-        'Workflow.view.South'
+        'Workflow.view.cls.Header',
+        'Workflow.view.cls.Menu',
+        'Workflow.view.cls.TabPanel',
+        'Workflow.view.cls.South'
     ],
     
     id: 'viewport',
@@ -14,10 +14,10 @@ Ext.define('Workflow.view.Viewport',{
     
     initComponent : function(){
     	this.items = [
-    		Ext.create('Workflow.view.Header'),
-            Ext.create('Workflow.view.Menu'),
-            Ext.create('Workflow.view.TabPanel'),
-            Ext.create('Workflow.view.South')
+    		Ext.create('Workflow.view.cls.Header'),
+            Ext.create('Workflow.view.cls.Menu'),
+            Ext.create('Workflow.view.cls.TabPanel'),
+            Ext.create('Workflow.view.cls.South')
     	];
     	
         this.callParent(arguments);
