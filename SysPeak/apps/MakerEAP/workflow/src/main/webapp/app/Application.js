@@ -11,7 +11,8 @@ Ext.define('Workflow.Application', {
     autoCreateViewport: true,
     
     controllers: [
-        'Users'
+        'Users',
+        'probe.Jobs'
     ],
 
     launch: function() {
