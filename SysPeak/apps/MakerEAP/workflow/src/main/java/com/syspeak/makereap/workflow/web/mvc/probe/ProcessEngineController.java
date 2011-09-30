@@ -3,15 +3,20 @@ package com.syspeak.makereap.workflow.web.mvc.probe;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.activiti.engine.ProcessEngineInfo;
+import org.activiti.engine.ProcessEngines;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springside.modules.orm.PageRequest.Sort;
 
 import com.syspeak.makereap.workflow.domain.entity.account.User;
+import com.syspeak.modules.web.json.ExtPage;
 import com.syspeak.modules.web.json.JsonWriteBean;
-import com.syspeak.modules.web.json.Page;
 import com.syspeak.modules.web.springmvc.AbstractJsonController;
 
 @Controller
@@ -20,7 +25,9 @@ public class ProcessEngineController extends AbstractJsonController<User> {
 
 	@RequestMapping(method = RequestMethod.GET )
 	@ResponseBody 
-	public Page<User> index() {
+	@Override
+	public ExtPage<User> index() {
+		List<ProcessEngineInfo> processEngineInfos = ProcessEngines.getProcessEngineInfos();
 		User user1 = new User();
 		user1.setName("fengkuok");
 		
@@ -44,24 +51,17 @@ public class ProcessEngineController extends AbstractJsonController<User> {
 		users.add(user4);
 		users.add(user5);
 		
-		Page<User> page = new Page<User>();
+		ExtPage<User> page = new ExtPage<User>();
+		page.setOrderBy("id");
+		page.setOrderDir(Sort.ASC);
 		
 		page.setResult(users);
-		page.setTotalCount(5l);
-		page.setLimit(20);
+		page.setTotalItems(5l);
 		page.setSuccess(true);
-		
-//		Page<User> page = new Page<User>();
-//		page.setPageSize(100);
-//		page.setOrderBy(Sort.ASC);
-//		page.setOrderDir("desc");
-//		page.setResult(users);
-//		System.out.println("index---------------------");
-//		return page;
+		//return page;
 		return page;
 	}
 
-	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public JsonWriteBean show(@PathVariable("id") Long id) {
