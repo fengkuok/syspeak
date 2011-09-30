@@ -1,5 +1,5 @@
 Ext.define('Workflow.store.Users', {
-    extend: 'Workflow.store.cls.Store',
+    extend: 'SysPeak.store.Store',
     
     model: 'Workflow.model.User',
     //autoLoad: true,
