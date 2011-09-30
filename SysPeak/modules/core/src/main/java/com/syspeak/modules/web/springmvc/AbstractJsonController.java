@@ -1,6 +1,6 @@
 package com.syspeak.modules.web.springmvc;
 
-import com.syspeak.modules.web.json.Page;
+import com.syspeak.modules.web.json.ExtPage;
 import com.syspeak.modules.web.json.JsonWriteBean;
 //4.Privilege(权限，表示对Resource的一个操作，即Operation+Resource)
 //[例如:/students+POST(创建)/GET(获取所有),/student/{id} GET(获取id={id})/PUT(更新)/DELETE(删除)]
@@ -30,7 +30,7 @@ public abstract class AbstractJsonController<T> {
 	 * url ：/student+GET
 	 * @return
 	 */
-	public abstract Page<T> index();
+	public abstract ExtPage<T> index();
 	
 	/**
 	 * 根据Id获取对象
