@@ -8,19 +8,18 @@ import com.syspeak.itboss.domain.User;
 import java.util.Set;
 
 /**
- * 
+ * @author JemiZhuu(周士淳)
+ * @version 1.0
  * @company SysPeak (C) Copyright
  * @category RoleService
- * @version 1.0
  * @since 2011-9-29
- * @author JemiZhuu(周士淳)
  */
 public interface RoleService {
 
-     /**
+    /**
      * 增加角色（不指定组织ID时加到根组织下）
      *
-     * @param role     新添加角色的值对象
+     * @param role 新添加角色的值对象
      * @return void
      * @throws SecurityException
      */
@@ -29,12 +28,12 @@ public interface RoleService {
     /**
      * 增加角色
      *
-     * @param role     新添加角色的值对象
-     * @param groupId  该角色所属的组ID
+     * @param role    新添加角色的值对象
+     * @param groupId 该角色所属的组ID
      * @return void
      * @throws SecurityException
      */
-    public Role addRole(Role role, int groupId) throws SecurityException;
+    public Role addRole(Role role, Long groupId) throws SecurityException;
 
     /**
      * 取得系统中所有角色
@@ -67,7 +66,7 @@ public interface RoleService {
      * @param roleId 删除某个角色
      * @throws SecurityException
      */
-    public void removeRole(int roleId) throws SecurityException;
+    public void removeRole(Long roleId) throws SecurityException;
 
     /**
      * 取得角色总数
@@ -79,16 +78,17 @@ public interface RoleService {
 
     /**
      * 根据条件取得角色数目
+     *
      * @return int 角色数量
      * @throws SecurityException
      */
-    public int count(Role role,int groupId) throws SecurityException;
+    public int count(Role role, Long groupId) throws SecurityException;
 
     /**
      * 取得系统中所有角色,实现分页
      *
      * @param offset 起始位置
-     * @param size 集合大小
+     * @param size   集合大小
      * @return RoleSet  角色集合
      * @throws SecurityException
      */
@@ -97,11 +97,11 @@ public interface RoleService {
     /**
      * 根据角色id取得角色信息
      *
-     * @param roleId  角色id
+     * @param roleId 角色id
      * @return Role   角色
      * @throws SecurityException
      */
-    public Role getRole(int roleId) throws SecurityException;
+    public Role getRole(Long roleId) throws SecurityException;
 
 //    /**
 //     * 判断某个角色明是否已经被使用
@@ -115,11 +115,11 @@ public interface RoleService {
     /**
      * 删除角色与用户的关联
      *
-     * @param roleId 角色id
+     * @param roleId  角色id
      * @param userSet 用户集合(User值对象中只用设置ID)
      * @throws SecurityException
      */
-    public void removeUsersFromRole(int roleId,  Set<User> userSet) throws SecurityException;
+    public void removeUsersFromRole(Long roleId, Set<User> userSet) throws SecurityException;
 
 //    /**
 //     * 角色是否有某一项权限
@@ -134,21 +134,21 @@ public interface RoleService {
     /**
      * 删除角色对应的若干组织的关系
      *
-     * @param roleId 角色id
+     * @param roleId   角色id
      * @param groupSet 组织集合
      * @throws SecurityException
      */
-    public void removeGroupsFromRole(int roleId, Set<Group> groupSet) throws SecurityException;
+    public void removeGroupsFromRole(Long roleId, Set<Group> groupSet) throws SecurityException;
 
     /**
      * 添加一批用户到一个角色中
      *
      * @param userSet 用户集合
      * @param roleId  角色id
-     * @param groupId  组织id，说明是在哪一个组织下把角色分配给这个用户
+     * @param groupId 组织id，说明是在哪一个组织下把角色分配给这个用户
      * @throws SecurityException
      */
-    public void addUsersToRole(int roleId,Set<Group>  userSet,int groupId) throws SecurityException;
+    public void addUsersToRole(Long roleId, Set<Group> userSet, Long groupId) throws SecurityException;
 
 //    /**
 //     * 取得某个角色中的所有用户,实现分页
@@ -169,7 +169,7 @@ public interface RoleService {
      * @return Set<User> 用户信息集合
      * @throws SecurityException
      */
-    public Set<User> getUsersFromRole(int roleId) throws SecurityException;
+    public Set<User> getUsersFromRole(Long roleId) throws SecurityException;
 
     /**
      * 取得某个角色的组织集合
@@ -178,7 +178,7 @@ public interface RoleService {
      * @return GroupSet 组织集合
      * @throws SecurityException
      */
-    public Set<Permission> getGroupsFromRole(int roleId) throws SecurityException;
+    public Set<Permission> getGroupsFromRole(Long roleId) throws SecurityException;
 
 //    /**
 //     * 取得某个角色的组织集合,实现分页
@@ -194,12 +194,11 @@ public interface RoleService {
     /**
      * 给某个角色增加一批权限
      *
-     * @param roleId 角色id
+     * @param roleId        角色id
      * @param permissionSet 权限集合
-
      * @throws SecurityException
      */
-    public void addPermissionsToRole(int roleId,Set<Permission> permissionSet) throws SecurityException;
+    public void addPermissionsToRole(Long roleId, Set<Permission> permissionSet) throws SecurityException;
 
     /**
      * 根据角色编码取角色拥有的权限集合
@@ -208,16 +207,16 @@ public interface RoleService {
      * @return Set<Permission> 权限集合
      * @throws SecurityException
      */
-    public <Permission>Permission getPermissionsFromRole(int roleId) throws SecurityException;
+    public <Permission> Permission getPermissionsFromRole(Long roleId) throws SecurityException;
 
     /**
      * 删除某个角色的一部分权限
      *
      * @param permissionSet 权限集合
-     * @param roleId 角色id
+     * @param roleId        角色id
      * @throws SecurityException
      */
-   public void removePermissionsFromRole(int roleId,Set<Permission> permissionSet) throws SecurityException;
+    public void removePermissionsFromRole(Long roleId, Set<Permission> permissionSet) throws SecurityException;
 
     /**
      * 删除某个角色的所有权限
@@ -225,7 +224,7 @@ public interface RoleService {
      * @param roleId 角色id
      * @throws SecurityException
      */
-    public void removeAllPermissionFromRole(int roleId) throws SecurityException;
+    public void removeAllPermissionFromRole(Long roleId) throws SecurityException;
 
     /**
      * 判断某个角色明是否已经被使用
@@ -234,7 +233,7 @@ public interface RoleService {
      * @return boolean  存在为true,不存在为false
      * @throws SecurityException
      */
-    public boolean hasRole(int roleId) throws SecurityException;
+    public boolean hasRole(Long roleId) throws SecurityException;
 
 //    /**
 //     * 删除角色对应的所有组织的关系
@@ -257,29 +256,29 @@ public interface RoleService {
      * 角色是否有某一项权限
      *
      * @param permissionId 权限ID
-     * @param roleId  角色ID
+     * @param roleId       角色ID
      * @return boolean  存在为true,不存在为false
      */
-    public boolean hasPermission(int permissionId, int roleId) throws SecurityException;
+    public boolean hasPermission(Long permissionId, Long roleId) throws SecurityException;
 
     /**
      * 角色是否有指定权限集合
      *
      * @param permissionSet 权限集合
-     * @param roleId 角色ID
+     * @param roleId        角色ID
      * @return boolean  全部存在为true,其中一个不存在为false
      */
-    public boolean hasPermissions(Set<Permission>permissionSet, int roleId) throws SecurityException;
+    public boolean hasPermissions(Set<Permission> permissionSet, Long roleId) throws SecurityException;
 
     /**
      * 搜索系统中所有角色,实现分页
      *
      * @param searchrole 查找role的条件
-     * @param group_id 组织id
-     * @param offset 起始位置
-     * @param size 集合大小
+     * @param group_id   组织id
+     * @param offset     起始位置
+     * @param size       集合大小
      * @return RoleSet  角色集合
      * @throws SecurityException
      */
-    public Set<Role> searchRole(Role searchrole,int group_id, int offset, int size) throws SecurityException ;
+    public Set<Role> searchRole(Role searchrole, Long group_id, int offset, int size) throws SecurityException;
 }

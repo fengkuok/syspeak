@@ -1,12 +1,11 @@
 package com.syspeak.itboss.service;
 
 /**
- * 
+ * @author JemiZhuu(周士淳)
+ * @version 1.0
  * @company SysPeak (C) Copyright
  * @category RescService
- * @version 1.0
  * @since 2011-9-29
- * @author JemiZhuu(周士淳)
  */
 public interface RescService {
 }
