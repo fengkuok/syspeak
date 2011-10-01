@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.syspeak.apps</groupId>
-		<artifactId>syspeak-apps</artifactId>
-		<version>0.1-SNAPSHOT</version>
-		<relativePath>../../</relativePath>
-	</parent>    
+    <parent>
+        <groupId>com.syspeak.apps</groupId>
+        <artifactId>syspeak-apps</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../../</relativePath>
+    </parent>
     <groupId>com.syspeak.apps</groupId>
     <artifactId>itboss-security</artifactId>
     <packaging>war</packaging>
@@ -62,7 +62,7 @@
             </snapshots>
         </repository>
 
-       <repository>
+        <repository>
             <id>tapestry</id>
             <name>tapestry formos</name>
             <url>http://tapestry.formos.com/maven-repository/</url>
@@ -73,37 +73,37 @@
     </repositories>
 
     <properties>
-		<!-- H2 Database Config --> 
-		<jdbc.driver.groupId>com.h2database</jdbc.driver.groupId>
-		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
-		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
-		<!-- Oracle Database Config -->
-		<!--
-			<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
-			<jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
-			<jdbc.driver.version>10.2.0.5.0</jdbc.driver.version>
-		-->
-		<!-- MySql Driver Config -->
-		<!--
-		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
-		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
-		<jdbc.driver.version>5.1.13</jdbc.driver.version>
-		-->
+        <!-- H2 Database Config -->
+        <jdbc.driver.groupId>com.h2database</jdbc.driver.groupId>
+        <jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
+        <jdbc.driver.version>${h2.version}</jdbc.driver.version>
+        <!-- Oracle Database Config -->
+        <!--
+              <jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
+              <jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
+              <jdbc.driver.version>10.2.0.5.0</jdbc.driver.version>
+          -->
+        <!-- MySql Driver Config -->
+        <!--
+          <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+          <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+          <jdbc.driver.version>5.1.13</jdbc.driver.version>
+          -->
         <jackson.version>1.8.2</jackson.version>
         <commons-fileupload.version>1.2.0</commons-fileupload.version>
     </properties>
 
-	<dependencies>
-    	<!-- syspeak modules -->
-    	<dependency>
-        	<groupId>com.syspeak</groupId>
-        	<artifactId>syspeak-core</artifactId>
-      	</dependency>
-      	<!-- springside modules -->
-      	<dependency>
-        	<groupId>org.springside</groupId>
-        	<artifactId>springside-core</artifactId>
-      	</dependency>      
+    <dependencies>
+        <!-- syspeak modules -->
+        <dependency>
+            <groupId>com.syspeak</groupId>
+            <artifactId>syspeak-core</artifactId>
+        </dependency>
+        <!-- springside modules -->
+        <dependency>
+            <groupId>org.springside</groupId>
+            <artifactId>springside-core</artifactId>
+        </dependency>
         <!-- spring begin -->
         <!-- spring base -->
         <dependency>
@@ -150,13 +150,13 @@
         <!-- spring end -->
 
         <!-- database access begin -->
-		<!-- jdbc driver -->
-		<dependency>
-			<groupId>${jdbc.driver.groupId}</groupId>
-			<artifactId>${jdbc.driver.artifactId}</artifactId>
-			<version>${jdbc.driver.version}</version>
-			<scope>runtime</scope>
-		</dependency>        
+        <!-- jdbc driver -->
+        <dependency>
+            <groupId>${jdbc.driver.groupId}</groupId>
+            <artifactId>${jdbc.driver.artifactId}</artifactId>
+            <version>${jdbc.driver.version}</version>
+            <scope>runtime</scope>
+        </dependency>
         <!-- hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -389,7 +389,6 @@
         </dependency>
 
 
-
         <!-- OAuth Client Library Begin -->
         <dependency>
             <groupId>org.scribe</groupId>
@@ -419,33 +418,38 @@
             <version>2.2.0</version>
         </dependency>
 
-       	<!-- security begin -->
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-web</artifactId>
-		</dependency>
-		<!-- security end -->
+        <!-- security begin -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
 
-        <!-- system begin -->        
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+        </dependency>
+        <!-- security end -->
+
+        <!-- system begin -->
 
         <!-- system end -->
 
         <dependency>
-        	<groupId>mysql</groupId>
-        	<artifactId>mysql-connector-java</artifactId>
-        	<version>5.1.17</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.17</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
-	</dependencies>
+    </dependencies>
 
     <build>
         <plugins>
@@ -465,9 +469,9 @@
 
 
             <plugin>
-            	<groupId>org.codehaus.mojo</groupId>
-            	<artifactId>tomcat-maven-plugin</artifactId>
-            	<version>1.1</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.1</version>
             </plugin>
         </plugins>
     </build>
