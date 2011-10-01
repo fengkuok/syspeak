@@ -7,50 +7,54 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 
-       <bean id="sessionInvalidateFilter" class="com.syspeak.itboss.security.SessionInvalidateFilter">
-                <property name="cache" ref="sessionInvalidateUserCache" />
-        </bean>
+    <bean id="sessionInvalidateFilter" class="com.syspeak.itboss.security.SessionInvalidateFilter">
+        <property name="cache" ref="sessionInvalidateUserCache" />
+    </bean>
 
 	<!-- springSecurityFilterChain 与 web.xml 对应 -->
-	<bean id="springSecurityFilterChain" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-	    <property name="securityManager" ref="securityManager"/>
+    <bean id="springSecurityFilterChain" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login" />
-		<property name="successUrl" value="/index" />
-		<property name="unauthorizedUrl" value="/login" />
+        <property name="successUrl" value="/index" />
+        <property name="unauthorizedUrl" value="/login" />
 
-	    <property name="filters">
-			<util:map>
-				<entry key="authc" value-ref="captchaFormAuthenticationFilter"/>
-				<entry key="mysi" value-ref="sessionInvalidateFilter"/>
-			</util:map>
-		</property>
-	    <property name="filterChainDefinitions">
-	        <value>
-	           /** = authc
-	        </value>
-	    </property>
-	</bean>
+        <property name="filters">
+            <util:map>
+                <entry key="authc" value-ref="captchaFormAuthenticationFilter"/>
+                <entry key="mysi" value-ref="sessionInvalidateFilter"/>
+            </util:map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+            
+               /css/**=anon
+	           /js/**=anon
+	           /images/**=anon
+	        	/editor/**=anon
+            </value>
+        </property>
+    </bean>
 
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-	    <property name="realm" ref="myShiroRealm"/>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myShiroRealm"/>
 	    <!--<property name="sessionMode" value="native"/>-->
-	</bean>
+    </bean>
 
-	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
-	<bean id="myShiroRealm" class="com.syspeak.itboss.security.shiro.MyShiroRealm">
-		<property name="cacheManager" ref="shiroCacheManager"/>
-	</bean>
+    <bean id="myShiroRealm" class="com.syspeak.itboss.security.shiro.MyShiroRealm">
+        <property name="cacheManager" ref="shiroCacheManager"/>
+    </bean>
 
-	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-		<property name="cacheManager" ref="cacheManager"/>
-	</bean>
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
 
-	<bean id="captchaFormAuthenticationFilter" class="com.syspeak.itboss.security.shiro.CaptchaFormAuthenticationFilter">
-		<property name="usernameParam" value="j_username"/>
-		<property name="passwordParam" value="j_password"/>
-		<property name="captchaParam" value="j_captcha"/>
-	</bean>
+    <bean id="captchaFormAuthenticationFilter" class="com.syspeak.itboss.security.shiro.CaptchaFormAuthenticationFilter">
+        <property name="usernameParam" value="j_username"/>
+        <property name="passwordParam" value="j_password"/>
+        <property name="captchaParam" value="j_captcha"/>
+    </bean>
 
 </beans>
 

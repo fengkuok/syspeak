@@ -2,7 +2,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <script type="text/javascript" src="/js/cryptography/jquery.md5.js"></script>
     <script type="text/javascript" src="/js/common/jquery.js"></script>
     <style type="text/css">
         body {
@@ -51,7 +50,7 @@
                 return false;
             }
 
-            $("#password").attr("value", $.md5($("#password").attr("value")));
+           // $("#password").attr("value", $.md5($("#password").attr("value")));
             return true;
         }
 
@@ -116,7 +115,7 @@
                     <tr>
                         <td height="47" align="right"><strong>验证码</strong>：</td>
                         <td><p>
-                            <input type='text' class="captcha" id="captcha" name='j_captcha' size="15"/>
+                            <input type='text'  id="captcha" name='j_captcha' size="15" style="width:150; height:22"/>
                         </p>
                             <span class="refresh" onclick="refresh();">看不清楚?</span>
                             <img id="jcaptcha" alt="captcha" style="margin-left:0 !important;margin:4px 0 0 2px;"
