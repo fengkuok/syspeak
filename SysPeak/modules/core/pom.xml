@@ -191,6 +191,10 @@
 		</dependency>
 		<!-- validator end -->
 
+            <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>

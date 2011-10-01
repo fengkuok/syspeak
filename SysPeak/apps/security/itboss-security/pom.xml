@@ -449,6 +449,12 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+
+             <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
