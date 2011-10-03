@@ -23,7 +23,7 @@
 		<div id="layout">
 			<div id="header">
 				<div class="headerNav">
-					<a class="logo" href="http://j-ui.com">标志</a>
+					<a class="logo" href="http://www.syspeak.com">标志</a>
 					<ul class="nav">
 						<li>
 							<a href="changepwd.html" target="dialog">设置</a>
@@ -32,7 +32,7 @@
 							<a href="http://bbs.dwzjs.com" target="_blank">论坛</a>
 						</li>
 						<li>
-							<a href="login.html">退出</a>
+							<a href="logout">退出</a>
 						</li>
 					</ul>
 					<ul class="themeList" id="themeList">

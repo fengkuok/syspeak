@@ -23,7 +23,8 @@
 		<property name="unauthorizedUrl" value="/login" />
 		<property name="filterChainDefinitions">
 			<value>
-				/** = authc			
+				/doLogin = anon
+				/** = authc	
 		 </value>
 		</property>
 	</bean>

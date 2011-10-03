@@ -17,6 +17,8 @@ public interface UserMapper {
 
 	void deleteUser(User user);
 
+	User getUser(String username);
+
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
 
 }
