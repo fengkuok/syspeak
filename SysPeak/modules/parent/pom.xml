@@ -510,19 +510,14 @@
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-web</artifactId>
 				<version>${shiro.version}</version>
+			</dependency>			
+			<dependency>
+  				<groupId>org.apache.shiro</groupId>
+  				<artifactId>shiro-ehcache</artifactId>
+  				<version>${shiro.version}</version>	
 			</dependency>
-			
 
-<dependency>
-  <groupId>org.apache.shiro</groupId>
-  <artifactId>shiro-ehcache</artifactId>
-  <version>${shiro.version}</version>
-	
-</dependency>
-
-
-
-<!-- spring security -->
+			<!-- spring security -->
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-core</artifactId>
