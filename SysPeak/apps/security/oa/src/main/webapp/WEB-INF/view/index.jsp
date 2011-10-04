@@ -24,7 +24,6 @@
 	<body>
 		<div id="index_layout">
 			<div id="left" position="left">
-				<ul id="menu"></ul>
 			</div>
 			<div id="main" position="center">
 			</div>
