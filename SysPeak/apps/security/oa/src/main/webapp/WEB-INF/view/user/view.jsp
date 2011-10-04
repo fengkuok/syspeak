@@ -5,16 +5,16 @@
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html style="background-color: red;">
+<html>
 	<head>
 		<base href="<%=basePath%>">
 		<link href="static/ligerui/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
 		<script src="static/ligerui/jquery.js" type="text/javascript"></script>
 		<script src="static/ligerui/ligerui.js" type="text/javascript"></script>
+		<script src="static/js/user.js" type="text/javascript"></script>
 	</head>
 
-	<body >
-		This is my JSP page.
-		<br>
+	<body>
+		<div id="usergrid"></div>
 	</body>
 </html>

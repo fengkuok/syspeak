@@ -13,5 +13,12 @@
 		select * from t_user where username=#{username}
 	</select>
 
+	<select id="listUsers" resultType="User">
+		select * from t_user;
+	</select>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from t_user;
+	</select>
 
 </mapper>

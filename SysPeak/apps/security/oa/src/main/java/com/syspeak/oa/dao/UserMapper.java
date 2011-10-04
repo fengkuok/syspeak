@@ -20,5 +20,7 @@ public interface UserMapper {
 	User getUser(String username);
 
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
+	
+	int getTotal();
 
 }

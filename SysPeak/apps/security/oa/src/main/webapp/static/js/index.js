@@ -1,10 +1,12 @@
+var accordion = null;
 tab = null;
 
 $(function() {
 	$("#index_layout").ligerLayout({
 		topHeight : 70,
 		bottomHeight : 40,
-		leftWidth : 250
+		leftWidth : 250,
+		onHeightChanged : heightChanged
 	});
 
 	$.ajax({
@@ -31,11 +33,14 @@ $(function() {
 					}
 				});
 			});
-			left.ligerAccordion();
+			accordion = left.ligerAccordion({
+				height : $('#main').height() - 24
+			});
 		}
 	});
 
 	tab = $("#main").ligerTab();
+
 });
 
 function addTab(tabid, text, url) {
@@ -44,4 +49,11 @@ function addTab(tabid, text, url) {
 		text : text,
 		url : url
 	});
+}
+
+function heightChanged(options) {
+	if (tab)
+		tab.addHeight(options.diff);
+	if (accordion && options.middleHeight - 24 > 0)
+		accordion.setHeight(options.middleHeight - 24);
 }

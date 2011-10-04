@@ -17,4 +17,6 @@ public interface UserService {
 	User getUser(String username);
 
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
+	
+	int getTotal();
 }
