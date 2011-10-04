@@ -21,6 +21,7 @@ package com.syspeak.makereap.flowdesigner.component.task
 		
 		override protected function initUI():void {
 			super.initUI();
+			this.mouseChildren = false;
 			var left:Number = -_width/2;
 			var top:Number = -_height/2;
 			var icon:Bitmap = new ICON();
