@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.syspeak.oa.domain.User" alias="User" />
+		<typeAlias type="com.syspeak.oa.domain.Menu" alias="Menu" />
 	</typeAliases>
 
 

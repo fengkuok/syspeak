@@ -1,14 +1,24 @@
 package com.syspeak.oa.web.controller;
 
+import java.util.List;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.syspeak.oa.domain.Menu;
+import com.syspeak.oa.service.MenuService;
 
 @Controller
 @RequestMapping
 public class LoginController {
+
+	@Autowired
+	private MenuService menuService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -33,4 +43,14 @@ public class LoginController {
 		return "login";
 	}
 
+	@RequestMapping("/index")
+	public void index() {
+
+	}
+
+	@RequestMapping("/listMenus")
+	@ResponseBody
+	public List<Menu> listMenus() {
+		return menuService.listMenus(1);
+	}
 }
