@@ -1,3 +1,3 @@
 $(function() {
-	$("user_add_form").ligerForm();
+	$("#user_add_form").ligerForm();
 });

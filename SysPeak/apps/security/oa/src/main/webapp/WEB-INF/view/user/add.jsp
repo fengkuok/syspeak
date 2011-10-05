@@ -12,12 +12,18 @@
 		<script src="static/ligerui/jquery.js" type="text/javascript"></script>
 		<script src="static/ligerui/ligerui.js" type="text/javascript"></script>
 		<script type="text/javascript" src="static/js/user/add.js"></script>
+		<style>
+			tr {
+				padding-top: 20px;
+			},
+			.l-table-edit-td {
+				margin-left: 10px;
+			}
+		</style>
 	</head>
 	<body>
 		<form name="user_add_form" method="post" action="user/doAdd" id="user_add_form">
-			<div>
-			</div>
-			<table cellpadding="0" cellspacing="0" class="l-table-edit">
+			<table cellpadding="0" cellspacing="0" class="l-table-edit" style="margin: 20 auto;">
 				<tr>
 					<td align="right" class="l-table-edit-td">
 						名字:
@@ -43,30 +49,6 @@
 					</td>
 					<td align="left"></td>
 				</tr>
-
-				<tr>
-					<td align="right" class="l-table-edit-td" valign="top">
-						爱好:
-					</td>
-					<td align="left" class="l-table-edit-td">
-						<input id="CheckBoxList1_0" type="checkbox" name="CheckBoxList1$0" checked="checked" />
-						<label for="CheckBoxList1_0">
-							篮球
-						</label>
-						<br />
-						<input id="CheckBoxList1_1" type="checkbox" name="CheckBoxList1$1" />
-						<label for="CheckBoxList1_1">
-							网球
-						</label>
-						<br />
-						<input id="CheckBox1" type="checkbox" name="CheckBoxList1$1" />
-						<label for="CheckBoxList1_1">
-							足球
-						</label>
-					</td>
-					<td align="left"></td>
-				</tr>
-
 				<tr>
 					<td align="right" class="l-table-edit-td">
 						入职日期:
@@ -108,15 +90,6 @@
 							</option>
 						</select>
 					</td>
-				</tr>
-				<tr>
-					<td align="right" class="l-table-edit-td">
-						地址:
-					</td>
-					<td align="left" class="l-table-edit-td">
-						<textarea cols="100" rows="4" class="l-textarea" style="width: 400px"></textarea>
-					</td>
-					<td align="left"></td>
 				</tr>
 			</table>
 			<br />
