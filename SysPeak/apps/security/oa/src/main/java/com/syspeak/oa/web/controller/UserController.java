@@ -30,4 +30,8 @@ public class UserController {
 		map.put("Total", userService.getTotal());
 		return map;
 	}
+
+	@RequestMapping("/add")
+	public void add() {
+	}
 }

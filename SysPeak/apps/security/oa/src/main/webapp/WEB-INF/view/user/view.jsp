@@ -11,10 +11,11 @@
 		<link href="static/ligerui/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
 		<script src="static/ligerui/jquery.js" type="text/javascript"></script>
 		<script src="static/ligerui/ligerui.js" type="text/javascript"></script>
-		<script src="static/js/user.js" type="text/javascript"></script>
+		<script src="static/js/user/view.js" type="text/javascript"></script>
 	</head>
 
 	<body>
+		<div id="usertoolbar"></div>
 		<div id="usergrid"></div>
 	</body>
 </html>
