@@ -82,10 +82,20 @@ $(function() {
 			display : '创建日期',
 			name : 'createDate',
 			width : 150
+		}, {
+			display : '操作',
+			render : function(row) {
+				return '<a href="javascript:void(0)">修改</a>';
+			}
 		} ],
-		width : 600,
+		width : 700,
 		url : "user/list",
 		pageSizeOptions : [ 5, 10, 15, 20 ]
 	});
 
 });
+
+function modify() {
+	var row = $('#usergrid').ligerGetGridManager().getSelectedRow();
+	alert(row);
+}
