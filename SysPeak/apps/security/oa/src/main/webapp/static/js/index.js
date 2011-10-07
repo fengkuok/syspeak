@@ -6,6 +6,8 @@ $(function() {
 		topHeight : 70,
 		bottomHeight : 40,
 		leftWidth : 250,
+		allowTopResize : false,
+		allowBottomResize : false,
 		onHeightChanged : heightChanged
 	});
 

@@ -14,11 +14,23 @@
 	</select>
 
 	<select id="listUsers" resultType="User">
-		select * from t_user;
+		select * from t_user
 	</select>
 
 	<select id="getTotal" resultType="int">
-		select count(*) from t_user;
+		select count(*) from t_user
 	</select>
+
+	<select id="getUserserCountByUsername" parameterType="String" resultType="int">
+		select count(*) from t_user where
+		username=#{username}
+	</select>
+
+	<delete id="deleteUsers" parameterType="List">
+		delete from t_user where id in
+		<foreach item="item" collection="list" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
 
 </mapper>

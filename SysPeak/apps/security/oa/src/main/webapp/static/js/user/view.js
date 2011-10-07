@@ -6,8 +6,8 @@ $(function() {
 				$.ligerDialog.open({
 					url : 'user/add',
 					title : '添加用户',
-					width : 500,
-					height : 450
+					width : 300,
+					height : 250
 				});
 			}
 		}, {
@@ -29,7 +29,27 @@ $(function() {
 					return;
 				$.ligerDialog.confirm('确认删除？', function(r) {
 					if (r) {
-						$.ligerDialog.alert('删除成功！', '', 'none');
+						var users = '?1=1';
+						var rows = $('#usergrid').ligerGetGridManager().getCheckedRows();
+						$.each(rows, function(index, value) {
+							users += '&id=' + value.id;
+						});
+						$.ajax({
+							type : 'post',
+							url : 'user/delete' + users,
+							success : function(responseData, textStatus) {
+								if (textStatus == 'success') {
+									if (responseData.success == true) {
+										$("#usergrid").ligerGetGridManager().loadData();
+										$.ligerDialog.alert('删除成功！', '', 'none');
+									} else {
+										alert('删除失败');
+									}
+								} else {
+									alert('未知原因导致添加失败，请检查网络或者与系统管理员联系');
+								}
+							}
+						});
 					}
 				});
 			}

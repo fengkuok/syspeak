@@ -13,13 +13,15 @@
 		<script src="static/ligerui/ligerui.js" type="text/javascript"></script>
 		<script src="static/js/index.js" type="text/javascript"></script>
 		<style type="text/css">
-			a {
-				text-decoration: none;
-			},
-			ul {
-				float: right;
-			}
-		</style>
+a {
+	text-decoration: none;
+}
+
+,
+ul {
+	float: right;
+}
+</style>
 	</head>
 	<body>
 		<div id="index_layout">
@@ -28,12 +30,11 @@
 			<div id="main" position="center">
 			</div>
 			<div id="top" position="top">
-				<div>
-					<ul>
-						<li>
-							<a href="logout">退出</a>
-						</li>
-					</ul>
+				<div
+					style="background-image: url('static/img/top.jpg'); background-repeat: no-repeat; height: 70; background-color: #E5F1FD;">
+					<div style="float: right;">
+						<a href="logout">退出</a>
+					</div>
 				</div>
 			</div>
 			<div id="bottom" position="bottom">

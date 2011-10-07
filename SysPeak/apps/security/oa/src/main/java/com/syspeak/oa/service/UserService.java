@@ -13,10 +13,14 @@ public interface UserService {
 	void modifyUser(User user);
 
 	void deleteUser(User user);
-	
+
+	void deleteUsers(List<User> users);
+
 	User getUser(String username);
 
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
-	
+
 	int getTotal();
+
+	public boolean userExisted(String username);
 }

@@ -13,6 +13,14 @@ public class User {
 	private boolean enabled;
 	private Date createDate;
 
+	public User() {
+
+	}
+
+	public User(long id) {
+		this.id = id;
+	}
+
 	public long getId() {
 		return id;
 	}

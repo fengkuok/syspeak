@@ -17,10 +17,13 @@ public interface UserMapper {
 
 	void deleteUser(User user);
 
+	void deleteUsers(List<User> users);
+
 	User getUser(String username);
 
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
-	
+
 	int getTotal();
 
+	public int getUserserCountByUsername(String username);
 }
