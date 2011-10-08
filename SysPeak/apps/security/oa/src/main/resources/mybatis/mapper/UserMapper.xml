@@ -21,11 +21,11 @@
 			</if>
 			<if test="enabled != '' and enabled != null">
 				<choose>
-					<when test="enabled == '1'">
-						AND enabled=true
+					<when test="enabled == '11'">
+						and enabled=1
 					</when>
-					<when test="enabled == '0'">
-						AND enabled=false
+					<when test="enabled == '00'">
+						and enabled=0
 					</when>
 				</choose>
 			</if>
@@ -40,10 +40,10 @@
 			</if>
 			<if test="enabled != '' and enabled != null">
 				<choose>
-					<when test="enabled == '1'">
+					<when test="enabled == '11'">
 						AND enabled=1
 					</when>
-					<when test="enabled == '0'">
+					<when test="enabled == '00'">
 						AND enabled=0
 					</when>
 				</choose>

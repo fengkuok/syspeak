@@ -26,10 +26,10 @@
 			<select id="searchEnabled">
 				<option value="">
 				</option>
-				<option value="1">
+				<option value="11">
 					启用
 				</option>
-				<option value="0">
+				<option value="00">
 					停用
 				</option>
 			</select>
