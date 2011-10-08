@@ -41,7 +41,7 @@
 			<if test="enabled != '' and enabled != null">
 				<choose>
 					<when test="enabled == '11'">
-						AND enabled=1
+						and enabled=1
 					</when>
 					<when test="enabled == '00'">
 						AND enabled=0
