@@ -58,6 +58,7 @@ public class UserController {
 		map.clear();
 		user.setCreateDate(new Date());
 		user.setPassword("111111");
+		System.out.println(user.isEnabled());
 		try {
 			userService.addUser(user);
 			map.put("success", true);
