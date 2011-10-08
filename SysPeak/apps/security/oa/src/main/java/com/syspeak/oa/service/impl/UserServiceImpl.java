@@ -43,8 +43,8 @@ public class UserServiceImpl implements UserService {
 		return userMapper.listUsers(params, rowBounds);
 	}
 
-	public int getTotal() {
-		return userMapper.getTotal();
+	public int getTotal(Map<String, Object> params) {
+		return userMapper.getTotal(params);
 	}
 
 	@Override

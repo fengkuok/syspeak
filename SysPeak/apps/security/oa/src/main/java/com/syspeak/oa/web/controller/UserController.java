@@ -2,6 +2,7 @@ package com.syspeak.oa.web.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,10 +31,14 @@ public class UserController {
 
 	@RequestMapping("/list")
 	@ResponseBody
-	public Map<String, Object> list(@RequestParam("page") int page, @RequestParam("pagesize") int limit, Map<String, Object> map) {
+	public Map<String, Object> list(@RequestParam("page") int page, @RequestParam("pagesize") int limit, @RequestParam(value = "username", required = false) String username,
+			@RequestParam(value = "enabled", required = false) String enabled, Map<String, Object> map) {
 		RowBounds rowBounds = new RowBounds((page - 1) * limit, limit);
-		map.put("Rows", userService.listUsers(null, rowBounds));
-		map.put("Total", userService.getTotal());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("username", username);
+		params.put("enabled", enabled);
+		map.put("Rows", userService.listUsers(params, rowBounds));
+		map.put("Total", userService.getTotal(params));
 		return map;
 	}
 

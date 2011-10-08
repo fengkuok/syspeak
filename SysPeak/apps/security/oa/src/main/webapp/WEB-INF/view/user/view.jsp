@@ -15,6 +15,26 @@
 	</head>
 
 	<body>
+		<div style="background-color: yellow;">
+			<label>
+				帐号：
+			</label>
+			<input type="text" id="searchUsername">
+			<label>
+				启用：
+			</label>
+			<select id="searchEnabled">
+				<option value="">
+				</option>
+				<option value="1">
+					启用
+				</option>
+				<option value="0">
+					停用
+				</option>
+			</select>
+			<input type="button" id="btn_search" value="查询">
+		</div>
 		<div id="usertoolbar"></div>
 		<div id="usergrid"></div>
 	</body>

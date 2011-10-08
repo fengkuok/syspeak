@@ -85,12 +85,28 @@ $(function() {
 		}, {
 			display : '操作',
 			render : function(row) {
-				return '<a href="javascript:void(0)">修改</a>';
+				return '<a href="javascript:void(0)" onclick="modify()">修改</a>';
 			}
 		} ],
 		width : 700,
 		url : "user/list",
 		pageSizeOptions : [ 5, 10, 15, 20 ]
+	});
+
+	$('#btn_search').click(function() {
+		var gridMgr = $("#usergrid").ligerGetGridManager();
+		var options = {
+			parms : [ {
+				name : 'username',
+				value : $('#searchUsername').val()
+			}, {
+				name : 'enabled',
+				value : $('#searchEnabled').val()
+			} ]
+		};
+		gridMgr.setOptions(options);
+		gridMgr.changePage('first');
+		gridMgr.loadData(true);
 	});
 
 });

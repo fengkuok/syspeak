@@ -13,12 +13,42 @@
 		select * from t_user where username=#{username}
 	</select>
 
-	<select id="listUsers" resultType="User">
+	<select id="listUsers" resultType="User" parameterType="Map">
 		select * from t_user
+		<where>
+			<if test="username != null">
+				username like '%${username}%'
+			</if>
+			<if test="enabled != '' and enabled != null">
+				<choose>
+					<when test="enabled == '1'">
+						AND enabled=true
+					</when>
+					<when test="enabled == '0'">
+						AND enabled=false
+					</when>
+				</choose>
+			</if>
+		</where>
 	</select>
 
-	<select id="getTotal" resultType="int">
+	<select id="getTotal" resultType="int" parameterType="Map">
 		select count(*) from t_user
+		<where>
+			<if test="username != null">
+				username like '%${username}%'
+			</if>
+			<if test="enabled != '' and enabled != null">
+				<choose>
+					<when test="enabled == '1'">
+						AND enabled=1
+					</when>
+					<when test="enabled == '0'">
+						AND enabled=0
+					</when>
+				</choose>
+			</if>
+		</where>
 	</select>
 
 	<select id="getUserserCountByUsername" parameterType="String" resultType="int">

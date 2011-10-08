@@ -20,7 +20,7 @@ public interface UserService {
 
 	List<User> listUsers(Map<String, Object> params, RowBounds rowBounds);
 
-	int getTotal();
+	int getTotal(Map<String, Object> params);
 
 	public boolean userExisted(String username);
 }
