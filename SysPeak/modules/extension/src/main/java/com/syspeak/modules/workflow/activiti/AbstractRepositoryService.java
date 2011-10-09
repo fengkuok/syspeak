@@ -9,6 +9,8 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.repository.DeploymentQuery;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PageRequest.Sort;
@@ -27,6 +29,12 @@ public abstract class AbstractRepositoryService {
 	public static final String DEPLOYMENT_ID = "deploymentId";
 	public static final String DEPLOYMENT_NAME = "deploymentName";
 	public static final String DEPLOYMENT_TIME = "deploymentTime";
+	public static final String PROCESS_DEFINITION_NAME = "processDefinitionName";
+	public static final String PROCESS_DEFINITION_KEY = "processDefinitionKey";
+	public static final String PROCESS_DEFINITION_CATEGORY = "processDefinitionCategory";
+	public static final String PROCESS_DEFINITION_ID = "processDefinitionId";
+	public static final String PROCESS_DEFINITION_VERSION = "processDefinitionVersion";
+	public static final String PROCESS_DEFINITION_RESOURCE_NAME = "processDefinitionResourceName";
 
 	/**
 	 * 部署流程资源文件
@@ -89,6 +97,12 @@ public abstract class AbstractRepositoryService {
 		return page;
 	}
 
+	/**
+	 * 设置Deployment Query Order
+	 * @param query
+	 * @param page
+	 * @return
+	 */
 	private DeploymentQuery setOrderParameterToQuery(DeploymentQuery query, Page<Deployment> page) {
 		for (Sort orderBy : page.getSort()) {
 			String orderProperty = orderBy.getProperty();
@@ -135,6 +149,96 @@ public abstract class AbstractRepositoryService {
 	 */
 	public void deleteDeployment(String deploymentId, boolean cascade) {
 		repositoryService.deleteDeployment(deploymentId, cascade);
+	}
+
+	/**
+	 * 查找流程定义数据分页
+	 * @param page
+	 * @param filters
+	 * @return
+	 */
+	public Page<ProcessDefinition> findProcessDefinitionPage(Page<ProcessDefinition> page, List<PropertyFilter> filters) {
+		ProcessDefinitionQuery query = repositoryService.createProcessDefinitionQuery();
+		for (PropertyFilter filter : filters) {
+			MatchType matchType = filter.getMatchType();
+			String propertyName = filter.getPropertyName();
+			Object value = filter.getMatchValue();
+			if (PROCESS_DEFINITION_KEY.equals(propertyName)) {
+				if (MatchType.LIKE.equals(matchType)) {
+					query.processDefinitionKeyLike(String.valueOf(value));
+				} else {
+					query.processDefinitionKey(String.valueOf(value));
+				}
+			} else if (PROCESS_DEFINITION_CATEGORY.equals(propertyName)) {
+				if (MatchType.LIKE.equals(matchType)) {
+					query.processDefinitionCategoryLike(String.valueOf(value));
+				} else {
+					query.processDefinitionCategory(String.valueOf(value));
+				}
+			} else if (PROCESS_DEFINITION_NAME.equals(propertyName)) {
+				if (MatchType.LIKE.equals(matchType)) {
+					query.processDefinitionNameLike(String.valueOf(value));
+				} else {
+					query.processDefinitionName(String.valueOf(value));
+				}
+			} else if (PROCESS_DEFINITION_RESOURCE_NAME.equals(propertyName)) {
+				if (MatchType.LIKE.equals(matchType)) {
+					query.processDefinitionResourceNameLike(String.valueOf(value));
+				} else {
+					query.processDefinitionResourceName(String.valueOf(value));
+				}
+			} else if (DEPLOYMENT_ID.equals(propertyName)) {
+				query.deploymentId(String.valueOf(value));
+			} else if (PROCESS_DEFINITION_VERSION.equals(propertyName)) {
+				query.processDefinitionVersion(Integer.parseInt(String.valueOf(value)));
+			} else if (PROCESS_DEFINITION_ID.equals(propertyName)) {
+				query.processDefinitionId(String.valueOf(value));
+			}
+		}
+		int firstResult = page.getOffset();
+		int maxResults = page.getPageSize();
+		if (page.isCountTotal()) {
+			long totalItems = query.count();
+			page.setTotalItems(totalItems);
+		}
+		if (page.isOrderBySetted()) {
+			setOrderParameterToQuery(query, page);
+		}
+		List<ProcessDefinition> result = query.listPage(firstResult, maxResults);
+		page.setResult(result);
+		return page;
+	}
+
+	/**
+	 * 设置ProcessDefinition Query Order
+	 * @param query
+	 * @param page
+	 * @return
+	 */
+	private ProcessDefinitionQuery setOrderParameterToQuery(ProcessDefinitionQuery query, Page<ProcessDefinition> page) {
+		for (Sort orderBy : page.getSort()) {
+			String orderProperty = orderBy.getProperty();
+			String orderDir = orderBy.getDir();
+			if (PROCESS_DEFINITION_NAME.equals(orderProperty)) {
+				query.orderByProcessDefinitionName();
+			} else if (DEPLOYMENT_ID.equals(orderProperty)) {
+				query.orderByDeploymentId();
+			} else if (PROCESS_DEFINITION_KEY.equals(orderProperty)) {
+				query.orderByProcessDefinitionKey();
+			} else if (PROCESS_DEFINITION_CATEGORY.equals(orderProperty)) {
+				query.orderByProcessDefinitionCategory();
+			} else if (PROCESS_DEFINITION_ID.equals(orderProperty)) {
+				query.orderByProcessDefinitionId();
+			} else if (PROCESS_DEFINITION_VERSION.equals(orderProperty)) {
+				query.orderByProcessDefinitionVersion();
+			}
+			if (Sort.DESC.equals(orderDir)) {
+				query.desc();
+			} else {
+				query.asc();
+			}
+		}
+		return query;
 	}
 
 	private RepositoryService repositoryService;
