@@ -67,7 +67,7 @@ public abstract class AbstractRepositoryService {
 	 * @param filters
 	 * @return
 	 */
-	public Page<Deployment> findDeploymentPage(Page<Deployment> page, List<PropertyFilter> filters) {
+	public <T extends Page<Deployment>> T findDeploymentPage(T page, List<PropertyFilter> filters) {
 		DeploymentQuery query = repositoryService.createDeploymentQuery();
 		for (PropertyFilter filter : filters) {
 			MatchType matchType = filter.getMatchType();
@@ -157,7 +157,7 @@ public abstract class AbstractRepositoryService {
 	 * @param filters
 	 * @return
 	 */
-	public Page<ProcessDefinition> findProcessDefinitionPage(Page<ProcessDefinition> page, List<PropertyFilter> filters) {
+	public <T extends Page<ProcessDefinition>> T findProcessDefinitionPage(T page, List<PropertyFilter> filters) {
 		ProcessDefinitionQuery query = repositoryService.createProcessDefinitionQuery();
 		for (PropertyFilter filter : filters) {
 			MatchType matchType = filter.getMatchType();
