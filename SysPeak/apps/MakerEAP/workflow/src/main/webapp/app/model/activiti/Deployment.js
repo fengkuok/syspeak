@@ -3,5 +3,5 @@
  */
 Ext.define('Workflow.model.activiti.Deployment', {
     extend: 'Ext.data.Model',
-    fields: ['id','name', 'deploymentTime','resources']
+    fields: ['id','name', 'deploymentTime']
 });

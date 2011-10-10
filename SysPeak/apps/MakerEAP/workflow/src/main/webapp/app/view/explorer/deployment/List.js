@@ -5,7 +5,7 @@ Ext.define('Workflow.view.explorer.deployment.List' ,{
     extend: 'SysPeak.grid.CrudGrid',
 //    alias : 'widget.wf.explorer.DeploymentList',
 
-    store : 'activiti.Deployment',
+    store : 'explorer.Deployments',
     //we no longer define the Users store in the `initComponent` method
     initComponent: function() {
     	Ext.applyIf(this,{
@@ -23,15 +23,14 @@ Ext.define('Workflow.view.explorer.deployment.List' ,{
     	this.columns = [
             {header: 'ID', width : 80, dataIndex: 'id'},
             {header: 'Name', width : 80, dataIndex: 'name'},
-            {header: 'DeploymentTime', width : 150, dataIndex: 'deploymentTime'},
-            {header: 'Resources', width : 200, dataIndex: 'resources'}
+            {header: 'DeploymentTime', width : 150, dataIndex: 'deploymentTime'}
         ];
     },
     
     buildToolBar : function(){
     	this.tbar = [{ 
 	    	xtype : 'button', 
-	    	text : 'Execute Selected Jobs',
+	    	text : 'Execute Selected Deployments',
 	    	iconCls : 'icon-btn-add',
 	    	handler : function(){
 	    		SysPeak.Toast.show('提示','Success...')

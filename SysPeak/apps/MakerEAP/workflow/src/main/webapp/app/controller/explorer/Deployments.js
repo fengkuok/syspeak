@@ -1,14 +1,14 @@
-Ext.define('Workflow.controller.explorer.Deployment', {
+Ext.define('Workflow.controller.explorer.Deployments', {
     extend: 'Ext.app.Controller',
 
     views: [
-        'probe.job.List'
+        'explorer.deployment.List'
     ],
     stores: [
-        'probe.Jobs'
+        'explorer.Deployments'
     ],
     models: [
-    	'probe.Job'
+    	'activiti.Deployment'
     ],
 
     init: function() {

@@ -11,7 +11,7 @@ Ext.define('Workflow.controller.probe.Jobs', {
     	'probe.Job'
     ],
 
-    init: function() {
+    init: function() {    	
 //    	this.control({
 //            'userlist': {
 //                itemdblclick: this.editUser

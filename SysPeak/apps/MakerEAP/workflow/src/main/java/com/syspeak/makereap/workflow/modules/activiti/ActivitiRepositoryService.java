@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.activiti.engine.repository.Deployment;
 import org.springframework.stereotype.Service;
+import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.bean.DeploymentInfo;
-import com.syspeak.modules.web.json.ExtPage;
 import com.syspeak.modules.workflow.activiti.AbstractRepositoryService;
 
 /**
@@ -27,19 +27,17 @@ public class ActivitiRepositoryService extends AbstractRepositoryService {
 	 * @param filters
 	 * @return
 	 */
-	public ExtPage<DeploymentInfo> findDeploymentInfoPage(ExtPage<Deployment> page, List<PropertyFilter> filters) {
-		page = findDeploymentPage(page, filters);
-		ExtPage<DeploymentInfo> infoPage = new ExtPage<DeploymentInfo>(page);
-		infoPage.setOrderBy(page.getOrderBy());
-		infoPage.setOrderDir(page.getOrderDir());
-		infoPage.setTotalItems(page.getTotalItems());
+	public <T extends Page<DeploymentInfo>> T findDeploymentInfoPage(T page, List<PropertyFilter> filters) {
+		Page<Deployment> dataPage = new Page<Deployment>(page);
+		dataPage = findDeploymentPage(dataPage, filters);
+		page.setTotalItems(dataPage.getTotalItems());
 		List<DeploymentInfo> infoResult = new ArrayList<DeploymentInfo>();
-		List<Deployment> result = page.getResult();
+		List<Deployment> result = dataPage.getResult();
 		for (Deployment deployment : result) {
 			DeploymentInfo info = new DeploymentInfo(deployment);
 			infoResult.add(info);
 		}
-		infoPage.setResult(infoResult);
-		return infoPage;
+		page.setResult(infoResult);
+		return page;
 	}
 }

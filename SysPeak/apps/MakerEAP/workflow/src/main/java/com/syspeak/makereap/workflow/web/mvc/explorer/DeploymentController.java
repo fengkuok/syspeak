@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springside.modules.orm.PageRequest;
+import org.springside.modules.orm.PageRequest.Sort;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
@@ -26,7 +27,7 @@ import com.syspeak.makereap.workflow.web.mvc.BaseMvcController;
 import com.syspeak.modules.web.json.ExtPage;
 
 @Controller
-@RequestMapping(value = "deployment")
+@RequestMapping(value = "explorer/deployment")
 public class DeploymentController extends BaseMvcController {
 	private static final String BAR = ".bar";
 
@@ -41,8 +42,14 @@ public class DeploymentController extends BaseMvcController {
 	public ExtPage<DeploymentInfo> list(PageRequest pageRequest, HttpServletRequest request) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
 		pageRequest = preparePageRequest(pageRequest);
-		ExtPage<Deployment> page = new ExtPage<Deployment>(pageRequest);
-		ExtPage<DeploymentInfo> infoPage = repositoryService.findDeploymentInfoPage(page, filters);
+		if (!pageRequest.isOrderBySetted()) {
+			pageRequest.setOrderBy("id");
+			pageRequest.setOrderDir(Sort.ASC);
+		}
+		ExtPage<DeploymentInfo> infoPage = new ExtPage<DeploymentInfo>(pageRequest);
+		infoPage = repositoryService.findDeploymentInfoPage(infoPage, filters);
+		infoPage.setSuccess(true);
+		System.out.println("Find Demployments: " + infoPage.getResult());
 		return infoPage;
 	}
 
