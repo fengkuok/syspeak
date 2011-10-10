@@ -3,6 +3,7 @@ package com.syspeak.makereap.workflow.unit.modules.activiti;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.activiti.engine.impl.persistence.entity.DeploymentEntity;
 import org.activiti.engine.repository.Deployment;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,17 @@ public class ActivitiRepositoryServiceTest extends SpringTxTestCase {
 		Page<Deployment> page = new Page<Deployment>(pageRequest);
 		List<PropertyFilter> filters = new ArrayList<PropertyFilter>();
 		page = repositoryService.findDeploymentPage(page, filters);
-		System.out.println(page.getResult());
+		System.out.println("Deployments: " + page.getResult());
+		for (Deployment deployment : page.getResult()) {
+			String name = deployment.getName();
+			DeploymentEntity entity = (DeploymentEntity) deployment;
+			if (name != null && !"".equals(name)) {
+				System.out.println("Resources: " + entity.getResources());
+				continue;
+			}
+			String deploymentId = deployment.getId();
+			repositoryService.deleteDeployment(deploymentId);
+		}
 	}
 
 	@Autowired

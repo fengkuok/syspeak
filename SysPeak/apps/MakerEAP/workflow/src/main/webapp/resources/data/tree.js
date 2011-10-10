@@ -40,6 +40,26 @@
 		"iconCls" : "icon-tree-cassette"
 	}]
 }, {
+	"text" : "Explorer",
+	"id" : "7",
+	"isClass" : false,
+	"iconCls" : "icon-tree-accordion",
+	"children" : [{
+		"leaf" : true,
+		"text" : "Deployments",
+		"id" : "8",
+		"isClass" : true,
+		"clsName" : "Workflow.view.explorer.deployment.List",
+		"iconCls" : "icon-tree-cassette"
+	},{
+		"leaf" : true,
+		"text" : "ProcessDefinitions",
+		"id" : "9",
+		"isClass" : true,
+		"clsName" : "Workflow.view.explorer.processdefinition.List",
+		"iconCls" : "icon-tree-briefcase"
+	}]
+}, {
 	"text" : "API Documentation",
 	"id" : "xxx",
 	"children" : [{
