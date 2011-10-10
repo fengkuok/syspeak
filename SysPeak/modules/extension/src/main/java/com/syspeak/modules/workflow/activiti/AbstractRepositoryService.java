@@ -241,7 +241,7 @@ public abstract class AbstractRepositoryService {
 		return query;
 	}
 
-	private RepositoryService repositoryService;
+	protected RepositoryService repositoryService;
 
 	@Autowired
 	public void setRepositoryService(RepositoryService repositoryService) {
