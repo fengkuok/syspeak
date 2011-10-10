@@ -7,6 +7,7 @@ import java.util.zip.ZipInputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,35 +15,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PageRequest;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
 import com.syspeak.makereap.workflow.web.mvc.BaseMvcController;
-import com.syspeak.modules.web.json.ExtPage;
 
 @Controller
-@RequestMapping(value = "deployment")
-public class DeploymentController extends BaseMvcController {
+@RequestMapping(value = "processdefinition")
+public class ProcessDefinitionController extends BaseMvcController {
 	private static final String BAR = ".bar";
 
 	@RequestMapping
 	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
+		this.list(request, modelAndView);
 		modelAndView.setViewName(getIndexViewName());
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "list", method = { RequestMethod.GET, RequestMethod.POST })
-	@ResponseBody
-	public ExtPage<Deployment> list(HttpServletRequest request) {
+	public ModelAndView list(HttpServletRequest request, ModelAndView modelAndView) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
 		PageRequest pageRequest = new PageRequest(1, PAGE_SIZE);
-		ExtPage<Deployment> page = new ExtPage<Deployment>(pageRequest);
-		page = repositoryService.findDeploymentPage(page, filters);
-		return page;
+		Page<ProcessDefinition> page = new Page<ProcessDefinition>(pageRequest);
+		page = repositoryService.findProcessDefinitionPage(page, filters);
+		modelAndView.addObject(PAGE_BEAN, page);
+		modelAndView.setViewName(getListViewName());
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "create")
