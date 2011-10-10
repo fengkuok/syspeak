@@ -21,6 +21,7 @@ import org.springside.modules.orm.PageRequest;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
+import com.syspeak.makereap.workflow.modules.activiti.bean.DeploymentInfo;
 import com.syspeak.makereap.workflow.web.mvc.BaseMvcController;
 import com.syspeak.modules.web.json.ExtPage;
 
@@ -37,12 +38,12 @@ public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(value = "list", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
-	public ExtPage<Deployment> list(HttpServletRequest request) {
+	public ExtPage<DeploymentInfo> list(PageRequest pageRequest, HttpServletRequest request) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
-		PageRequest pageRequest = new PageRequest(1, PAGE_SIZE);
+		pageRequest = preparePageRequest(pageRequest);
 		ExtPage<Deployment> page = new ExtPage<Deployment>(pageRequest);
-		page = repositoryService.findDeploymentPage(page, filters);
-		return page;
+		ExtPage<DeploymentInfo> infoPage = repositoryService.findDeploymentInfoPage(page, filters);
+		return infoPage;
 	}
 
 	@RequestMapping(value = "create")
