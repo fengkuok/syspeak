@@ -1,6 +1,5 @@
 package com.syspeak.modules.web.springmvc;
 
-
 /**
  * Spring MVC Controller基类
  * @company SysPeak (C) Copyright
@@ -24,6 +23,8 @@ public class BaseControllerImpl implements BaseController {
 		String className = getClass().getName().toLowerCase();
 		String mappingBase = className.replaceAll("[\\s\\S]+" + basePackage + '.', "");
 		mappingBase = mappingBase.replaceAll(CONTROLLER_FLAG + "+[\\s\\S]*$", "");
+		mappingBase = mappingBase.replaceAll("[.]", "/");
+		System.out.println(mappingBase);
 		return mappingBase;
 	}
 
