@@ -2,12 +2,22 @@ package com.syspeak.modules.web.json;
 
 import java.util.Map;
 
-public class ExtPage<T> extends org.springside.modules.orm.Page<T>{
+import org.springside.modules.orm.Page;
+import org.springside.modules.orm.PageRequest;
+
+public class ExtPage<T> extends Page<T> {
 	private boolean success;
-	
-//	private List<> fields;
-	
-	private Map<String,Object> model;
+
+	public ExtPage() {
+	}
+
+	public ExtPage(PageRequest request) {
+		super(request);
+	}
+
+	//	private List<> fields;
+
+	private Map<String, Object> model;
 
 	public boolean isSuccess() {
 		return success;
@@ -24,5 +34,5 @@ public class ExtPage<T> extends org.springside.modules.orm.Page<T>{
 	public void setModel(Map<String, Object> model) {
 		this.model = model;
 	}
-	
+
 }
