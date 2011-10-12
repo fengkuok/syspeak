@@ -17,14 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springside.modules.orm.PageRequest;
 import org.springside.modules.orm.PageRequest.Sort;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
 import com.syspeak.makereap.workflow.modules.activiti.bean.DeploymentInfo;
 import com.syspeak.makereap.workflow.web.mvc.BaseMvcController;
+import com.syspeak.modules.web.extjs.ExtPageRequest;
+import com.syspeak.modules.web.extjs.RequestExtPageArgument;
 import com.syspeak.modules.web.json.ExtPage;
+import com.syspeak.modules.workflow.activiti.AbstractRepositoryService;
 
 @Controller
 @RequestMapping(value = "explorer/deployment")
@@ -39,11 +41,10 @@ public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(value = "list", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
-	public ExtPage<DeploymentInfo> list(PageRequest pageRequest, HttpServletRequest request) {
+	public ExtPage<DeploymentInfo> list(@RequestExtPageArgument ExtPageRequest pageRequest, HttpServletRequest request) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
-		pageRequest = preparePageRequest(pageRequest);
 		if (!pageRequest.isOrderBySetted()) {
-			pageRequest.setOrderBy("id");
+			pageRequest.setOrderBy(AbstractRepositoryService.ID);
 			pageRequest.setOrderDir(Sort.ASC);
 		}
 		ExtPage<DeploymentInfo> infoPage = new ExtPage<DeploymentInfo>(pageRequest);
