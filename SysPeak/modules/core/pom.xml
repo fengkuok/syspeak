@@ -15,6 +15,10 @@
 	<name>SysPeak's Core Module</name>
 	<url>http://www.syspeak.com</url>
 
+	<properties>
+		<spring.version>3.1.0.M2</spring.version>
+	</properties>
+
 	<dependencies>
 		<!-- springside modules -->
 		<dependency>
@@ -70,11 +74,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<optional>true</optional>
@@ -88,6 +87,16 @@
 			<artifactId>dozer</artifactId>
 			<optional>true</optional>
 		</dependency>
+      	<dependency>
+        	<groupId>org.codehaus.jackson</groupId>
+        	<artifactId>jackson-core-asl</artifactId>
+        	<optional>true</optional>       
+      	</dependency>
+      	<dependency>
+        	<groupId>org.codehaus.jackson</groupId>
+        	<artifactId>jackson-mapper-asl</artifactId>
+        	<optional>true</optional>
+      	</dependency>		
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
@@ -222,6 +231,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build>
-	
+	</build>	
 </project>

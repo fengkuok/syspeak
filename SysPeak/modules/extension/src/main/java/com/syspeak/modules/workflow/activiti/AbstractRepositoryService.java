@@ -26,15 +26,14 @@ import org.springside.modules.orm.PropertyFilter.MatchType;
  * @author JemiZhuu(周士淳)
  */
 public abstract class AbstractRepositoryService {
-	public static final String DEPLOYMENT_ID = "deploymentId";
-	public static final String DEPLOYMENT_NAME = "deploymentName";
+	public static final String ID = "id";
+	public static final String NAME = "name";
+	public static final String KEY = "key";
+	public static final String CATEGORY = "category";
 	public static final String DEPLOYMENT_TIME = "deploymentTime";
-	public static final String PROCESS_DEFINITION_NAME = "processDefinitionName";
-	public static final String PROCESS_DEFINITION_KEY = "processDefinitionKey";
-	public static final String PROCESS_DEFINITION_CATEGORY = "processDefinitionCategory";
-	public static final String PROCESS_DEFINITION_ID = "processDefinitionId";
-	public static final String PROCESS_DEFINITION_VERSION = "processDefinitionVersion";
-	public static final String PROCESS_DEFINITION_RESOURCE_NAME = "processDefinitionResourceName";
+	public static final String VERSION = "version";
+	public static final String RESOURCE_NAME = "resourceName";
+	public static final String DEPLOYMENT_ID = "deploymentId";
 
 	/**
 	 * 部署流程资源文件
@@ -73,13 +72,13 @@ public abstract class AbstractRepositoryService {
 			MatchType matchType = filter.getMatchType();
 			String propertyName = filter.getPropertyName();
 			Object value = filter.getMatchValue();
-			if (DEPLOYMENT_NAME.equals(propertyName)) {
+			if (NAME.equals(propertyName)) {
 				if (MatchType.LIKE.equals(matchType)) {
 					query.deploymentNameLike(String.valueOf(value));
 				} else {
 					query.deploymentName(String.valueOf(value));
 				}
-			} else if (DEPLOYMENT_ID.equals(propertyName)) {
+			} else if (ID.equals(propertyName)) {
 				query.deploymentId(String.valueOf(value));
 			}
 		}
@@ -107,17 +106,23 @@ public abstract class AbstractRepositoryService {
 		for (Sort orderBy : page.getSort()) {
 			String orderProperty = orderBy.getProperty();
 			String orderDir = orderBy.getDir();
-			if (DEPLOYMENT_NAME.equals(orderProperty)) {
+			boolean isOrderProperty = false;
+			if (NAME.equals(orderProperty)) {
 				query.orderByDeploymentName();
-			} else if (DEPLOYMENT_ID.equals(orderProperty)) {
+				isOrderProperty = true;
+			} else if (ID.equals(orderProperty)) {
 				query.orderByDeploymentId();
+				isOrderProperty = true;
 			} else if (DEPLOYMENT_TIME.equals(orderProperty)) {
 				query.orderByDeploymenTime();
+				isOrderProperty = true;
 			}
-			if (Sort.DESC.equals(orderDir)) {
-				query.desc();
-			} else {
-				query.asc();
+			if (isOrderProperty == true) {
+				if (Sort.DESC.equals(orderDir)) {
+					query.desc();
+				} else {
+					query.asc();
+				}
 			}
 		}
 		return query;
@@ -163,25 +168,25 @@ public abstract class AbstractRepositoryService {
 			MatchType matchType = filter.getMatchType();
 			String propertyName = filter.getPropertyName();
 			Object value = filter.getMatchValue();
-			if (PROCESS_DEFINITION_KEY.equals(propertyName)) {
+			if (KEY.equals(propertyName)) {
 				if (MatchType.LIKE.equals(matchType)) {
 					query.processDefinitionKeyLike(String.valueOf(value));
 				} else {
 					query.processDefinitionKey(String.valueOf(value));
 				}
-			} else if (PROCESS_DEFINITION_CATEGORY.equals(propertyName)) {
+			} else if (CATEGORY.equals(propertyName)) {
 				if (MatchType.LIKE.equals(matchType)) {
 					query.processDefinitionCategoryLike(String.valueOf(value));
 				} else {
 					query.processDefinitionCategory(String.valueOf(value));
 				}
-			} else if (PROCESS_DEFINITION_NAME.equals(propertyName)) {
+			} else if (NAME.equals(propertyName)) {
 				if (MatchType.LIKE.equals(matchType)) {
 					query.processDefinitionNameLike(String.valueOf(value));
 				} else {
 					query.processDefinitionName(String.valueOf(value));
 				}
-			} else if (PROCESS_DEFINITION_RESOURCE_NAME.equals(propertyName)) {
+			} else if (RESOURCE_NAME.equals(propertyName)) {
 				if (MatchType.LIKE.equals(matchType)) {
 					query.processDefinitionResourceNameLike(String.valueOf(value));
 				} else {
@@ -189,9 +194,9 @@ public abstract class AbstractRepositoryService {
 				}
 			} else if (DEPLOYMENT_ID.equals(propertyName)) {
 				query.deploymentId(String.valueOf(value));
-			} else if (PROCESS_DEFINITION_VERSION.equals(propertyName)) {
+			} else if (VERSION.equals(propertyName)) {
 				query.processDefinitionVersion(Integer.parseInt(String.valueOf(value)));
-			} else if (PROCESS_DEFINITION_ID.equals(propertyName)) {
+			} else if (ID.equals(propertyName)) {
 				query.processDefinitionId(String.valueOf(value));
 			}
 		}
@@ -219,23 +224,32 @@ public abstract class AbstractRepositoryService {
 		for (Sort orderBy : page.getSort()) {
 			String orderProperty = orderBy.getProperty();
 			String orderDir = orderBy.getDir();
-			if (PROCESS_DEFINITION_NAME.equals(orderProperty)) {
+			boolean isOrderProperty = false;
+			if (NAME.equals(orderProperty)) {
 				query.orderByProcessDefinitionName();
+				isOrderProperty = true;
 			} else if (DEPLOYMENT_ID.equals(orderProperty)) {
 				query.orderByDeploymentId();
-			} else if (PROCESS_DEFINITION_KEY.equals(orderProperty)) {
+				isOrderProperty = true;
+			} else if (KEY.equals(orderProperty)) {
 				query.orderByProcessDefinitionKey();
-			} else if (PROCESS_DEFINITION_CATEGORY.equals(orderProperty)) {
+				isOrderProperty = true;
+			} else if (CATEGORY.equals(orderProperty)) {
 				query.orderByProcessDefinitionCategory();
-			} else if (PROCESS_DEFINITION_ID.equals(orderProperty)) {
+				isOrderProperty = true;
+			} else if (ID.equals(orderProperty)) {
 				query.orderByProcessDefinitionId();
-			} else if (PROCESS_DEFINITION_VERSION.equals(orderProperty)) {
+				isOrderProperty = true;
+			} else if (VERSION.equals(orderProperty)) {
 				query.orderByProcessDefinitionVersion();
+				isOrderProperty = true;
 			}
-			if (Sort.DESC.equals(orderDir)) {
-				query.desc();
-			} else {
-				query.asc();
+			if (isOrderProperty == true) {
+				if (Sort.DESC.equals(orderDir)) {
+					query.desc();
+				} else {
+					query.asc();
+				}
 			}
 		}
 		return query;

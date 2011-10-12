@@ -1,6 +1,5 @@
 package com.syspeak.modules.web.springmvc;
 
-import org.springside.modules.orm.PageRequest;
 
 /**
  * Spring MVC Controller基类
@@ -16,20 +15,6 @@ public class BaseControllerImpl implements BaseController {
 	protected static final int PAGE_SIZE = 20;
 	protected static final String PAGE_BEAN = "page";
 	protected static final String VIEW_SPLIT = "-";
-
-	/**
-	 * 准备分页查询Request对象
-	 * @param pageRequest
-	 * @return
-	 */
-	protected PageRequest preparePageRequest(PageRequest pageRequest) {
-		if (pageRequest == null) {
-			pageRequest = new PageRequest(1, PAGE_SIZE);
-		}
-		pageRequest.setOrderBy("");
-		pageRequest.setOrderDir("");
-		return pageRequest;
-	}
 
 	/**
 	 * 获取Controller默认的RequestMapping
