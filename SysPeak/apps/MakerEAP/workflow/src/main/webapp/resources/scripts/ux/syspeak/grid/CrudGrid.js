@@ -10,6 +10,9 @@
 Ext.define('SysPeak.grid.CrudGrid' ,{
     extend: 'SysPeak.grid.BaseGrid',
     
+    deleteConfirmTitle: 'Confirm Delete Record?',
+    deleteConfirmMessage: 'Do you confirm delete this record?',
+    
     //初始化
     initComponent: function() {
     	Ext.applyIf(this,{

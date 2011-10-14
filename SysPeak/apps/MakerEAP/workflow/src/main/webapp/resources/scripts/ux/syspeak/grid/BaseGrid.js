@@ -64,7 +64,7 @@ Ext.define('SysPeak.grid.BaseGrid' ,{
     		injectCheckbox : 1
     	});
     	
-    	alert(tbarItemIds.length)
+    	//alert(tbarItemIds.length)
     	//listener
     	this.selModel.on('selectionchange',function(sm, selections){
     		//alert(this.getXType())
