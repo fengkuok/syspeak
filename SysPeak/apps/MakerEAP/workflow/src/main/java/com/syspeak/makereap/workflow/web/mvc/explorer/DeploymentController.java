@@ -10,6 +10,7 @@ import org.activiti.engine.repository.Deployment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,31 +18,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springside.modules.orm.PageRequest;
 import org.springside.modules.orm.PageRequest.Sort;
 import org.springside.modules.orm.PropertyFilter;
 
 import com.syspeak.makereap.workflow.modules.activiti.ActivitiRepositoryService;
 import com.syspeak.makereap.workflow.modules.activiti.bean.DeploymentInfo;
 import com.syspeak.makereap.workflow.web.mvc.BaseMvcController;
-import com.syspeak.modules.web.extjs.ExtPageRequest;
-import com.syspeak.modules.web.extjs.RequestExtPageArgument;
 import com.syspeak.modules.web.json.ExtPage;
 import com.syspeak.modules.workflow.activiti.AbstractRepositoryService;
 
+/**
+ * Restful流程部署Controller
+ * @company SysPeak (C) Copyright
+ * @category DeploymentController
+ * @version 1.0
+ * @since 2011-10-13
+ * @author JemiZhuu(周士淳)
+ */
 @Controller
 @RequestMapping(value = "explorer/deployment")
 public class DeploymentController extends BaseMvcController {
 	private static final String BAR = ".bar";
 
-	@RequestMapping
-	public ModelAndView index(HttpServletRequest request, ModelAndView modelAndView) {
-		modelAndView.setViewName(getIndexViewName());
+	@RequestMapping(value = "view")
+	public ModelAndView index(@ModelAttribute PageRequest pageRequest, HttpServletRequest request) {
+		ModelAndView modelAndView = new ModelAndView(getIndexViewName());
+		ExtPage<DeploymentInfo> infoPage = this.list(pageRequest, request);
+		modelAndView.addObject(infoPage);
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "list", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping
 	@ResponseBody
-	public ExtPage<DeploymentInfo> list(@RequestExtPageArgument ExtPageRequest pageRequest, HttpServletRequest request) {
+	public ExtPage<DeploymentInfo> list(@ModelAttribute PageRequest pageRequest, HttpServletRequest request) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
 		if (!pageRequest.isOrderBySetted()) {
 			pageRequest.setOrderBy(AbstractRepositoryService.ID);
@@ -70,8 +80,7 @@ public class DeploymentController extends BaseMvcController {
 		}
 		deployment = repositoryService.createDeployment(inputStream, deploymentResources.getOriginalFilename());
 		System.out.println(deployment);
-		ModelAndView modelAndView = new ModelAndView();
-		return index(request, modelAndView);
+		return null;
 	}
 
 	@RequestMapping(value = "{id}")
@@ -87,8 +96,7 @@ public class DeploymentController extends BaseMvcController {
 		if (id != null) {
 			deleteDeployment(id);
 		}
-		ModelAndView modelAndView = new ModelAndView();
-		return index(request, modelAndView);
+		return null;
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE)
@@ -98,8 +106,7 @@ public class DeploymentController extends BaseMvcController {
 				deleteDeployment(id);
 			}
 		}
-		ModelAndView modelAndView = new ModelAndView();
-		return index(request, modelAndView);
+		return null;
 	}
 
 	private void deleteDeployment(String deploymentId) {
