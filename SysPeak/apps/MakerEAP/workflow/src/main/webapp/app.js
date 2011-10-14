@@ -19,7 +19,7 @@ Ext.require([
 	'Ext.Object.*',
 	'Ext.view.View',//LocalStorageProvider need
 	'Ext.grid.Panel',//LocalStorageProvider need
-	'Ext.form.field.Base',//LocalStorageProvider need
+	'Ext.form.field.Base',//LocalStorageProvider need	
 	'Ext.picker.Date',
 	'SysPeak.msg.Toast',
 	'Workflow.Application'
@@ -28,6 +28,7 @@ Ext.require([
 Ext.onReady(function() {
 	//指定1x1像素空白图片
 	Ext.BLANK_IMAGE_URL = Ext.Loader.getPath('cxt') + '/static/extjs4/resources/themes/images/default/s.gif';
+	Ext.CONTEXT_ROOT = Ext.Loader.getPath('ctx');
 	//Ext.QuickTips.init();
 	
 	/**
