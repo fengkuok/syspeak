@@ -11,7 +11,7 @@ Ext.define('Workflow.view.explorer.deployment.List' ,{
     	Ext.applyIf(this,{
     		title : 'Deployments',
     		closable : true
-    	})
+    	});
     	
     	this.buildColumns();
     	this.buildToolBar();
@@ -20,10 +20,32 @@ Ext.define('Workflow.view.explorer.deployment.List' ,{
     },
     
     buildColumns : function(){
+    	var deleteConfirmTitle = this.deleteConfirmTitle;
+    	var deleteConfirmMessage = this.deleteConfirmMessage;
     	this.columns = [
             {header: 'ID', width : 80, dataIndex: 'id'},
             {header: 'Name', width : 80, dataIndex: 'name'},
-            {header: 'DeploymentTime', width : 150, dataIndex: 'deploymentTime'}
+            {header: 'DeploymentTime', width : 150, dataIndex: 'deploymentTime'},
+            {
+                xtype: 'actioncolumn',
+                width: 50,
+                items: [{
+                	iconCls: 'delete',
+                    tooltip: 'Delete Deployment!',
+                    handler: function(grid, rowIndex, colIndex) {
+                    	var store = grid.getStore();
+                        var rec = store.getAt(rowIndex);                        
+                        var delId = rec.get('id');
+                        if(delId) {
+                        	Ext.MessageBox.confirm(deleteConfirmTitle, deleteConfirmMessage, function(btn) {
+                        		if(btn!='yes') {return;}
+                        		store.removeAt(rowIndex);
+                        		store.sync();
+                        	});
+                        }
+                    }
+                }]
+            }
         ];
     },
     
