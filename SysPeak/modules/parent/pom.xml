@@ -18,7 +18,7 @@
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
 		<syspeak.version>0.1-SNAPSHOT</syspeak.version>
-		<spring.version>3.1.0.M2</spring.version>		
+		<spring.version>3.1.0.RC1</spring.version>		
         <spring.security.version>3.1.0.RC3</spring.security.version>
 		<validation.version>1.0.0.GA</validation.version>
 		<freemarker.version>2.3.16</freemarker.version>
@@ -26,7 +26,7 @@
 		<jbpm4.version>4.4</jbpm4.version>
 		<selenium.version>2.0rc3</selenium.version>
 		<activiti.version>5.7</activiti.version>
-		<spring.webservice.version>2.0.2.RELEASE</spring.webservice.version>			
+		<spring.webservice.version>2.0.2.RELEASE</spring.webservice.version>
 
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -57,7 +57,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>		
+		</repository>
 
 		<repository>
 			<id>jboss</id>
@@ -77,19 +77,26 @@
 			</snapshots>
 		</repository>
 		
-	<!-- 设定其他仓库,按设定顺序进行查找. --> 
-	  <repository> 
-	      <id>Activiti</id> 
-	      <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
-	   </repository> 
+		<!-- 设定其他仓库,按设定顺序进行查找. --> 
+	  	<repository> 
+	      	<id>Activiti</id> 
+	      	<url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url> 
+	   	</repository> 
 
-
-	   <repository>
-        <id>springsource-milestones</id>
-        <name>SpringSource Milestones Proxy</name>
-        <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-      </repository>
-
+	   	<repository>
+        	<id>springsource-milestones</id>
+        	<name>SpringSource Milestones Proxy</name>
+        	<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+      	</repository>
+		
+		<repository>
+    		<id>codehaus-snapshots</id>
+    		<name>Maven Codehaus snapshot repository</name>    		
+    		<url>http://snapshots.repository.codehaus.org/</url>
+    		<releases>
+    			<enabled>false</enabled>
+    		</releases>
+		</repository>		
 		
 	</repositories>
 
@@ -171,7 +178,12 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-
+			<!-- spring oxm -->
+        	<dependency>  
+            	<groupId>org.springframework</groupId>  
+            	<artifactId>spring-oxm</artifactId>  
+            	<version>${spring.version}</version>  
+        	</dependency>
 			<!-- spring aop -->
 			<dependency>
 				<groupId>org.springframework</groupId>
