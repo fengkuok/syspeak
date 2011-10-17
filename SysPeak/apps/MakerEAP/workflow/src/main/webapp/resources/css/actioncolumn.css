@@ -12,3 +12,7 @@
 .x-action-col-cell img.alert-col {
     background-image: url(../shared/icons/fam/error.gif);
 }
+
+.x-action-col-cell img.execute {
+	background-image: url(../images/btn/execute.png);
+}

@@ -28,7 +28,8 @@ public class HibernateMappingTest extends SpringTxTestCase {
 
 	@Test
 	public void allClassMapping() throws Exception {
-		Fixtures.reloadAllTable(dataSource, "/data/sample-data.xml");
+		Fixtures.loadData(dataSource, "/data/sample-data.xml");
+		//Fixtures.reloadAllTable(dataSource, "/data/sample-data.xml");
 		Session session = sessionFactory.openSession();
 
 		try {

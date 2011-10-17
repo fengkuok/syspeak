@@ -43,9 +43,9 @@ public class DeploymentController extends BaseMvcController {
 
 	@RequestMapping(value = "view")
 	public ModelAndView index(@ModelAttribute PageRequest pageRequest, HttpServletRequest request) {
-		ModelAndView modelAndView = new ModelAndView(getIndexViewName());
+		ModelAndView modelAndView = prepareIndexModelAndView();
 		ExtPage<DeploymentInfo> infoPage = this.list(pageRequest, request);
-		modelAndView.addObject(infoPage);
+		modelAndView.addObject(PAGE_BEAN, infoPage);
 		return modelAndView;
 	}
 
@@ -53,6 +53,7 @@ public class DeploymentController extends BaseMvcController {
 	@ResponseBody
 	public ExtPage<DeploymentInfo> list(@ModelAttribute PageRequest pageRequest, HttpServletRequest request) {
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
+		pageRequest = preparePageRequest(pageRequest);
 		if (!pageRequest.isOrderBySetted()) {
 			pageRequest.setOrderBy(AbstractRepositoryService.ID);
 			pageRequest.setOrderDir(Sort.ASC);
@@ -60,17 +61,16 @@ public class DeploymentController extends BaseMvcController {
 		ExtPage<DeploymentInfo> infoPage = new ExtPage<DeploymentInfo>(pageRequest);
 		infoPage = repositoryService.findDeploymentInfoPage(infoPage, filters);
 		infoPage.setSuccess(true);
-		System.out.println("Find Demployments: " + infoPage.getResult());
 		return infoPage;
 	}
 
-	@RequestMapping(value = "create")
+	@RequestMapping(value = "new")
 	public String input(Model model) {
 		return getInputViewName();
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView save(@RequestParam MultipartFile deploymentResources, HttpServletRequest request)
+	public ModelAndView create(@RequestParam MultipartFile deploymentResources, HttpServletRequest request)
 			throws Exception {
 		Deployment deployment = null;
 		String fileName = deploymentResources.getOriginalFilename();

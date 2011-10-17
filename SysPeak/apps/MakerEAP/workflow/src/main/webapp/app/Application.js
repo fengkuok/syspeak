@@ -13,7 +13,8 @@ Ext.define('Workflow.Application', {
     controllers: [
         'Users',
         'probe.Jobs',
-        'explorer.Deployments'
+        'explorer.Deployments',
+        'explorer.ProcessDefinitions'
     ],
 
     launch: function() {

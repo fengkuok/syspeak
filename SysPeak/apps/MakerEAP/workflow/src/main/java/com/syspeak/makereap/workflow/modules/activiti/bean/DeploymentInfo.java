@@ -1,6 +1,5 @@
 package com.syspeak.makereap.workflow.modules.activiti.bean;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.activiti.engine.impl.persistence.entity.DeploymentEntity;
@@ -8,7 +7,8 @@ import org.activiti.engine.impl.persistence.entity.ResourceEntity;
 import org.activiti.engine.repository.Deployment;
 
 /**
- * 流程部署信息Bean
+ * Activiti流程部署信息Bean
+ * (解决JSON化报错问题)
  * @company SysPeak (C) Copyright
  * @category DeploymentInfo
  * @version 1.0
@@ -26,9 +26,6 @@ public class DeploymentInfo extends DeploymentEntity implements Deployment {
 
 	@Override
 	public Map<String, ResourceEntity> getResources() {
-		if (resources == null && id != null) {
-			resources = new HashMap<String, ResourceEntity>();
-		}
 		return resources;
 	}
 }
