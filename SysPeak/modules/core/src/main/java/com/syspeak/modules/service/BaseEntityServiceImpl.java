@@ -247,6 +247,10 @@ public class BaseEntityServiceImpl<T, ID extends Serializable, DAO extends BaseE
 		return entityDao.findPage(pageRequest, filters);
 	}
 
+	public <T extends Page<?>> T findPage(T page, final List<PropertyFilter> filters) {
+		return entityDao.findPage(page, filters);
+	}
+
 	private DAO entityDao;
 
 	@Autowired

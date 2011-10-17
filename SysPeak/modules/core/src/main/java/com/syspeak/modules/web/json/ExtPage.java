@@ -9,10 +9,13 @@ public class ExtPage<T> extends Page<T> {
 	private boolean success;
 
 	public ExtPage() {
+		super();
 	}
 
 	public ExtPage(PageRequest request) {
 		super(request);
+		this.orderBy = (this.orderBy == null) ? "" : this.orderBy;
+		this.orderDir = (this.orderDir == null) ? "" : this.orderDir;
 	}
 
 	//	private List<> fields;

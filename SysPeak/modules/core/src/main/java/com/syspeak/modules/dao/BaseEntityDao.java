@@ -183,4 +183,12 @@ public interface BaseEntityDao<T, ID extends Serializable> {
 	 * 按属性过滤条件列表分页查找对象.
 	 */
 	public abstract Page<T> findPage(final PageRequest pageRequest, final List<PropertyFilter> filters);
+
+	/**
+	 * 按属性过滤条件列表分页查找对象.
+	 * @param page
+	 * @param filters
+	 * @return
+	 */
+	public abstract <T extends Page<?>> T findPage(T page, final List<PropertyFilter> filters);
 }
