@@ -1,5 +1,7 @@
 package com.syspeak.modules.web.springmvc;
 
+import org.springframework.web.servlet.ModelAndView;
+import org.springside.modules.orm.PageRequest;
 
 /**
  * Spring MVC Controller基类
@@ -15,6 +17,44 @@ public class BaseControllerImpl implements BaseController {
 	protected static final int PAGE_SIZE = 20;
 	protected static final String PAGE_BEAN = "page";
 	protected static final String VIEW_SPLIT = "-";
+
+	/**
+	 * 根据视图名称准备ModelAndView
+	 * @param viewName
+	 * @return
+	 */
+	protected ModelAndView prepareModelAndView(String viewName) {
+		ModelAndView modelAndView = new ModelAndView(viewName);
+		return modelAndView;
+	}
+
+	/**
+	 * 准备index页面ModelAndView
+	 * @return
+	 */
+	protected ModelAndView prepareIndexModelAndView() {
+		return prepareModelAndView(getIndexViewName());
+	}
+
+	/**
+	 * 准备list页面ModelAndView
+	 * @return
+	 */
+	protected ModelAndView prepareListModelAndView() {
+		return prepareModelAndView(getListViewName());
+	}
+
+	/**
+	 * 准备分页查询请求Request对象
+	 * @param pageRequest
+	 * @return
+	 */
+	protected PageRequest preparePageRequest(PageRequest pageRequest) {
+		if (pageRequest == null) {
+			pageRequest = new PageRequest(1, PAGE_SIZE);
+		}
+		return pageRequest;
+	}
 
 	/**
 	 * 获取Controller默认的RequestMapping
